@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'login_page.dart';
+import 'package:ninecoin/home_page.dart';
+import 'theme/theme.dart';
 
 void main() {
   runApp(const App());
@@ -11,8 +11,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: LoginPage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.standard,
+      home: HomePage(),
     );
   }
 }
