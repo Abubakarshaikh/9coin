@@ -4,6 +4,10 @@ import '../components/my_bottom_navigation_bar.dart';
 import 'home_page.dart';
 
 class HomeView extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute(builder: (context) => HomeView());
+  }
+
   HomeView({Key? key}) : super(key: key);
 
   final ValueNotifier<int> _valueNotifier = ValueNotifier(0);

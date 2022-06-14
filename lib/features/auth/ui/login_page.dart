@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/auth/ui/signup_page.dart';
+import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class LoginPage extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute(builder: (context) => const LoginPage());
+  }
+
   const LoginPage({Key? key}) : super(key: key);
 
   @override
@@ -15,6 +21,7 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.all(30.0),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
                   height: 250,
@@ -75,21 +82,14 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 50,
-                    width: size.width,
-                    decoration: const BoxDecoration(
-                        color: Colors.orangeAccent,
-                        borderRadius: BorderRadius.all(Radius.circular(9.0))),
-                    child: const Center(
-                      child: Text(
-                        "Login",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, HomeView.route());
+                  },
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                      color: Colors.white,
                     ),
                   ),
                 ),
@@ -125,10 +125,15 @@ class LoginPage extends StatelessWidget {
                       style: CoinTextStyle.title2,
                     ),
                     const SizedBox(width: 2),
-                    Text(
-                      "Sign Up",
-                      style: CoinTextStyle.title2
-                          .copyWith(color: CoinColors.orange12),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context, SignupPage.route());
+                      },
+                      child: Text(
+                        "Sign Up",
+                        style: CoinTextStyle.title2
+                            .copyWith(color: CoinColors.orange12),
+                      ),
                     ),
                   ],
                 ),

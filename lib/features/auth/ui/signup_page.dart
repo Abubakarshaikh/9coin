@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/auth/ui/login_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class SignupPage extends StatefulWidget {
+  static Route route() {
+    return MaterialPageRoute(builder: (context) => const SignupPage());
+  }
+
   const SignupPage({Key? key}) : super(key: key);
 
   @override
@@ -417,10 +422,15 @@ class _SignupPageState extends State<SignupPage> {
                       style: CoinTextStyle.title2,
                     ),
                     const SizedBox(width: 2),
-                    Text(
-                      "Sign In",
-                      style: CoinTextStyle.title2
-                          .copyWith(color: CoinColors.orange12),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(context, LoginPage.route());
+                      },
+                      child: Text(
+                        "Sign In",
+                        style: CoinTextStyle.title2
+                            .copyWith(color: CoinColors.orange12),
+                      ),
                     ),
                   ],
                 ),

@@ -13,7 +13,10 @@ abstract class AppTheme {
 
   static get _elevatedButtonTheme {
     return ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(),
+      style: ElevatedButton.styleFrom(
+        primary: CoinColors.orange,
+        fixedSize: const Size(0, 45),
+      ),
     );
   }
 
