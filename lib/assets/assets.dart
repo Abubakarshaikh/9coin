@@ -8,4 +8,7 @@ abstract class Assets {
   static String groceries = "assets/icons/groceries.png";
   static String sports = "assets/icons/sports.png";
   static String beautyPic = "assets/pics/beauty.jpg";
+  static String bookShoop = "assets/pics/bookshop.jpg";
+  static String maximise = "assets/pics/maximise.jpg";
+  static String chickenRice1 = "assets/pics/chicken-rice-1.jpg";
 }

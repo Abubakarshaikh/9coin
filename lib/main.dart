@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ninecoin/home_page.dart';
+import 'features/home/ui/home_view.dart';
 import 'theme/theme.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.standard,
-      home: HomePage(),
+      home: HomeView(),
     );
   }
 }
