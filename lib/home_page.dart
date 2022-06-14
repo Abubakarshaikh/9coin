@@ -48,8 +48,8 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
-                children: [
-                  const Expanded(
+                children: const [
+                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
                         prefixIcon: Icon(Icons.search),

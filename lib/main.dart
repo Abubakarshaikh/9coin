@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ninecoin/home_page.dart';
+import 'package:ninecoin/login_page.dart';
+import 'package:ninecoin/signup_page1.dart';
 import 'theme/theme.dart';
 
 void main() {
@@ -14,7 +15,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.standard,
-      home: HomePage(),
+      // home: HomePage(),
+      // home: const LoginPage(),
+      home: SignupPage(),
     );
   }
 }
