@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/auth/ui/forgot_password_page.dart';
 import 'package:ninecoin/features/auth/ui/signup_page.dart';
 import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
@@ -86,7 +87,7 @@ class LoginPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(context, HomeView.route());
                   },
-                  child: Text(
+                  child: const Text(
                     "Login",
                     style: TextStyle(
                       color: Colors.white,
@@ -95,9 +96,14 @@ class LoginPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 30),
                 Center(
-                  child: Text(
-                    "Forgot Password",
-                    style: CoinTextStyle.title1,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(context, ForgotPasswordPage.route());
+                    },
+                    child: Text(
+                      "Forgot Password",
+                      style: CoinTextStyle.title1,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 50),

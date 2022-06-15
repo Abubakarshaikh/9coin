@@ -27,13 +27,6 @@ class _SignupPageState extends State<SignupPage> {
       backgroundColor: CoinColors.black12,
       appBar: AppBar(
         centerTitle: true,
-        leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              CupertinoIcons.arrow_left,
-              size: 30,
-              color: Colors.white,
-            )),
         title: Text(
           "Sign Up",
           style: CoinTextStyle.title1.copyWith(fontWeight: FontWeight.w500),
@@ -44,6 +37,7 @@ class _SignupPageState extends State<SignupPage> {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Center(
@@ -395,24 +389,7 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 50,
-                    width: size.width,
-                    decoration: const BoxDecoration(
-                        color: CoinColors.orange12,
-                        borderRadius: BorderRadius.all(Radius.circular(9.0))),
-                    child: const Center(
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                ElevatedButton(onPressed: () {}, child: Text("Sign Up")),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
