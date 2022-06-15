@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 abstract class AppTheme {
   static get standard {
@@ -28,17 +29,19 @@ abstract class AppTheme {
   }
 
   static get _inputDecorationTheme {
-    return const InputDecorationTheme(
-      fillColor: CoinColors.black,
+    return InputDecorationTheme(
+      fillColor: CoinColors.black12,
       filled: true,
-      contentPadding: EdgeInsets.symmetric(vertical: 0),
-      enabledBorder: OutlineInputBorder(
+      contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 12),
+      enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide.none,
         borderRadius: BorderRadius.all(Radius.circular(8.0)),
       ),
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
         borderSide: BorderSide.none,
       ),
+      hintStyle: CoinTextStyle.title3.copyWith(color: CoinColors.black54),
     );
   }
 }

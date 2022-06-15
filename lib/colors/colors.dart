@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 abstract class CoinColors {
   static const Color orange = Color(0xffFCBA56);
   static const Color orange12 = Color(0xffFF9A3F);
+  static const Color fullBlack = Color(0xff000000);
   static const Color black = Color(0xff1C1C1C);
   static const Color red = Color(0xffFF3636);
   static const Color white = Color(0xffFFFFFF);

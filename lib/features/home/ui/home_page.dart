@@ -66,6 +66,7 @@ class HomePage extends StatelessWidget {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
+                      fillColor: CoinColors.black,
                       prefixIcon: Icon(Icons.search),
                       hintText: "Search",
                     ),
