@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/auth/ui/login_page.dart';
+import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class SignupPage extends StatefulWidget {
@@ -44,6 +45,7 @@ class _SignupPageState extends State<SignupPage> {
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Center(
@@ -137,7 +139,7 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       isExpanded: true,
                       iconSize: 36,
-                      underline: SizedBox(),
+                      underline: const SizedBox(),
                       onChanged: (newValue) {},
                       items: List.generate(
                         gender.length,
@@ -237,7 +239,7 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                             isExpanded: true,
                             iconSize: 36,
-                            underline: SizedBox(),
+                            underline: const SizedBox(),
                             onChanged: (newValue) {},
                             items: List.generate(
                               gender.length,
@@ -281,7 +283,7 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                             isExpanded: true,
                             iconSize: 36,
-                            underline: SizedBox(),
+                            underline: const SizedBox(),
                             onChanged: (newValue) {},
                             items: List.generate(
                               gender.length,
@@ -295,7 +297,7 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 18),
+                    const SizedBox(width: 18),
                     Expanded(
                       child: Container(
                         height: 50,
@@ -395,23 +397,11 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
                 const SizedBox(height: 10),
-                GestureDetector(
-                  onTap: () {},
-                  child: Container(
-                    height: 50,
-                    width: size.width,
-                    decoration: const BoxDecoration(
-                        color: CoinColors.orange12,
-                        borderRadius: BorderRadius.all(Radius.circular(9.0))),
-                    child: const Center(
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
+                ElevatedButton(
+                  onPressed: () async {
+                    Navigator.push(context, HomeView.route());
+                  },
+                  child: const Text("Sign up"),
                 ),
                 const SizedBox(height: 20),
                 Row(

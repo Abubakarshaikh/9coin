@@ -12,38 +12,30 @@ class MyBottomNavigationBar extends StatelessWidget {
   final int currentIndex;
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
-      elevation: 10,
-      child: NavigationBar(
-        height: 68,
-        selectedIndex: currentIndex,
-        onDestinationSelected: onDestinationSelected,
-        destinations: const [
-          NavigationDestination(
+    return Container(
+      height: 60,
+      child: BottomNavigationBar(
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currentIndex,
+        onTap: onDestinationSelected,
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(Icons.home_rounded),
             label: 'Home',
-            selectedIcon: Icon(Icons.home_rounded, color: CoinColors.black),
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(CupertinoIcons.square_grid_2x2),
             label: 'Coupaon',
-            selectedIcon:
-                Icon(CupertinoIcons.square_grid_2x2, color: CoinColors.black),
           ),
-          NavigationDestination(
-              icon: Icon(CupertinoIcons.search),
-              selectedIcon:
-                  Icon(CupertinoIcons.search, color: CoinColors.black),
-              label: 'Point'),
-          NavigationDestination(
-              icon: Icon(Icons.local_offer_outlined),
-              selectedIcon:
-                  Icon(Icons.local_offer_outlined, color: CoinColors.black),
-              label: 'Lucky Draw'),
-          NavigationDestination(
-              icon: Icon(CupertinoIcons.news),
-              selectedIcon: Icon(CupertinoIcons.news, color: CoinColors.black),
-              label: 'News'),
+          BottomNavigationBarItem(
+              icon: Icon(CupertinoIcons.search), label: 'Point'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.local_offer_outlined), label: 'Lucky Draw'),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.news),
+            label: 'News',
+          ),
         ],
       ),
     );
