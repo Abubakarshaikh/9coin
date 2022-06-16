@@ -11,4 +11,19 @@ abstract class Assets {
   static String bookShoop = "assets/pics/bookshop.jpg";
   static String maximise = "assets/pics/maximise.jpg";
   static String chickenRice1 = "assets/pics/chicken-rice-1.jpg";
+
+  static String coupon = "assets/icons/coupon.png";
+  static String couponColor = "assets/icons/coupon-color.png";
+
+  static String home = "assets/icons/home.png";
+  static String homeColor = "assets/icons/home-color.png";
+
+  static String point = "assets/icons/point.png";
+  static String pointColor = "assets/icons/point-color.png";
+
+  static String luckydraw = "assets/icons/lucky-draw.png";
+  static String luckydrawColor = "assets/icons/lucky-draw-color.png";
+
+  static String news = "assets/icons/news.png";
+  static String newscolor = "assets/icons/news-color.png";
 }

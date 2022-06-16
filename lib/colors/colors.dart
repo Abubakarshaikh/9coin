@@ -1,9 +1,10 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 abstract class CoinColors {
   static const Color orange = Color(0xffFCBA56);
   static const Color orange12 = Color(0xffFF9A3F);
   static const Color fullBlack = Color(0xff000000);
+  static const Color mediumBlack = Color(0xff0E0E0E);
   static const Color black = Color(0xff1C1C1C);
   static const Color red = Color(0xffFF3636);
   static const Color white = Color(0xffFFFFFF);
@@ -21,4 +22,10 @@ abstract class CoinColors {
   static const Color blueAccent = Color(0xff00D2DB);
   static const Color teal = Color(0xff00DBA9);
   static const Color purple = Color(0xffA841E1);
+  static const Color transparent = Colors.transparent;
+
+  // selected Icon Color
+
+  static const Color blackMedium1 = Color(0xff222222);
+  static const Color blackMedium2 = Color(0xff292929);
 }

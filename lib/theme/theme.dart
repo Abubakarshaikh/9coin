@@ -5,10 +5,20 @@ import 'package:ninecoin/typography/text_styles.dart';
 abstract class AppTheme {
   static get standard {
     return ThemeData.dark().copyWith(
-      scaffoldBackgroundColor: CoinColors.black12,
+      appBarTheme: AppBarTheme(
+        backgroundColor: CoinColors.black12,
+        elevation: 0,
+      ),
+      scaffoldBackgroundColor: CoinColors.black,
       elevatedButtonTheme: _elevatedButtonTheme,
       iconTheme: _iconTheme,
       inputDecorationTheme: _inputDecorationTheme,
+      bottomNavigationBarTheme: _bottomNavigationBarThemeData,
+      navigationBarTheme: NavigationBarThemeData(
+        indicatorColor: CoinColors.transparent,
+        backgroundColor: CoinColors.blackMedium2,
+        height: 60,
+      ),
     );
   }
 
@@ -42,6 +52,17 @@ abstract class AppTheme {
         borderSide: BorderSide.none,
       ),
       hintStyle: CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+    );
+  }
+
+  static get _bottomNavigationBarThemeData {
+    return BottomNavigationBarThemeData(
+      backgroundColor: CoinColors.blackMedium2,
+      elevation: 120,
+      selectedLabelStyle: CoinTextStyle.title4,
+      unselectedLabelStyle: CoinTextStyle.title4,
+      selectedItemColor: CoinColors.orange,
+      unselectedItemColor: CoinColors.white,
     );
   }
 }
