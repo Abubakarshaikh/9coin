@@ -31,49 +31,49 @@ class LoginPage extends StatelessWidget {
                         height: 160,
                         image: AssetImage("assets/logos/login-logo.png")),
                     const SizedBox(height: 24),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: CoinColors.black12,
-                        contentPadding: const EdgeInsets.all(10.0),
+                        contentPadding:  EdgeInsets.all(10.0),
                         hintText: "Email",
                         hintStyle: TextStyle(
                             color: CoinColors.black54,
                             fontWeight: FontWeight.w600,
                             fontSize: 14.0),
-                        suffixIcon: const Icon(
+                        suffixIcon:  Icon(
                           Icons.email_rounded,
                           color: CoinColors.orange12,
                         ),
-                        enabledBorder: const OutlineInputBorder(
+                        enabledBorder:  OutlineInputBorder(
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
-                        focusedBorder: const OutlineInputBorder(
+                        focusedBorder:  OutlineInputBorder(
                           borderSide: BorderSide.none,
                         ),
                       ),
                     ),
                     const SizedBox(height: 30),
-                    TextField(
+                    const TextField(
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: CoinColors.black12,
-                        contentPadding: const EdgeInsets.all(10.0),
+                        contentPadding:  EdgeInsets.all(10.0),
                         hintText: "Password",
                         hintStyle: TextStyle(
                             color: CoinColors.black54,
                             fontWeight: FontWeight.w600,
                             fontSize: 14.0),
-                        suffixIcon: const Icon(
+                        suffixIcon:  Icon(
                           Icons.lock,
                           color: CoinColors.orange12,
                         ),
-                        enabledBorder: const OutlineInputBorder(
+                        enabledBorder:  OutlineInputBorder(
                           borderSide: BorderSide.none,
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
-                        focusedBorder: const OutlineInputBorder(
+                        focusedBorder:  OutlineInputBorder(
                           borderSide: BorderSide.none,
                         ),
                       ),
