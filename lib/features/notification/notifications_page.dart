@@ -29,7 +29,7 @@ class NotificationPage extends StatelessWidget {
             ListTile(
               leading: CircleNotificationIcon(
                   icon: Badge(
-                    position: BadgePosition.topEnd(top: -4),
+                    position: BadgePosition.topEnd(top: -2),
                     child: const Icon(
                       Icons.notifications,
                       color: Colors.white,
@@ -146,5 +146,3 @@ class CircleNotificationIcon extends StatelessWidget {
     );
   }
 }
-
-

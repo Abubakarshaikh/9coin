@@ -102,6 +102,7 @@ class HomePage extends StatelessWidget {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
+                
                 child: Row(
                   children: [
                     CategoryCircularCard(
@@ -115,7 +116,7 @@ class HomePage extends StatelessWidget {
                       imageUrl: Assets.beautyIcon,
                       color: CoinColors.red12,
                       label: "Beauty",
-                    ),
+                    ), 
                     CategoryCircularCard(
                       onTap: () {},
                       imageUrl: Assets.electronic,
