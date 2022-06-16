@@ -1,5 +1,4 @@
 import 'package:badges/badges.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
@@ -146,5 +145,3 @@ class CircleNotificationIcon extends StatelessWidget {
     );
   }
 }
-
-

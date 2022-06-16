@@ -34,7 +34,7 @@ class HomeView extends StatelessWidget {
       valueListenable: _valueNotifier,
       builder: (context, int newValue, widgets) {
         return Container(
-          color: CoinColors.black,
+          color: CoinColors.fullBlack,
           child: SafeArea(
             child: Scaffold(
               appBar: AppBar(
@@ -82,44 +82,3 @@ class HomeView extends StatelessWidget {
     );
   }
 }
-
-// Padding(
-//             padding: const EdgeInsets.symmetric(horizontal: 16),
-//             child: Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//               children: [
-//                 Expanded(
-//                     child: InkWell(
-//                   onTap: () {},
-//                   child: Image.asset(Assets.appLogo),
-//                 )),
-//                 Expanded(
-//                   flex: 2,
-//                   child: Row(
-//                     mainAxisAlignment: MainAxisAlignment.end,
-//                     children: [
-//                       CircleIcon(
-//                         onTap: () {
-//                           Navigator.push(context, NotificationPage.route());
-//                         },
-//                         icon: Badge(
-//                           badgeContent: const Text('3'),
-//                           child: const Icon(Icons.notifications),
-//                         ),
-//                       ),
-//                       const SizedBox(width: 12),
-//                       CircleIcon(
-//                           onTap: () {},
-//                           icon: Image.asset(
-//                             Assets.profileIcon,
-//                             height: 20,
-//                             width: 20,
-//                             color: CoinColors.orange,
-//                           )),
-//                     ],
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//           const SizedBox(height: 16),

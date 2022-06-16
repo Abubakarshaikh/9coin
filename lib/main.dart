@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ninecoin/features/home/ui/home_view.dart';
+import 'package:ninecoin/features/auth/ui/login_page.dart';
 import 'theme/theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -17,7 +17,7 @@ class App extends StatelessWidget {
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.standard,
-      home: HomeView(),
+      home: const LoginPage(),
     );
   }
 }

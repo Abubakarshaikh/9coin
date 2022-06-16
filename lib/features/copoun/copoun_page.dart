@@ -1,119 +1,173 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
 
-class CopounPage extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:ninecoin/assets/assets.dart';
+import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
+
+class CopounPage extends StatefulWidget {
   const CopounPage({Key? key}) : super(key: key);
 
   @override
+  State<CopounPage> createState() => _CopounPageState();
+}
+
+class _CopounPageState extends State<CopounPage> {
+  final ValueNotifier<int> currentPageIndex = ValueNotifier(0);
+  final PageController controller = PageController(initialPage: 0);
+
+  @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text("Coupon Screen"),
+    currentPageIndex.value = controller.initialPage;
+    return Column(
+      children: [
+        Container(
+          color: CoinColors.fullBlack,
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: const TextField(
+            decoration: InputDecoration(
+              prefixIcon: Icon(Icons.search, color: CoinColors.black54),
+              hintText: "Search",
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+          child: ValueListenableBuilder<int>(
+            valueListenable: currentPageIndex,
+            builder: (context, state, widget) {
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        currentPageIndex.value = 0;
+                        controller.animateToPage(0,
+                            duration: const Duration(milliseconds: 400),
+                            curve: Curves.easeInOut);
+                      },
+                      child: Column(
+                        children: [
+                          Text("Active",
+                              style: CoinTextStyle.title2.copyWith(
+                                  color: CoinColors.orange,
+                                  fontWeight: FontWeight.w600)),
+                          Container(
+                            margin: const EdgeInsets.symmetric(vertical: 12),
+                            height: 2.0,
+                            color: state == 0
+                                ? CoinColors.orange
+                                : CoinColors.transparent,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: InkWell(
+                      onTap: () {
+                        currentPageIndex.value = 1;
+                        controller.animateToPage(1,
+                            duration: const Duration(milliseconds: 400),
+                            curve: Curves.easeInOut);
+                      },
+                      child: Column(
+                        children: [
+                          Text("Purchased",
+                              style: CoinTextStyle.title2.copyWith(
+                                  color: CoinColors.orange,
+                                  fontWeight: FontWeight.w600)),
+                          Container(
+                            margin: const EdgeInsets.symmetric(vertical: 12),
+                            height: 2.0,
+                            color: state == 1
+                                ? CoinColors.orange
+                                : CoinColors.transparent,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
+          ),
+        ),
+        Flexible(
+          child: PageView(
+            controller: controller,
+            onPageChanged: (int page) {
+              currentPageIndex.value = page;
+            },
+            children: [
+              ActiveDiscountCopoun(),
+              PurchasedDiscountCopoun(),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
 
-// class RPSCustomPainter extends CustomPainter {
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     Paint paint0 = Paint()
-//       ..color = const Color.fromARGB(255, 33, 150, 243)
-//       ..style = PaintingStyle.stroke
-//       ..strokeWidth = 1;
+class DiscountCouponCard extends StatelessWidget {
+  final String imageUrl;
 
-//     Path path0 = Path();
-//     path0.moveTo(size.width * 0.0714286, 0);
-//     path0.quadraticBezierTo(size.width * 0.0720714, size.height * 0.0842500, 0,
-//         size.height * 0.0833333);
-//     path0.lineTo(0, size.height * 0.0833333);
-//     path0.lineTo(0, size.height * 0.1333333);
-//     path0.lineTo(size.width * 0.0285714, size.height * 0.1333333);
-//     path0.lineTo(size.width * 0.0285714, size.height * 0.1666667);
-//     path0.lineTo(0, size.height * 0.1666667);
-//     path0.lineTo(0, size.height * 0.2083333);
-//     path0.lineTo(size.width * 0.0285714, size.height * 0.2083333);
-//     path0.lineTo(size.width * 0.0285714, size.height * 0.2416667);
-//     path0.lineTo(0, size.height * 0.2500000);
-//     path0.lineTo(0, size.height * 0.2500000);
-//     path0.lineTo(0, size.height * 0.2916667);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.2916667);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.3333333);
-//     path0.lineTo(0, size.height * 0.3333333);
-//     path0.lineTo(0, size.height * 0.3833333);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.3833333);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.4166667);
-//     path0.lineTo(0, size.height * 0.4166667);
-//     path0.lineTo(0, size.height * 0.4666667);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.4666667);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.5000000);
-//     path0.lineTo(0, size.height * 0.5000000);
-//     path0.lineTo(0, size.height * 0.5500000);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.5500000);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.5833333);
-//     path0.lineTo(0, size.height * 0.5833333);
-//     path0.lineTo(0, size.height * 0.6333333);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.6333333);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.6666667);
-//     path0.lineTo(0, size.height * 0.6666667);
-//     path0.lineTo(0, size.height * 0.7166667);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.7166667);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.7500000);
-//     path0.lineTo(0, size.height * 0.7500000);
-//     path0.lineTo(0, size.height * 0.8000000);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.8000000);
-//     path0.lineTo(size.width * 0.0357143, size.height * 0.8666667);
-//     path0.lineTo(0, size.height * 0.8666667);
-//     path0.lineTo(0, size.height * 0.9166667);
+  const DiscountCouponCard({Key? key, required this.imageUrl})
+      : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(child: Image.asset(imageUrl)),
+      ],
+    );
+  }
+}
 
-//     path0.quadraticBezierTo(size.width * 0.0805000, size.height * 0.9099167,
-//         size.width * 0.0714286, size.height * 0.9916667);
+class ActiveDiscountCopoun extends StatelessWidget {
+  final List<String> copouns = [
+    Assets.discountCopoun1,
+    Assets.discountCopoun2,
+    Assets.discountCopoun3
+  ];
 
-//     path0.quadraticBezierTo(size.width * 0.3017857, size.height * 0.9916667,
-//         size.width * 0.9928571, size.height * 0.9916667);
+  ActiveDiscountCopoun({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      itemCount: copouns.length,
+      itemBuilder: (context, index) {
+        return DiscountCouponCard(imageUrl: copouns[index]);
+      },
+      separatorBuilder: (context, index) {
+        return const SizedBox(height: 12);
+      },
+    );
+  }
+}
 
-//     path0.lineTo(size.width, size.height * 0.0083333);
+class PurchasedDiscountCopoun extends StatelessWidget {
+  PurchasedDiscountCopoun({Key? key}) : super(key: key);
+  final List<String> copouns = [
+    Assets.discountCopoun1,
+    Assets.discountCopoun2,
+    Assets.discountCopoun3
+  ];
 
-//     path0.quadraticBezierTo(size.width * 0.7678571, size.height * 0.0062500,
-//         size.width * 0.0714286, 0);
-//     path0.close();
-
-//     canvas.drawPath(path0, paint0);
-//   }
-
-//   @override
-//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-//     return true;
-//   }
-// }
-
-// >> Triangle
-// CustomPaint(
-//         size: Size(
-//             200,
-//             (200 * 1.2)
-//                 .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-//         painter: RPSCustomPainter(),
-//       ),
-// class RPSCustomPainter extends CustomPainter {
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     Paint paint0 = Paint()
-//       ..color = const Color.fromARGB(255, 33, 150, 243)
-//       ..style = PaintingStyle.stroke
-//       ..strokeWidth = 1;
-
-//     Path path0 = Path();
-//     path0.moveTo(size.width * 0.9900000, size.height * 0.0083333);
-//     path0.quadraticBezierTo(size.width * 0.9025000, size.height * 0.9161667,
-//         size.width * 0.0100000, size.height * 0.9916667);
-//     path0.lineTo(size.width * 0.9900000, size.height * 0.9916667);
-//     path0.quadraticBezierTo(size.width * 0.9900000, size.height * 0.7458333,
-//         size.width * 0.9900000, size.height * 0.0083333);
-//     path0.close();
-
-//     canvas.drawPath(path0, paint0);
-//   }
-
-//   @override
-//   bool shouldRepaint(covariant CustomPainter oldDelegate) {
-//     return true;
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return ListView.separated(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      itemCount: copouns.length,
+      itemBuilder: (context, index) {
+        return DiscountCouponCard(imageUrl: copouns[index]);
+      },
+      separatorBuilder: (context, index) {
+        return const SizedBox(height: 12);
+      },
+    );
+  }
+}

@@ -21,8 +21,8 @@ class MyBottomNavigationBar extends StatelessWidget {
               ? CoinColors.blackMedium1
               : CoinColors.blackMedium2,
           child: NavigationDestination(
-            icon: Image.asset(Assets.home, height: 24, width: 24),
-            selectedIcon: Image.asset(Assets.homeColor, height: 24, width: 24),
+            icon: Image.asset(Assets.home, height: 22, width: 22),
+            selectedIcon: Image.asset(Assets.homeColor, height: 22, width: 22),
             label: 'Home',
           ),
         ),
