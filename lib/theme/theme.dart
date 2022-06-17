@@ -5,6 +5,8 @@ import 'package:ninecoin/typography/text_styles.dart';
 abstract class AppTheme {
   static get standard {
     return ThemeData.dark().copyWith(
+      dialogBackgroundColor: CoinColors.black12,
+      dialogTheme: DialogTheme(),
       appBarTheme: AppBarTheme(
         backgroundColor: CoinColors.black12,
         elevation: 0,

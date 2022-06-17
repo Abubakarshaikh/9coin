@@ -4,6 +4,8 @@ import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/auth/ui/login_page.dart';
 import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/utilities/dialogs/create_account.dart';
+import 'package:ninecoin/utilities/dialogs/successful_create.dart';
 
 class SignupPage extends StatefulWidget {
   static Route route() {
@@ -288,7 +290,11 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      Navigator.push(context, HomeView.route());
+                      if (await showCreateAccountDialog(context)) {
+                        if (await showSuccessfulCreateAccountDialog(context)) {
+                          Navigator.push(context, HomeView.route());
+                        }
+                      }
                     },
                     child: const Text("Sign up"),
                   ),

@@ -24,4 +24,12 @@ abstract class Assets {
   static String discountCopoun1 = "assets/pics/discount-copoun1.png";
   static String discountCopoun2 = "assets/pics/discount-copoun2.png";
   static String discountCopoun3 = "assets/pics/discount-copoun3.png";
+  static String purchaseCoupon = "assets/icons/purchase-coupon.png";
+  static String updatedDetails = "assets/icons/updated-details.png";
+  static String updated = "assets/icons/updated.png";
+
+  static String changePassword = "assets/icons/change-password-pop-up.png";
+
+  // purchase-coupon.png
+
 }

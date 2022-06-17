@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/utilities/dialogs/purchase_coupon.dart';
 
 class CopounPage extends StatefulWidget {
   const CopounPage({Key? key}) : super(key: key);
@@ -113,15 +114,18 @@ class _CopounPageState extends State<CopounPage> {
 
 class DiscountCouponCard extends StatelessWidget {
   final String imageUrl;
-
-  const DiscountCouponCard({Key? key, required this.imageUrl})
+  final Function()? onTap;
+  const DiscountCouponCard({Key? key, required this.imageUrl, this.onTap})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(child: Image.asset(imageUrl)),
-      ],
+    return InkWell(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Expanded(child: Image.asset(imageUrl)),
+        ],
+      ),
     );
   }
 }
@@ -140,7 +144,10 @@ class ActiveDiscountCopoun extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: copouns.length,
       itemBuilder: (context, index) {
-        return DiscountCouponCard(imageUrl: copouns[index]);
+        return DiscountCouponCard(
+          onTap: () {},
+          imageUrl: copouns[index],
+        );
       },
       separatorBuilder: (context, index) {
         return const SizedBox(height: 12);
@@ -163,7 +170,10 @@ class PurchasedDiscountCopoun extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemCount: copouns.length,
       itemBuilder: (context, index) {
-        return DiscountCouponCard(imageUrl: copouns[index]);
+        return DiscountCouponCard(
+          onTap: () {},
+          imageUrl: copouns[index],
+        );
       },
       separatorBuilder: (context, index) {
         return const SizedBox(height: 12);

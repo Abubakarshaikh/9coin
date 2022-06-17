@@ -7,10 +7,11 @@ class CoinTextStyle {
     color: CoinColors.white,
     fontWeight: FontWeight.w400,
   );
+
   static TextStyle get title1 {
     return _baseTextStyle.copyWith(
       fontSize: 18.0,
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.w400,
       color: CoinColors.white,
     );
   }
@@ -36,6 +37,43 @@ class CoinTextStyle {
 
   static TextStyle get title5 {
     return _baseTextStyle.copyWith(
+      fontSize: 10.0,
+    );
+  }
+
+  static TextStyle get title1Bold {
+    return _baseTextStyle.copyWith(
+      fontSize: 18.0,
+      fontWeight: FontWeight.w600,
+      color: CoinColors.white,
+    );
+  }
+
+  static TextStyle get title2Bold {
+    return _baseTextStyle.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 16.0,
+      color: CoinColors.white,
+    );
+  }
+
+  static TextStyle get title3Bold {
+    return _baseTextStyle.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 14.0,
+    );
+  }
+
+  static TextStyle get title4Bold {
+    return _baseTextStyle.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 12.0,
+    );
+  }
+
+  static TextStyle get title5Bold {
+    return _baseTextStyle.copyWith(
+      fontWeight: FontWeight.w600,
       fontSize: 10.0,
     );
   }

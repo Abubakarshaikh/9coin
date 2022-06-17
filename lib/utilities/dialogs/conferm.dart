@@ -6,6 +6,7 @@ import 'generic_dialog.dart';
 Future<bool> showConfermDialog(BuildContext context) {
   return showGenericDialog<bool>(
     context: context,
+    imageUrl: "",
     title: context.loc.delete,
     content: context.loc.delete_note_prompt,
     optionsBuilder: () => {

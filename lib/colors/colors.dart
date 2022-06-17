@@ -28,4 +28,7 @@ abstract class CoinColors {
 
   static const Color blackMedium1 = Color(0xff222222);
   static const Color blackMedium2 = Color(0xff292929);
+
+  // dilaog textcolor
+  static const Color dialogTextColor = Color(0xffFCBA56);
 }

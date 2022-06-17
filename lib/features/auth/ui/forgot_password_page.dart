@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/auth/ui/login_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/utilities/dialogs/new_password_reset.dart';
+import 'package:ninecoin/utilities/dialogs/password_reset.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   static Route route() {
@@ -50,7 +53,13 @@ class ForgotPasswordPage extends StatelessWidget {
                       )),
                   const SizedBox(height: 30),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      if (await showResetPasswordDialog(context)) {
+                        if (await showNewPasswordResetDialog(context)) {
+                          Navigator.push(context, LoginPage.route());
+                        }
+                      }
+                    },
                     child: Text(
                       "Reset Password",
                       style: CoinTextStyle.title2
