@@ -12,7 +12,8 @@ class CategoryCircularCard extends StatelessWidget {
       required this.imageUrl,
       required this.color,
       required this.label,
-      required this.onTap})
+      required this.onTap,
+      })
       : super(key: key);
 
   @override

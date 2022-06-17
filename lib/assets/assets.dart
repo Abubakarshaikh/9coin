@@ -30,6 +30,12 @@ abstract class Assets {
 
   static String changePassword = "assets/icons/change-password-pop-up.png";
 
-  // purchase-coupon.png
-
+  static String bag = "assets/icons/bag.png";
+  static String fashion = "assets/icons/fashion.png";
+  static String gaming = "assets/icons/gaming.png";
+  static String pet = "assets/icons/pets.png";
+  static String voucher = "assets/icons/vouchers.png";
+  static String watch = "assets/icons/watches.png";
+  static String television = "assets/pics/television.jpg";
+  static String earphone = "assets/pics/earphone.jpg";
 }
