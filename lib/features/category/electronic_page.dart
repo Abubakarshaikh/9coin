@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/category/electronic_page2.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-class ElectronicPage extends StatefulWidget {
+class ElectronicPage extends StatelessWidget {
   static Route rout() {
     return MaterialPageRoute(builder: (context) => const ElectronicPage());
   }
@@ -11,19 +12,16 @@ class ElectronicPage extends StatefulWidget {
   const ElectronicPage({Key? key}) : super(key: key);
 
   @override
-  State<ElectronicPage> createState() => _ElectronicPageState();
-}
-
-class _ElectronicPageState extends State<ElectronicPage> {
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: CoinColors.black,
       appBar: AppBar(
+        backgroundColor: CoinColors.black12,
         elevation: 0,
         centerTitle: true,
         title: Text(
           "Electronic",
-          style: CoinTextStyle.title1,
+          style: CoinTextStyle.title2Bold,
         ),
       ),
       body: SingleChildScrollView(
@@ -33,10 +31,12 @@ class _ElectronicPageState extends State<ElectronicPage> {
             Container(
               width: double.infinity,
               height: 70,
-              color: CoinColors.black26,
+              color: CoinColors.black12,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Expanded(
                       child: TextField(
@@ -44,7 +44,7 @@ class _ElectronicPageState extends State<ElectronicPage> {
                           fillColor: CoinColors.black,
                           prefixIcon: Icon(
                             Icons.search,
-                            color: CoinColors.black54,
+                            color: CoinColors.black26,
                           ),
                           hintText: "Search",
                         ),
@@ -54,6 +54,7 @@ class _ElectronicPageState extends State<ElectronicPage> {
                 ),
               ),
             ),
+            const SizedBox(height: 15),
             RoundedElectricCard(
               onTap: () {},
               imageUrl: Assets.television,
@@ -62,7 +63,9 @@ class _ElectronicPageState extends State<ElectronicPage> {
               location: "No. 12, Jalan Bukit Baru, 75150 Melaka.",
             ),
             RoundedElectricCard(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, ElectronicPage2.rout());
+              },
               imageUrl: Assets.earphone,
               title: "Yonqed SDN. BHD.",
               pNumber: "012 - 683 2269",
@@ -93,27 +96,27 @@ class RoundedElectricCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onTap,
       child: Column(
         children: [
           Container(
             // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
-            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
-
+            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
+            margin: const EdgeInsets.all(14.0),
             height: 240,
             width: 400,
-            // alignment: Alignment.topCenter,
+            alignment: Alignment.topCenter,
             decoration: BoxDecoration(
-              color: CoinColors.black,
+              color: CoinColors.fullBlack,
               borderRadius: BorderRadius.circular(6.0),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  // flex: 4,
+                  flex: 2,
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Expanded(
                         child: ClipRRect(
@@ -124,7 +127,7 @@ class RoundedElectricCard extends StatelessWidget {
                           child: Image.asset(
                             imageUrl,
                             fit: BoxFit.cover,
-                            height: 140,
+                            height: 120,
                           ),
                         ),
                       ),
