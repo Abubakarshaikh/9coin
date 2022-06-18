@@ -77,4 +77,11 @@ class CoinTextStyle {
       fontSize: 10.0,
     );
   }
+
+  static TextStyle get headline1 {
+    return _baseTextStyle.copyWith(
+      fontWeight: FontWeight.w600,
+      fontSize: 46.0,
+    );
+  }
 }

@@ -38,4 +38,9 @@ abstract class Assets {
   static String watch = "assets/icons/watches.png";
   static String television = "assets/pics/television.jpg";
   static String earphone = "assets/pics/earphone.jpg";
+  static String item = "assets/icons/item.png";
+
+  static String qrcode = "assets/icons/qrcode.png";
+  static String redemption = "assets/icons/redemption.png";
+  static String hisotry = "assets/icons/hisotry.png";
 }

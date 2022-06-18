@@ -6,14 +6,17 @@ import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import 'package:ninecoin/utilities/dialogs/purchase_coupon.dart';
 
-class CopounPage extends StatefulWidget {
-  const CopounPage({Key? key}) : super(key: key);
+import 'active_coupon_details.dart';
+import 'purchased_coupon_details.dart';
+
+class CouponPage extends StatefulWidget {
+  const CouponPage({Key? key}) : super(key: key);
 
   @override
-  State<CopounPage> createState() => _CopounPageState();
+  State<CouponPage> createState() => _CouponPageState();
 }
 
-class _CopounPageState extends State<CopounPage> {
+class _CouponPageState extends State<CouponPage> {
   final ValueNotifier<int> currentPageIndex = ValueNotifier(0);
   final PageController controller = PageController(initialPage: 0);
 
@@ -145,7 +148,9 @@ class ActiveDiscountCopoun extends StatelessWidget {
       itemCount: copouns.length,
       itemBuilder: (context, index) {
         return DiscountCouponCard(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, ActiveCouponDetails.route());
+          },
           imageUrl: copouns[index],
         );
       },
@@ -171,7 +176,9 @@ class PurchasedDiscountCopoun extends StatelessWidget {
       itemCount: copouns.length,
       itemBuilder: (context, index) {
         return DiscountCouponCard(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(context, PurchasedCouponDetails.route());
+          },
           imageUrl: copouns[index],
         );
       },

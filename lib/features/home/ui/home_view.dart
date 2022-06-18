@@ -4,10 +4,10 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/home/components/circle_icon.dart';
 import 'package:ninecoin/features/news_page.dart';
-import '../../copoun/copoun_page.dart';
+import '../../coupon/ui/coupon_page.dart';
 import '../../luckydraw_page.dart';
 import '../../notification/notifications_page.dart';
-import '../../point_page.dart';
+import '../../point/ui/point_page.dart';
 import '../components/my_bottom_navigation_bar.dart';
 import 'home_page.dart';
 
@@ -21,9 +21,10 @@ class HomeView extends StatelessWidget {
   final ValueNotifier<int> _valueNotifier = ValueNotifier(0);
 
   final List<Widget> _screens = const [
-    HomePage(),
-    CopounPage(),
     PointPage(),
+    HomePage(),
+    CouponPage(),
+    // PointPage(),
     LuckydrawPage(),
     NewsPage(),
   ];
