@@ -29,7 +29,6 @@ abstract class Assets {
   static String updated = "assets/icons/updated.png";
 
   static String changePassword = "assets/icons/change-password-pop-up.png";
-
   static String bag = "assets/icons/bag.png";
   static String fashion = "assets/icons/fashion.png";
   static String gaming = "assets/icons/gaming.png";
@@ -38,4 +37,9 @@ abstract class Assets {
   static String watch = "assets/icons/watches.png";
   static String television = "assets/pics/television.jpg";
   static String earphone = "assets/pics/earphone.jpg";
+  static String earphone2 = "assets/pics/earphones-2.jpg";
+  static String earphone3 = "assets/pics/earphones-3.jpg";
+  static String earphone4 = "assets/pics/earphones-4.jpg";
+
+  static String categories = "assets/pics/categories.jpg";
 }

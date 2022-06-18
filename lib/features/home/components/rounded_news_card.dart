@@ -68,8 +68,7 @@ class RoundedNewsCard extends StatelessWidget {
                             style: CoinTextStyle.title4.copyWith(
                               color: CoinColors.orange,
                             )),
-                        Text(desc,
-                            style: CoinTextStyle.title4),
+                        Text(desc, style: CoinTextStyle.title4),
                       ],
                     ),
                   ),
