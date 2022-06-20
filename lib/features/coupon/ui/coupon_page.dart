@@ -1,10 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/coupon/components/discount_coupon_card.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import 'package:ninecoin/utilities/dialogs/purchase_coupon.dart';
 
 import 'active_coupon_details.dart';
 import 'purchased_coupon_details.dart';
@@ -116,24 +114,6 @@ class _CouponPageState extends State<CouponPage> {
           ),
         ),
       ],
-    );
-  }
-}
-
-class DiscountCouponCard extends StatelessWidget {
-  final String imageUrl;
-  final Function()? onTap;
-  const DiscountCouponCard({Key? key, required this.imageUrl, this.onTap})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Row(
-        children: [
-          Expanded(child: Image.asset(imageUrl)),
-        ],
-      ),
     );
   }
 }
