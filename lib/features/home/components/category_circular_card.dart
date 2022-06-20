@@ -7,14 +7,13 @@ class CategoryCircularCard extends StatelessWidget {
   final String label;
   final Color color;
   final Function() onTap;
-  const CategoryCircularCard(
-      {Key? key,
-      required this.imageUrl,
-      required this.color,
-      required this.label,
-      required this.onTap,
-      })
-      : super(key: key);
+  const CategoryCircularCard({
+    Key? key,
+    required this.imageUrl,
+    required this.color,
+    required this.label,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
