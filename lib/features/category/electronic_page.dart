@@ -100,7 +100,9 @@ class RoundedElectricCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.all(14.0),
+            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
+            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
+            margin: const EdgeInsets.all(15.0),
             height: 240,
             width: 400,
             alignment: Alignment.topCenter,
@@ -142,7 +144,7 @@ class RoundedElectricCard extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Text(title,
-                            style: CoinTextStyle.title3.copyWith(
+                            style: CoinTextStyle.title3Bold.copyWith(
                                 color: CoinColors.orange,
                                 fontWeight: FontWeight.w600)),
                       ),

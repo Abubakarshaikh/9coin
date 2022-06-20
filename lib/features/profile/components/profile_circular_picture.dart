@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
@@ -21,10 +20,9 @@ class ProfileCircularPicture extends StatelessWidget {
         ),
       ),
       child: CircleAvatar(
-        radius: 42,
+        radius: 45,
         backgroundImage: AssetImage(Assets.profile),
       ),
     );
   }
 }
-
