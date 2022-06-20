@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 class ProfileTile extends StatelessWidget {
   final String imageUrl;
@@ -19,15 +20,15 @@ class ProfileTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.fromLTRB(18, 20, 18, 0),
+        padding: const EdgeInsets.fromLTRB(18, 24, 18, 0),
         child: Column(
           children: [
             Row(
               children: [
                 Image.asset(imageUrl,
-                    height: 18, width: 18, color: CoinColors.orange),
+                    height: 20, width: 20, color: CoinColors.orange),
                 const SizedBox(width: 24),
-                Text(title),
+                Text(title, style: CoinTextStyle.title4)
               ],
             ),
             const SizedBox(height: 20),

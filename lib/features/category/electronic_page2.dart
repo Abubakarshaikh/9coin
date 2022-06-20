@@ -184,7 +184,7 @@ class ProductDetails extends StatelessWidget {
             height: 220,
             width: double.infinity,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
@@ -232,14 +232,15 @@ class Products extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child: GridView.builder(
         itemCount: productcard.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            // childAspectRatio: 0.5,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 15),
+          crossAxisCount: 2,
+          // childAspectRatio: 0.5,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
+        ),
         itemBuilder: (context, index) {
           return productcard[index];
         },
@@ -262,7 +263,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70,
+      height: 80,
       width: 50,
       decoration: BoxDecoration(
         image: DecorationImage(

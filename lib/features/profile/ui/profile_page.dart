@@ -7,6 +7,7 @@ import 'package:ninecoin/features/profile/ui/helps_page.dart';
 import 'package:ninecoin/features/profile/ui/lucky_draw_information_page.dart';
 import 'package:ninecoin/features/profile/ui/profile_details_page.dart';
 import 'package:ninecoin/features/profile/ui/qr_code_page.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 class ProfilePage extends StatelessWidget {
   static Route<ProfilePage> route() {
@@ -20,11 +21,12 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Profile"),
+        title: Text("Profile", style: CoinTextStyle.title1Bold),
         elevation: 0,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 28),
@@ -36,11 +38,24 @@ class ProfilePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text("ID:5630918957"),
-                    Text("Tan Qing Fong"),
-                    Text("qingfong@gmail.com"),
-                    Text("326 Point"),
+                  children: [
+                    Text("ID:5630918957",
+                        style: CoinTextStyle.title4
+                            .copyWith(color: CoinColors.orange)),
+                    Text("Tan Qing Fong", style: CoinTextStyle.title1Bold),
+                    const Text("qingfong@gmail.com"),
+                    const SizedBox(height: 6),
+                    Row(
+                      textBaseline: TextBaseline.alphabetic,
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      children: [
+                        Text("326",
+                            style: CoinTextStyle.title1Bold
+                                .copyWith(color: Colors.orange, fontSize: 22)),
+                        const SizedBox(width: 2),
+                        Text("Point", style: CoinTextStyle.title5)
+                      ],
+                    )
                   ],
                 ),
               ],

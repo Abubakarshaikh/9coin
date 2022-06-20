@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:ninecoin/assets/assets.dart';
+import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 class QrCodePage extends StatelessWidget {
   static Route<QrCodePage> route() {
@@ -12,10 +15,32 @@ class QrCodePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("QR Code"),
+        title: Text(
+          "QR Code",
+          style: CoinTextStyle.title2Bold,
+        ),
       ),
-      body: const Center(
-        child: Text("QR Code"),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: Container(
+              height: 250,
+              width: 250,
+              color: CoinColors.white,
+              alignment: Alignment.center,
+              child: Image.asset(
+                Assets.profileqrcode,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          const SizedBox(height: 7),
+          Text(
+            "ID : 58893596683",
+            style: CoinTextStyle.title3,
+          )
+        ],
       ),
     );
   }

@@ -48,11 +48,17 @@ abstract class Assets {
   static String item = "assets/icons/item.png";
 
   static String qrcode = "assets/icons/qrcode.png";
+  static String profileqrcode = "assets/pics/qr-code.jpg";
+
   static String redemption = "assets/icons/redemption.png";
   static String hisotry = "assets/icons/hisotry.png";
   static String earphone2 = "assets/pics/earphones-2.jpg";
   static String earphone3 = "assets/pics/earphones-3.jpg";
   static String earphone4 = "assets/pics/earphones-4.jpg";
+  static String edit = "assets/icons/edit.png";
+  static String gender = "assets/icons/gender.png";
+  static String phone = "assets/icons/phone.png";
+  static String email = "assets/icons/email.png";
 
   static String categories = "assets/pics/categories.jpg";
   static String profile = "assets/pics/profile.jpg";
