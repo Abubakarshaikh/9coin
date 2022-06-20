@@ -125,7 +125,7 @@ class RoundedElectricCard extends StatelessWidget {
                           child: Image.asset(
                             imageUrl,
                             fit: BoxFit.cover,
-                            height: 100,
+                            height: 120,
                           ),
                         ),
                       ),

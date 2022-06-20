@@ -25,14 +25,9 @@ class _CategoryPageState extends State<CategoryPage> {
           preferredSize: const Size.fromHeight(145),
           child: AppBar(
             centerTitle: true,
-            title: TextButton(
-              onPressed: () {
-                Navigator.push(context, ElectronicPage.rout());
-              },
-              child: Text(
-                "Categories",
-                style: CoinTextStyle.title2Bold,
-              ),
+            title: Text(
+              "Categories",
+              style: CoinTextStyle.title2Bold,
             ),
             flexibleSpace: Container(
               decoration: BoxDecoration(
@@ -44,127 +39,86 @@ class _CategoryPageState extends State<CategoryPage> {
             ),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 5),
-          child: GridView.builder(
-            itemCount: categories.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              childAspectRatio: 0.9,
-              mainAxisSpacing: 5,
-            ),
-            itemBuilder: (context, index) {
-              return categories[index];
-            },
+        body: GridView.builder(
+          itemCount: categories.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            childAspectRatio: 0.9,
           ),
+          itemBuilder: (context, index) {
+            return categories[index];
+          },
         ),
       ),
     );
   }
 
   List<Widget> categories = [
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.salon,
       color: CoinColors.green,
       label: "A'Salon",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.bag,
       color: CoinColors.pink,
       label: "Bag",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.beautyIcon,
       color: CoinColors.red12,
       label: "Beauty",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.electronic,
       color: CoinColors.orange12,
       label: "Electronic",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.fashion,
       color: CoinColors.blue,
       label: "Fashion",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.gaming,
       color: CoinColors.red,
       label: "Gaming",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.groceries,
       color: CoinColors.yellow,
       label: "Groceries",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.pet,
       color: CoinColors.indigo,
       label: "Pets",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.sports,
       color: CoinColors.blueAccent,
       label: "Sports",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.voucher,
       color: CoinColors.teal,
       label: "Vouchers",
     ),
-    CategoryCard(
+    CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.watch,
       color: CoinColors.purple,
       label: "Watches",
     ),
   ];
-}
-
-class CategoryCard extends StatelessWidget {
-  final String imageUrl;
-  final String label;
-  final Color color;
-  final Function() onTap;
-  const CategoryCard({
-    Key? key,
-    required this.imageUrl,
-    required this.color,
-    required this.label,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Container(
-            alignment: Alignment.center,
-            margin: const EdgeInsets.all(5.0),
-            padding: const EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-              color: color,
-              shape: BoxShape.circle,
-            ),
-            child: Image.asset(imageUrl, height: 35, width: 35),
-          ),
-          Text(label,
-              style: CoinTextStyle.title3.copyWith(color: CoinColors.white)),
-        ],
-      ),
-    );
-  }
 }
