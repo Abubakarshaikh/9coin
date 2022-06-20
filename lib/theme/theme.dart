@@ -6,21 +6,34 @@ abstract class AppTheme {
   static get standard {
     return ThemeData.dark().copyWith(
       dialogBackgroundColor: CoinColors.black12,
-      dialogTheme: DialogTheme(),
-      appBarTheme: AppBarTheme(
-        backgroundColor: CoinColors.black12,
-        elevation: 0,
-      ),
+      dialogTheme: _dialogTheme,
+      appBarTheme: _appBarTheme,
       scaffoldBackgroundColor: CoinColors.black,
       elevatedButtonTheme: _elevatedButtonTheme,
       iconTheme: _iconTheme,
       inputDecorationTheme: _inputDecorationTheme,
       bottomNavigationBarTheme: _bottomNavigationBarThemeData,
-      navigationBarTheme: NavigationBarThemeData(
-        indicatorColor: CoinColors.transparent,
-        backgroundColor: CoinColors.blackMedium2,
-        height: 60,
-      ),
+      navigationBarTheme: _navigationBarThemeData,
+      dividerTheme: _dividerThemeData,
+    );
+  }
+
+  static get _dividerThemeData {
+    return const DividerThemeData(
+      color: CoinColors.black26,
+      thickness: 1.3,
+    );
+  }
+
+  static get _dialogTheme {
+    return DialogTheme();
+  }
+
+  static get _navigationBarThemeData {
+    return NavigationBarThemeData(
+      indicatorColor: CoinColors.transparent,
+      backgroundColor: CoinColors.blackMedium2,
+      height: 60,
     );
   }
 
@@ -65,6 +78,13 @@ abstract class AppTheme {
       unselectedLabelStyle: CoinTextStyle.title4,
       selectedItemColor: CoinColors.orange,
       unselectedItemColor: CoinColors.white,
+    );
+  }
+
+  static get _appBarTheme {
+    return AppBarTheme(
+      backgroundColor: CoinColors.black12,
+      elevation: 0,
     );
   }
 }

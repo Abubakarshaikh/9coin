@@ -1,12 +1,9 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/category_page.dart';
-import 'package:ninecoin/features/notification/notifications_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import '../components/category_circular_card.dart';
-import '../components/circle_icon.dart';
 import '../components/rounded_feature_card.dart';
 import '../components/rounded_news_card.dart';
 
@@ -63,7 +60,6 @@ class HomePage extends StatelessWidget {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                
                 child: Row(
                   children: [
                     CategoryCircularCard(
@@ -77,7 +73,7 @@ class HomePage extends StatelessWidget {
                       imageUrl: Assets.beautyIcon,
                       color: CoinColors.red12,
                       label: "Beauty",
-                    ), 
+                    ),
                     CategoryCircularCard(
                       onTap: () {},
                       imageUrl: Assets.electronic,

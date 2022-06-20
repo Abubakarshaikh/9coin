@@ -55,8 +55,11 @@ class _CouponPageState extends State<CouponPage> {
                         children: [
                           Text("Active",
                               style: CoinTextStyle.title2.copyWith(
-                                  color: CoinColors.orange,
-                                  fontWeight: FontWeight.w600)),
+                                color: state == 1
+                                    ? CoinColors.black54
+                                    : CoinColors.orange,
+                                fontWeight: FontWeight.w600,
+                              )),
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 12),
                             height: 2.0,
@@ -80,7 +83,9 @@ class _CouponPageState extends State<CouponPage> {
                         children: [
                           Text("Purchased",
                               style: CoinTextStyle.title2.copyWith(
-                                  color: CoinColors.orange,
+                                  color: state == 0
+                                      ? CoinColors.black54
+                                      : CoinColors.orange,
                                   fontWeight: FontWeight.w600)),
                           Container(
                             margin: const EdgeInsets.symmetric(vertical: 12),

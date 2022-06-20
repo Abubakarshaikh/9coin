@@ -11,6 +11,9 @@ abstract class Assets {
   static String bookShoop = "assets/pics/bookshop.jpg";
   static String maximise = "assets/pics/maximise.jpg";
   static String chickenRice1 = "assets/pics/chicken-rice-1.jpg";
+  static String chickenRice2 = "assets/pics/chicken-rice-2.jpg";
+  static String chicken = "assets/pics/chicken.jpg";
+
   static String coupon = "assets/icons/coupon.png";
   static String couponColor = "assets/icons/coupon-color.png";
   static String home = "assets/icons/home.png";
@@ -27,8 +30,13 @@ abstract class Assets {
   static String purchaseCoupon = "assets/icons/purchase-coupon.png";
   static String updatedDetails = "assets/icons/updated-details.png";
   static String updated = "assets/icons/updated.png";
+  static String logout = "assets/icons/logout.png";
+  static String help2 = "assets/icons/help_2.png";
+  static String information = "assets/icons/information.png";
 
   static String changePassword = "assets/icons/change-password-pop-up.png";
+  static String changePassword2 = "assets/icons/change-password.png";
+
   static String bag = "assets/icons/bag.png";
   static String fashion = "assets/icons/fashion.png";
   static String gaming = "assets/icons/gaming.png";
@@ -47,4 +55,5 @@ abstract class Assets {
   static String earphone4 = "assets/pics/earphones-4.jpg";
 
   static String categories = "assets/pics/categories.jpg";
+  static String profile = "assets/pics/profile.jpg";
 }
