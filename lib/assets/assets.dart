@@ -37,17 +37,14 @@ abstract class Assets {
   static String watch = "assets/icons/watches.png";
   static String television = "assets/pics/television.jpg";
   static String earphone = "assets/pics/earphone.jpg";
-<<<<<<< HEAD
   static String item = "assets/icons/item.png";
 
   static String qrcode = "assets/icons/qrcode.png";
   static String redemption = "assets/icons/redemption.png";
   static String hisotry = "assets/icons/hisotry.png";
-=======
   static String earphone2 = "assets/pics/earphones-2.jpg";
   static String earphone3 = "assets/pics/earphones-3.jpg";
   static String earphone4 = "assets/pics/earphones-4.jpg";
 
   static String categories = "assets/pics/categories.jpg";
->>>>>>> c361142640ba2c154c113f95b276df9a46d5d54a
 }
