@@ -3,6 +3,7 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/electronic_page.dart';
 import 'package:ninecoin/features/home/components/category_circular_card.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 class CategoryPage extends StatefulWidget {
   static Route rout() {
@@ -18,41 +19,41 @@ class CategoryPage extends StatefulWidget {
 class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: TextButton(
-            onPressed: () {
-              Navigator.push(context, ElectronicPage.rout());
-            },
-            child: const Text("Categories")),
-      ),
-      body: GridView.builder(
-        itemCount: categories.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          childAspectRatio: 0.9,
+    return SafeArea(
+      child: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(145),
+          child: AppBar(
+            centerTitle: true,
+            title: Text(
+              "Categories",
+              style: CoinTextStyle.title2Bold,
+            ),
+            flexibleSpace: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(Assets.earphone),
+                ),
+              ),
+            ),
+          ),
         ),
-        itemBuilder: (context, index) {
-          return categories[index];
-        },
+        body: GridView.builder(
+          itemCount: categories.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4,
+            childAspectRatio: 0.9,
+          ),
+          itemBuilder: (context, index) {
+            return categories[index];
+          },
+        ),
       ),
     );
   }
 
   List<Widget> categories = [
-    CategoryCircularCard(
-      onTap: () {},
-      imageUrl: Assets.beautyIcon,
-      color: CoinColors.red12,
-      label: "Beauty",
-    ),
-    CategoryCircularCard(
-      onTap: () {},
-      imageUrl: Assets.beautyIcon,
-      color: CoinColors.red12,
-      label: "Beauty",
-    ),
     CategoryCircularCard(
       onTap: () {},
       imageUrl: Assets.salon,
