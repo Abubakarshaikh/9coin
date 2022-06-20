@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/home/components/circle_icon.dart';
-import 'package:ninecoin/features/news_page.dart';
+import 'package:ninecoin/features/news/ui/news_page.dart';
+import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import '../../coupon/ui/coupon_page.dart';
 import '../../luckydraw_page.dart';
 import '../../notification/notifications_page.dart';
@@ -21,10 +22,9 @@ class HomeView extends StatelessWidget {
   final ValueNotifier<int> _valueNotifier = ValueNotifier(0);
 
   final List<Widget> _screens = const [
-    PointPage(),
     HomePage(),
     CouponPage(),
-    // PointPage(),
+    PointPage(),
     LuckydrawPage(),
     NewsPage(),
   ];
@@ -57,7 +57,9 @@ class HomeView extends StatelessWidget {
                   ),
                   const SizedBox(width: 6.0),
                   CircleIcon(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, ProfilePage.route());
+                    },
                     icon: Image.asset(
                       Assets.profileIcon,
                       height: 20.5,
