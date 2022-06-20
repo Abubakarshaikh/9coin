@@ -64,67 +64,67 @@ class _CategoryPageState extends State<CategoryPage> {
   }
 
   List<Widget> categories = [
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.salon,
       color: CoinColors.green,
       label: "A'Salon",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.bag,
       color: CoinColors.pink,
       label: "Bag",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.beautyIcon,
       color: CoinColors.red12,
       label: "Beauty",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.electronic,
       color: CoinColors.orange12,
       label: "Electronic",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.fashion,
       color: CoinColors.blue,
       label: "Fashion",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.gaming,
       color: CoinColors.red,
       label: "Gaming",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.groceries,
       color: CoinColors.yellow,
       label: "Groceries",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.pet,
       color: CoinColors.indigo,
       label: "Pets",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.sports,
       color: CoinColors.blueAccent,
       label: "Sports",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.voucher,
       color: CoinColors.teal,
       label: "Vouchers",
     ),
-    CategoriesCard(
+    CategoryCard(
       onTap: () {},
       imageUrl: Assets.watch,
       color: CoinColors.purple,
@@ -133,12 +133,12 @@ class _CategoryPageState extends State<CategoryPage> {
   ];
 }
 
-class CategoriesCard extends StatelessWidget {
+class CategoryCard extends StatelessWidget {
   final String imageUrl;
   final String label;
   final Color color;
   final Function() onTap;
-  const CategoriesCard({
+  const CategoryCard({
     Key? key,
     required this.imageUrl,
     required this.color,
