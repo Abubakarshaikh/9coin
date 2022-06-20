@@ -100,8 +100,6 @@ class RoundedElectricCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
-            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
             margin: const EdgeInsets.all(14.0),
             height: 240,
             width: 400,
@@ -127,7 +125,7 @@ class RoundedElectricCard extends StatelessWidget {
                           child: Image.asset(
                             imageUrl,
                             fit: BoxFit.cover,
-                            height: 120,
+                            height: 100,
                           ),
                         ),
                       ),
