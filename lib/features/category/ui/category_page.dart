@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/category/electronic_page2.dart';
+import 'package:ninecoin/features/category/ui/category_details_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-class ElectronicPage extends StatelessWidget {
-  static Route rout() {
-    return MaterialPageRoute(builder: (context) => const ElectronicPage());
+class CategoryPage extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute(builder: (context) => const CategoryPage());
   }
 
-  const ElectronicPage({Key? key}) : super(key: key);
+  const CategoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -57,14 +57,14 @@ class ElectronicPage extends StatelessWidget {
             const SizedBox(height: 15),
             RoundedElectricCard(
               onTap: () {},
-              imageUrl: Assets.television,
+              imageUrl: Assets.television1,
               title: "Sonyod SDN. BHD.",
               pNumber: "010 - 559 6689",
               location: "No. 12, Jalan Bukit Baru, 75150 Melaka.",
             ),
             RoundedElectricCard(
               onTap: () {
-                Navigator.push(context, ElectronicPage2.rout());
+                Navigator.push(context, CategoryDetailsPage.rout());
               },
               imageUrl: Assets.earphone,
               title: "Yonqed SDN. BHD.",

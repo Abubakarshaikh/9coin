@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-import 'coupon/ui/coupon_page.dart';
+import '../../assets/assets.dart';
+import '../category/ui/category_details_page.dart';
+import '../coupon/ui/coupon_page.dart';
+import 'components/drawn_tile.dart';
+import 'components/draw_item_list.dart';
+import 'components/lucky_drwan_Items.dart';
+import 'components/rounded_draw_card.dart';
 
 class LuckydrawPage extends StatefulWidget {
   const LuckydrawPage({Key? key}) : super(key: key);
@@ -97,8 +103,8 @@ class _LuckydrawPageState extends State<LuckydrawPage> {
               currentPageIndex.value = page;
             },
             children: [
-              ActiveDiscountCopoun(),
-              PurchasedDiscountCopoun(),
+              const DrawItemsList(),
+              const LuckyDrwanItems(),
             ],
           ),
         ),

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/auth/ui/forgot_password_page.dart';
 import 'package:ninecoin/features/auth/ui/signup_page.dart';
 import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import 'package:ninecoin/utilities/dialogs/create_account.dart';
 
 class LoginPage extends StatelessWidget {
   static Route route() {
@@ -82,9 +80,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
                     ElevatedButton(
-                      onPressed: ()  {
-                          Navigator.push(context, HomeView.route());
-                        
+                      onPressed: () {
+                        Navigator.push(context, HomeView.route());
                       },
                       child: const Text(
                         "Login",
@@ -126,9 +123,11 @@ class LoginPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "Don't have an account?",
-                          style: CoinTextStyle.title2,
+                        Flexible(
+                          child: Text(
+                            "Don't have an account?",
+                            style: CoinTextStyle.title2,
+                          ),
                         ),
                         const SizedBox(width: 2),
                         TextButton(
