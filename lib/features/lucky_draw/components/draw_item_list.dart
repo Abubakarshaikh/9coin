@@ -33,7 +33,7 @@ class DrawItemsList extends StatelessWidget {
           onTap: () {
             Navigator.push(context, CategoryDetailsPage.rout());
           },
-          imageUrl: Assets.watch2,
+          imageUrl: Assets.watch,
           title: "Yonqed SDN. BHD.",
           pNumber: "012 - 683 2269",
           location: "2a, Jalan Klebang Jaya 3, 75200 Melaka.",

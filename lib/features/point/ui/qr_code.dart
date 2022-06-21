@@ -3,12 +3,12 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-class QrCodePage extends StatelessWidget {
-  static Route<QrCodePage> route() {
-    return MaterialPageRoute(builder: (context) => const QrCodePage());
+class PointQrCode extends StatelessWidget {
+  static Route<PointQrCode> route() {
+    return MaterialPageRoute(builder: (context) => const PointQrCode());
   }
 
-  const QrCodePage({Key? key}) : super(key: key);
+  const PointQrCode({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

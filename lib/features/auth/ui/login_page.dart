@@ -134,10 +134,12 @@ class LoginPage extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context, SignupPage.route());
                           },
-                          child: Text(
-                            "Sign Up",
-                            style: CoinTextStyle.title2
-                                .copyWith(color: CoinColors.orange),
+                          child: Flexible(
+                            child: Text(
+                              "Sign Up",
+                              style: CoinTextStyle.title2
+                                  .copyWith(color: CoinColors.orange),
+                            ),
                           ),
                         ),
                       ],
