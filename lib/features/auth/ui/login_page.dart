@@ -82,9 +82,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
                     ElevatedButton(
-                      onPressed: ()  {
-                          Navigator.push(context, HomeView.route());
-                        
+                      onPressed: () {
+                        Navigator.push(context, HomeView.route());
                       },
                       child: const Text(
                         "Login",
@@ -126,19 +125,23 @@ class LoginPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          "Don't have an account?",
-                          style: CoinTextStyle.title2,
+                        Flexible(
+                          child: Text(
+                            "Don't have an account?",
+                            style: CoinTextStyle.title2,
+                          ),
                         ),
                         const SizedBox(width: 2),
                         TextButton(
                           onPressed: () {
                             Navigator.push(context, SignupPage.route());
                           },
-                          child: Text(
-                            "Sign Up",
-                            style: CoinTextStyle.title2
-                                .copyWith(color: CoinColors.orange),
+                          child: Flexible(
+                            child: Text(
+                              "Sign Up",
+                              style: CoinTextStyle.title2
+                                  .copyWith(color: CoinColors.orange),
+                            ),
                           ),
                         ),
                       ],

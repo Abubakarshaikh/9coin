@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/point/ui/qr_code.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import '../components/poin_option_card.dart';
 import 'buy_point_package_page.dart';
@@ -38,7 +39,9 @@ class PointPage extends StatelessWidget {
                 ),
                 PointOptionCard(
                   imageUrl: Assets.qrcode,
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context, PointQrCode.route());
+                  },
                   title: "QR Code",
                 ),
                 PointOptionCard(

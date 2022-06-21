@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 import 'package_payment_page.dart';
 
@@ -25,15 +27,21 @@ class PackageBuyPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text("Package 2"),
+                  Text("Package 2",
+                      style: CoinTextStyle.title1
+                          .copyWith(fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 5),
                   const Text(
                       "Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non, venenatis mi."),
+                  const SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       RichText(
-                        text: const TextSpan(
+                        text: TextSpan(
                           text: "20",
+                          style: CoinTextStyle.title1Bold
+                              .copyWith(color: CoinColors.orange),
                           children: [
                             TextSpan(
                               text: "Point",

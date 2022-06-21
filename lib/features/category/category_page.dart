@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/electronic_page.dart';
-import 'package:ninecoin/features/home/components/category_circular_card.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class CategoryPage extends StatefulWidget {

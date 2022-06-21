@@ -147,6 +147,9 @@ class ActiveDiscountCopoun extends StatelessWidget {
 }
 
 class PurchasedDiscountCopoun extends StatelessWidget {
+  static Route route() {
+    return MaterialPageRoute(builder: (context) =>  PurchasedDiscountCopoun());
+  }
   PurchasedDiscountCopoun({Key? key}) : super(key: key);
   final List<String> copouns = [
     Assets.discountCopoun1,
