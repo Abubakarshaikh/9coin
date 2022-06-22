@@ -57,8 +57,6 @@ abstract class Assets {
   static String categories = "assets/pics/categories.jpg";
   static String profile = "assets/pics/profile.jpg";
   static String dyehair = "assets/pics/dye-hair.jpg";
-
   static String television2 = "assets/pics/television.png";
-
   static String iphone = "assets/pics/iphone.png";
 }

@@ -8,6 +8,42 @@ class CoinTextStyle {
     fontWeight: FontWeight.w400,
   );
 
+  static TextStyle get orangeTitle1 {
+    return _baseTextStyle.copyWith(
+      fontSize: 18.0,
+      fontWeight: FontWeight.w400,
+      color: CoinColors.dialogTextColor,
+    );
+  }
+
+  static TextStyle get orangeTitle2 {
+    return _baseTextStyle.copyWith(
+      fontSize: 16.0,
+      color: CoinColors.dialogTextColor,
+    );
+  }
+
+  static TextStyle get orangeTitle3 {
+    return _baseTextStyle.copyWith(
+      fontSize: 14.0,
+      color: CoinColors.dialogTextColor,
+    );
+  }
+
+  static TextStyle get orangeTitle4 {
+    return _baseTextStyle.copyWith(
+      fontSize: 12.0,
+      color: CoinColors.dialogTextColor,
+    );
+  }
+
+  static TextStyle get orangeTitle5 {
+    return _baseTextStyle.copyWith(
+      fontSize: 10.0,
+      color: CoinColors.dialogTextColor,
+    );
+  }
+
   static TextStyle get title1 {
     return _baseTextStyle.copyWith(
       fontSize: 18.0,

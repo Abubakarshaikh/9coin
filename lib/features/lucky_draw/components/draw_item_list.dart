@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
-
-import '../../category/ui/category_details_page.dart';
+import 'package:ninecoin/features/lucky_draw/ui/draw_details_page.dart';
 import 'rounded_draw_card.dart';
 
 class DrawItemsList extends StatelessWidget {
@@ -13,7 +12,7 @@ class DrawItemsList extends StatelessWidget {
       children: [
         RoundedDrawCard(
           onTap: () {
-            Navigator.push(context, CategoryDetailsPage.rout());
+            Navigator.push(context, DrawDetailsPage.route());
           },
           imageUrl: Assets.iphone,
           title: "Yonqed SDN. BHD.",
@@ -22,7 +21,7 @@ class DrawItemsList extends StatelessWidget {
         ),
         RoundedDrawCard(
           onTap: () {
-            Navigator.push(context, CategoryDetailsPage.rout());
+            Navigator.push(context, DrawDetailsPage.route());
           },
           imageUrl: Assets.television2,
           title: "Yonqed SDN. BHD.",
@@ -31,7 +30,7 @@ class DrawItemsList extends StatelessWidget {
         ),
         RoundedDrawCard(
           onTap: () {
-            Navigator.push(context, CategoryDetailsPage.rout());
+            Navigator.push(context, DrawDetailsPage.route());
           },
           imageUrl: Assets.watch,
           title: "Yonqed SDN. BHD.",
