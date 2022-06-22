@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 class RoundedNewsCard extends StatelessWidget {
   final String imageUrl;
@@ -21,9 +22,9 @@ class RoundedNewsCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6.0),
         constraints:
-            const BoxConstraints.expand(height: 260, width: double.infinity),
+            const BoxConstraints.expand(height: 330, width: double.infinity),
         decoration: BoxDecoration(
             color: CoinColors.fullBlack,
             borderRadius: BorderRadius.circular(6)),
@@ -51,9 +52,16 @@ class RoundedNewsCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(date),
-                    Text(title),
-                    Text(desc, overflow: TextOverflow.ellipsis),
+                    Text(date,
+                        style: CoinTextStyle.title4
+                            .copyWith(color: CoinColors.black54)),
+                    Text(
+                      title,
+                      style: CoinTextStyle.title3Bold.copyWith(
+                        color: CoinColors.orange,
+                      ),
+                    ),
+                    Text(desc, style: CoinTextStyle.title5),
                   ],
                 ),
               ),

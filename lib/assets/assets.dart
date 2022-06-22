@@ -30,6 +30,7 @@ abstract class Assets {
   static String updatedDetails = "assets/icons/updated-details.png";
   static String updated = "assets/icons/updated.png";
   static String logout = "assets/icons/logout.png";
+  static String help = "assets/icons/help.png";
   static String help2 = "assets/icons/help_2.png";
   static String information = "assets/icons/information.png";
   static String changePassword = "assets/icons/change-password-pop-up.png";

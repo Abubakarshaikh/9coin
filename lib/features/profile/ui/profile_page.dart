@@ -8,6 +8,10 @@ import 'package:ninecoin/features/profile/ui/lucky_draw_information_page.dart';
 import 'package:ninecoin/features/profile/ui/profile_details_page.dart';
 import 'package:ninecoin/features/profile/ui/qr_code_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/utilities/dialogs/logout_account.dart';
+import 'package:ninecoin/utilities/dialogs/logout_successful.dart';
+import 'package:ninecoin/utilities/dialogs/new_password_reset.dart';
+import 'package:ninecoin/utilities/dialogs/password_reset.dart';
 
 class ProfilePage extends StatelessWidget {
   static Route<ProfilePage> route() {
@@ -71,7 +75,11 @@ class ProfilePage extends StatelessWidget {
           ProfileTile(
             imageUrl: Assets.changePassword2,
             title: "Change Password",
-            onTap: () {},
+            onTap: () async {
+              if (await showResetPasswordDialog(context)) {
+                if (await showNewPasswordResetDialog(context)) {}
+              }
+            },
           ),
           ProfileTile(
             imageUrl: Assets.qrcode,
@@ -98,6 +106,11 @@ class ProfilePage extends StatelessWidget {
             imageUrl: Assets.logout,
             title: "Logout",
             isShowDivider: false,
+            onTap: () async {
+              if (await showLogoutAccountDialog(context)) {
+                if (await showSuccessfulLogoutDialog(context)) {}
+              }
+            },
           ),
         ],
       ),

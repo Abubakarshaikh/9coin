@@ -30,17 +30,7 @@ class NewsPage extends StatelessWidget {
               Navigator.push(context, NewsDetailsPage.route());
             },
             imageUrl: Assets.maximise,
-            date: "23 May 2022",
-            title: "Prices of chicken dishes may go up",
-            desc:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et orci in quam porta condimentum elat...",
-          ),
-          RoundedNewsCard(
-            onTap: () {
-              Navigator.push(context, NewsDetailsPage.route());
-            },
-            imageUrl: Assets.maximise,
-            date: "23 May 2022",
+            date: "19 May 2022",
             title: "Prices of chicken dishes may go up",
             desc:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et orci in quam porta condimentum elat...",

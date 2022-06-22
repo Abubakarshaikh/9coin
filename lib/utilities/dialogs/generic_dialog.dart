@@ -25,7 +25,7 @@ Future<T?> showGenericDialog<T>({
             const SizedBox(height: 8.0),
             Text(
               title,
-              style: CoinTextStyle.title2Bold
+              style: CoinTextStyle.title3Bold
                   .copyWith(color: CoinColors.dialogTextColor),
               textAlign: TextAlign.center,
             ),
@@ -34,7 +34,7 @@ Future<T?> showGenericDialog<T>({
         content: Text(
           content,
           textAlign: TextAlign.center,
-          style: CoinTextStyle.title3,
+          style: CoinTextStyle.title4,
         ),
         actionsAlignment: MainAxisAlignment.center,
         actionsOverflowButtonSpacing: 0,

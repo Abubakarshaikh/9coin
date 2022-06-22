@@ -37,7 +37,7 @@ class EditProfileTile extends StatelessWidget {
               ),
               subtitle: Text(title2, style: CoinTextStyle.title4),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             isShowDivider ? const Divider() : const Opacity(opacity: 0),
           ],
         ),
