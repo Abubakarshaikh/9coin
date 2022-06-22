@@ -31,6 +31,7 @@ abstract class Assets {
   static String updatedDetails = "assets/icons/updated-details.png";
   static String updated = "assets/icons/updated.png";
   static String logout = "assets/icons/logout.png";
+  static String help = "assets/icons/help.png";
   static String help2 = "assets/icons/help_2.png";
   static String information = "assets/icons/information.png";
 
@@ -63,5 +64,4 @@ abstract class Assets {
   static String categories = "assets/pics/categories.jpg";
   static String profile = "assets/pics/profile.jpg";
   static String dyehair = "assets/pics/dye-hair.jpg";
-
 }

@@ -15,28 +15,71 @@ class LuckDrawInformationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Lucky Draw Information"),
+        title: Text(
+          "Lucky Draw Information",
+          style: CoinTextStyle.title2Bold,
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "How To Use a Lucky Draw",
-              style: CoinTextStyle.title1Bold.copyWith(
+              style: CoinTextStyle.title2Bold.copyWith(
                 color: CoinColors.orange,
-                fontWeight: FontWeight.w800,
+                fontWeight: FontWeight.w700,
               ),
             ),
             Text(
               "Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non, venenatis mi.",
-              style: CoinTextStyle.title3.copyWith(
-                fontSize: 13,
-                fontWeight: FontWeight.w400,
+              style: CoinTextStyle.title5.copyWith(
+                fontSize: 11.5,
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 35),
+            Text(
+              "Please follow the steps below to enter the draw :",
+              style: CoinTextStyle.title4Bold.copyWith(
+                color: CoinColors.orange,
+                fontSize: 11.2,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.only(top: 5),
+              height: 250,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                      "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                      style: CoinTextStyle.title4.copyWith(
+                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                  Text(
+                      "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
+                      style: CoinTextStyle.title4.copyWith(
+                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                  Text(
+                      "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
+                      style: CoinTextStyle.title4.copyWith(
+                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                  Text(
+                      "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
+                      style: CoinTextStyle.title4.copyWith(
+                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                  Text(
+                      "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
+                      style: CoinTextStyle.title4.copyWith(
+                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                  Text(
+                      "6. Aliquam erat volutpat. Morbi non condimentum sapien.",
+                      style: CoinTextStyle.title4.copyWith(
+                          fontSize: 10.5, fontWeight: FontWeight.w600))
+                ],
+              ),
+            ),
           ],
         ),
       ),
