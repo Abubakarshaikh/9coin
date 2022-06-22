@@ -302,9 +302,11 @@ class _SignupPageState extends State<SignupPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Already have an account?",
-                        style: CoinTextStyle.title2,
+                      Flexible(
+                        child: Text(
+                          "Already have an account?",
+                          style: CoinTextStyle.title2,
+                        ),
                       ),
                       const SizedBox(width: 2),
                       TextButton(

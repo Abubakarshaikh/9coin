@@ -3,18 +3,18 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-class ElectronicPage2 extends StatefulWidget {
+class CategoryDetailsPage extends StatefulWidget {
   static Route rout() {
-    return MaterialPageRoute(builder: (context) => const ElectronicPage2());
+    return MaterialPageRoute(builder: (context) => const CategoryDetailsPage());
   }
 
-  const ElectronicPage2({Key? key}) : super(key: key);
+  const CategoryDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<ElectronicPage2> createState() => _ElectronicPage2State();
+  State<CategoryDetailsPage> createState() => _CategoryDetailsPageState();
 }
 
-class _ElectronicPage2State extends State<ElectronicPage2> {
+class _CategoryDetailsPageState extends State<CategoryDetailsPage> {
   final ValueNotifier<int> currentPageIndex = ValueNotifier(0);
   final PageController controller = PageController(initialPage: 0);
 

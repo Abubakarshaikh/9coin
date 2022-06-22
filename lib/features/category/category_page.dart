@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/category/electronic_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class CategoryPage extends StatefulWidget {
@@ -24,14 +23,9 @@ class _CategoryPageState extends State<CategoryPage> {
           preferredSize: const Size.fromHeight(145),
           child: AppBar(
             centerTitle: true,
-            title: TextButton(
-              onPressed: () {
-                Navigator.push(context, ElectronicPage.rout());
-              },
-              child: Text(
-                "Categories",
-                style: CoinTextStyle.title2Bold,
-              ),
+            title: Text(
+              "Categories",
+              style: CoinTextStyle.title2Bold,
             ),
             flexibleSpace: Container(
               decoration: BoxDecoration(

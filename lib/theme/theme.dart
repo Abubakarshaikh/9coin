@@ -21,16 +21,16 @@ abstract class AppTheme {
   static get _dividerThemeData {
     return const DividerThemeData(
       color: CoinColors.black26,
-      thickness: 1.3,
+      thickness: 1.6,
     );
   }
 
   static get _dialogTheme {
-    return DialogTheme();
+    return const DialogTheme();
   }
 
   static get _navigationBarThemeData {
-    return NavigationBarThemeData(
+    return const NavigationBarThemeData(
       indicatorColor: CoinColors.transparent,
       backgroundColor: CoinColors.blackMedium2,
       height: 60,
@@ -82,7 +82,7 @@ abstract class AppTheme {
   }
 
   static get _appBarTheme {
-    return AppBarTheme(
+    return const AppBarTheme(
       backgroundColor: CoinColors.black12,
       elevation: 0,
     );

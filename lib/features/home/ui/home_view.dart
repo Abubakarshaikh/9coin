@@ -6,7 +6,7 @@ import 'package:ninecoin/features/home/components/circle_icon.dart';
 import 'package:ninecoin/features/news/ui/news_page.dart';
 import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import '../../coupon/ui/coupon_page.dart';
-import '../../luckydraw_page.dart';
+import '../../lucky_draw/luckydraw_page.dart';
 import '../../notification/notifications_page.dart';
 import '../../point/ui/point_page.dart';
 import '../components/my_bottom_navigation_bar.dart';

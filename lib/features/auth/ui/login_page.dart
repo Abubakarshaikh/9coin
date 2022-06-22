@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/auth/ui/forgot_password_page.dart';
 import 'package:ninecoin/features/auth/ui/signup_page.dart';
 import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import 'package:ninecoin/utilities/dialogs/create_account.dart';
 
 class LoginPage extends StatelessWidget {
   static Route route() {

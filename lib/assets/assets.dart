@@ -13,7 +13,6 @@ abstract class Assets {
   static String chickenRice1 = "assets/pics/chicken-rice-1.jpg";
   static String chickenRice2 = "assets/pics/chicken-rice-2.jpg";
   static String chicken = "assets/pics/chicken.jpg";
-
   static String coupon = "assets/icons/coupon.png";
   static String couponColor = "assets/icons/coupon-color.png";
   static String home = "assets/icons/home.png";
@@ -34,23 +33,19 @@ abstract class Assets {
   static String help = "assets/icons/help.png";
   static String help2 = "assets/icons/help_2.png";
   static String information = "assets/icons/information.png";
-
   static String changePassword = "assets/icons/change-password-pop-up.png";
   static String changePassword2 = "assets/icons/change-password.png";
-
   static String bag = "assets/icons/bag.png";
   static String fashion = "assets/icons/fashion.png";
   static String gaming = "assets/icons/gaming.png";
   static String pet = "assets/icons/pets.png";
   static String voucher = "assets/icons/vouchers.png";
   static String watch = "assets/icons/watches.png";
-  static String television = "assets/pics/television.jpg";
+  static String television1 = "assets/pics/television.jpg";
   static String earphone = "assets/pics/earphone.jpg";
   static String item = "assets/icons/item.png";
-
   static String qrcode = "assets/icons/qrcode.png";
   static String profileqrcode = "assets/pics/qr-code.jpg";
-
   static String redemption = "assets/icons/redemption.png";
   static String hisotry = "assets/icons/hisotry.png";
   static String earphone2 = "assets/pics/earphones-2.jpg";
@@ -60,8 +55,11 @@ abstract class Assets {
   static String gender = "assets/icons/gender.png";
   static String phone = "assets/icons/phone.png";
   static String email = "assets/icons/email.png";
-
   static String categories = "assets/pics/categories.jpg";
   static String profile = "assets/pics/profile.jpg";
   static String dyehair = "assets/pics/dye-hair.jpg";
+
+  static String television2 = "assets/pics/television.png";
+
+  static String iphone = "assets/pics/iphone.png";
 }
