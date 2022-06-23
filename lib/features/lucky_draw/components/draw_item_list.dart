@@ -15,27 +15,27 @@ class DrawItemsList extends StatelessWidget {
             Navigator.push(context, DrawDetailsPage.route());
           },
           imageUrl: Assets.iphone,
-          title: "Yonqed SDN. BHD.",
-          pNumber: "012 - 683 2269",
-          location: "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
+          title: "Imperdiet Ex Non",
+          boxTitle: "Iphone 13 Pro Max 256GB",
+          date: "1/5/2022 - 31/5/2022",
         ),
         RoundedDrawCard(
           onTap: () {
             Navigator.push(context, DrawDetailsPage.route());
           },
           imageUrl: Assets.television2,
-          title: "Yonqed SDN. BHD.",
-          pNumber: "012 - 683 2269",
-          location: "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
+          title: "Imperdiet Ex Non",
+          boxTitle: "Iphone 13 Pro Max 256GB",
+          date: "1/5/2022 - 31/5/2022",
         ),
         RoundedDrawCard(
           onTap: () {
             Navigator.push(context, DrawDetailsPage.route());
           },
-          imageUrl: Assets.watch,
-          title: "Yonqed SDN. BHD.",
-          pNumber: "012 - 683 2269",
-          location: "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
+          imageUrl: Assets.watch2,
+          title: "Imperdiet Ex Non",
+          boxTitle: "Iphone 13 Pro Max 256GB",
+          date: "1/5/2022 - 31/5/2022",
         ),
       ],
     );

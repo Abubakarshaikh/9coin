@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/utilities/dialogs/logout_account.dart';
+import 'package:ninecoin/utilities/dialogs/update_details_dialog.dart';
+import 'package:ninecoin/utilities/dialogs/updated_successful_dialog.dart';
 import 'package:ninecoin/widgets/drop_down_button_with_title.dart';
 import 'package:ninecoin/widgets/text_field_with_title.dart';
 
@@ -144,7 +147,12 @@ class EditProfilePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.fromLTRB(16, 16, 16, 0),
                   child: ElevatedButton(
-                      onPressed: () {}, child: const Text("Update")),
+                      onPressed: () async {
+                        if (await showUpdateDetailsDialog(context)) {
+                          await showUpdatedSuccessfulDialog(context);
+                        }
+                      },
+                      child: const Text("Update")),
                 )
               ],
             ),

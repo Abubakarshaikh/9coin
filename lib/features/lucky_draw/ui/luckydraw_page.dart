@@ -12,91 +12,38 @@ class LuckydrawPage extends StatefulWidget {
   State<LuckydrawPage> createState() => _LuckydrawPageState();
 }
 
-class _LuckydrawPageState extends State<LuckydrawPage> {
-  final ValueNotifier<int> currentPageIndex = ValueNotifier(0);
+class _LuckydrawPageState extends State<LuckydrawPage>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
 
-  final PageController controller = PageController(initialPage: 0);
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    currentPageIndex.value = controller.initialPage;
-
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-          child: ValueListenableBuilder<int>(
-            valueListenable: currentPageIndex,
-            builder: (context, state, widget) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        currentPageIndex.value = 0;
-                        controller.animateToPage(0,
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.easeInOut);
-                      },
-                      child: Column(
-                        children: [
-                          Text("Draw",
-                              style: CoinTextStyle.title2.copyWith(
-                                color: state == 1
-                                    ? CoinColors.black54
-                                    : CoinColors.orange,
-                                fontWeight: FontWeight.w600,
-                              )),
-                          Container(
-                            margin: const EdgeInsets.symmetric(vertical: 12),
-                            height: 2.0,
-                            color: state == 0
-                                ? CoinColors.orange
-                                : CoinColors.transparent,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        currentPageIndex.value = 1;
-                        controller.animateToPage(1,
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.easeInOut);
-                      },
-                      child: Column(
-                        children: [
-                          Text("Drawn",
-                              style: CoinTextStyle.title2.copyWith(
-                                  color: state == 0
-                                      ? CoinColors.black54
-                                      : CoinColors.orange,
-                                  fontWeight: FontWeight.w600)),
-                          Container(
-                            margin: const EdgeInsets.symmetric(vertical: 12),
-                            height: 2.0,
-                            color: state == 1
-                                ? CoinColors.orange
-                                : CoinColors.transparent,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            },
+        Container(
+          color: CoinColors.mediumBlack,
+          child: TabBar(
+            unselectedLabelColor: CoinColors.black54,
+            labelColor: CoinColors.orange,
+            labelStyle: CoinTextStyle.orangeTitle3,
+            tabs: const [
+              Tab(text: 'Draw'),
+              Tab(text: 'Drawn'),
+            ],
+            controller: _tabController,
+            indicatorSize: TabBarIndicatorSize.tab,
+            indicatorColor: CoinColors.orange,
           ),
         ),
-        Flexible(
-          child: PageView(
-            controller: controller,
-            onPageChanged: (int page) {
-              currentPageIndex.value = page;
-            },
+        Expanded(
+          child: TabBarView(
+            controller: _tabController,
             children: const [
               DrawItemsList(),
               LuckyDrwanItems(),
@@ -105,5 +52,11 @@ class _LuckydrawPageState extends State<LuckydrawPage> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 }

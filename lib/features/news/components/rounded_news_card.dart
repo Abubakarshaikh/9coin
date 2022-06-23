@@ -22,9 +22,9 @@ class RoundedNewsCard extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6.0),
+        margin: const EdgeInsets.only(bottom: 16),
         constraints:
-            const BoxConstraints.expand(height: 330, width: double.infinity),
+            const BoxConstraints.expand(height: 268, width: double.infinity),
         decoration: BoxDecoration(
             color: CoinColors.fullBlack,
             borderRadius: BorderRadius.circular(6)),
