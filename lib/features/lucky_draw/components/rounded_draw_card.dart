@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/typography/text_styles.dart';
 
 class RoundedDrawCard extends StatelessWidget {
   final String imageUrl;
   final String title;
-  final String pNumber;
-  final String location;
+  final String boxTitle;
+  final String date;
   final Function() onTap;
   const RoundedDrawCard({
     Key? key,
     required this.imageUrl,
     required this.title,
-    required this.pNumber,
-    required this.location,
     required this.onTap,
+    required this.boxTitle,
+    required this.date,
   }) : super(key: key);
 
   @override
@@ -22,15 +24,15 @@ class RoundedDrawCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        height: 240,
+        height: 260,
         width: double.infinity,
         decoration: BoxDecoration(
-            color: CoinColors.fullBlack,
+            color: CoinColors.mediumBlack,
             borderRadius: BorderRadius.circular(6.0)),
         child: Column(
           children: [
             Expanded(
-              flex: 3,
+              flex: 2,
               child: Row(
                 children: [
                   Expanded(
@@ -53,9 +55,23 @@ class RoundedDrawCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(title),
-                  Text(title),
-                  Text(title),
+                  Text(title, style: CoinTextStyle.orangeTitle2),
+                  const SizedBox(height: 6),
+                  Row(
+                    children: [
+                      Image.asset(Assets.item, height: 14, width: 14),
+                      const SizedBox(width: 12.0),
+                      Text(boxTitle, style: CoinTextStyle.title4),
+                    ],
+                  ),
+                  const SizedBox(width: 2.0),
+                  Row(
+                    children: [
+                      Image.asset(Assets.date, height: 14, width: 14),
+                      const SizedBox(width: 12),
+                      Text(date, style: CoinTextStyle.title4),
+                    ],
+                  ),
                 ],
               ),
             )),

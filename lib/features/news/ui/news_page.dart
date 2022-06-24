@@ -13,6 +13,7 @@ class NewsPage extends StatelessWidget {
     return Container(
       color: CoinColors.black,
       child: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         children: [
           const SizedBox(height: 12),
           RoundedNewsCard(
