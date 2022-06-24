@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-abstract class AppTheme {
-  static get standard {
+class AppTheme {
+  static ThemeData get standard {
     return ThemeData.dark().copyWith(
       dialogBackgroundColor: CoinColors.black12,
       dialogTheme: _dialogTheme,
