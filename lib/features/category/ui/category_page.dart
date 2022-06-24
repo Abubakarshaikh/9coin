@@ -100,8 +100,6 @@ class RoundedElectricCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 25),
-            // margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 22),
             margin: const EdgeInsets.all(15.0),
             height: 240,
             width: 400,
