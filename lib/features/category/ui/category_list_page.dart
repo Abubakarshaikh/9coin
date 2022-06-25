@@ -3,7 +3,6 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/components/cirlce_category_icon.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-
 import 'category_page.dart';
 
 class CategoryListPage extends StatefulWidget {
