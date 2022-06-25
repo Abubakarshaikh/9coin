@@ -5,18 +5,18 @@ import 'package:ninecoin/typography/text_styles.dart';
 import '../components/redeem_list_tile.dart';
 import '../components/redeemed_list_tile.dart';
 
-class RedemtionsPage extends StatefulWidget {
+class RedeemtionsPage extends StatefulWidget {
   static route() {
-    return MaterialPageRoute(builder: (_) => const RedemtionsPage());
+    return MaterialPageRoute(builder: (_) => const RedeemtionsPage());
   }
 
-  const RedemtionsPage({Key? key}) : super(key: key);
+  const RedeemtionsPage({Key? key}) : super(key: key);
 
   @override
-  State<RedemtionsPage> createState() => _RedemtionsPageState();
+  State<RedeemtionsPage> createState() => _RedeemtionsPageState();
 }
 
-class _RedemtionsPageState extends State<RedemtionsPage>
+class _RedeemtionsPageState extends State<RedeemtionsPage>
     with SingleTickerProviderStateMixin {
   late final TabController _tabController;
 

@@ -14,99 +14,46 @@ class CouponPage extends StatefulWidget {
   State<CouponPage> createState() => _CouponPageState();
 }
 
-class _CouponPageState extends State<CouponPage> {
-  final ValueNotifier<int> currentPageIndex = ValueNotifier(0);
-  final PageController controller = PageController(initialPage: 0);
+class _CouponPageState extends State<CouponPage>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    _tabController = TabController(length: 2, vsync: this);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    currentPageIndex.value = controller.initialPage;
     return Column(
       children: [
         Container(
-          color: CoinColors.fullBlack,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          color: CoinColors.mediumBlack,
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           child: const TextField(
             decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search, color: CoinColors.black54),
+              prefixIcon: Icon(Icons.search),
               hintText: "Search",
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-          child: ValueListenableBuilder<int>(
-            valueListenable: currentPageIndex,
-            builder: (context, state, widget) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        currentPageIndex.value = 0;
-                        controller.animateToPage(0,
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.easeInOut);
-                      },
-                      child: Column(
-                        children: [
-                          Text("Active",
-                              style: CoinTextStyle.title2.copyWith(
-                                color: state == 1
-                                    ? CoinColors.black54
-                                    : CoinColors.orange,
-                                fontWeight: FontWeight.w600,
-                              )),
-                          Container(
-                            margin: const EdgeInsets.symmetric(vertical: 12),
-                            height: 2.0,
-                            color: state == 0
-                                ? CoinColors.orange
-                                : CoinColors.transparent,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: InkWell(
-                      onTap: () {
-                        currentPageIndex.value = 1;
-                        controller.animateToPage(1,
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.easeInOut);
-                      },
-                      child: Column(
-                        children: [
-                          Text("Purchased",
-                              style: CoinTextStyle.title2.copyWith(
-                                  color: state == 0
-                                      ? CoinColors.black54
-                                      : CoinColors.orange,
-                                  fontWeight: FontWeight.w600)),
-                          Container(
-                            margin: const EdgeInsets.symmetric(vertical: 12),
-                            height: 2.0,
-                            color: state == 1
-                                ? CoinColors.orange
-                                : CoinColors.transparent,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
+        TabBar(
+          padding: EdgeInsets.only(bottom: 12),
+          unselectedLabelColor: CoinColors.black54,
+          labelColor: CoinColors.orange,
+          labelStyle: CoinTextStyle.orangeTitle3,
+          tabs: const [
+            Tab(text: 'Active'),
+            Tab(text: 'Purchased'),
+          ],
+          controller: _tabController,
+          indicatorSize: TabBarIndicatorSize.tab,
+          indicatorColor: CoinColors.orange,
         ),
-        Flexible(
-          child: PageView(
-            controller: controller,
-            onPageChanged: (int page) {
-              currentPageIndex.value = page;
-            },
+        Expanded(
+          child: TabBarView(
+            controller: _tabController,
             children: [
               ActiveDiscountCopoun(),
               PurchasedDiscountCopoun(),
@@ -115,6 +62,12 @@ class _CouponPageState extends State<CouponPage> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 }
 
@@ -148,8 +101,9 @@ class ActiveDiscountCopoun extends StatelessWidget {
 
 class PurchasedDiscountCopoun extends StatelessWidget {
   static Route route() {
-    return MaterialPageRoute(builder: (context) =>  PurchasedDiscountCopoun());
+    return MaterialPageRoute(builder: (context) => PurchasedDiscountCopoun());
   }
+
   PurchasedDiscountCopoun({Key? key}) : super(key: key);
   final List<String> copouns = [
     Assets.discountCopoun1,
@@ -176,3 +130,89 @@ class PurchasedDiscountCopoun extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+//  Container(
+//           color: CoinColors.fullBlack,
+//           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+//           child: const TextField(
+//             decoration: InputDecoration(
+//               prefixIcon: Icon(Icons.search, color: CoinColors.black54),
+//               hintText: "Search",
+//             ),
+//           ),
+//         ),
+//         Padding(
+//           padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+//           child: ValueListenableBuilder<int>(
+//             valueListenable: currentPageIndex,
+//             builder: (context, state, widget) {
+//               return Row(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: [
+//                   Expanded(
+//                     child: InkWell(
+//                       onTap: () {
+//                         currentPageIndex.value = 0;
+//                         controller.animateToPage(0,
+//                             duration: const Duration(milliseconds: 400),
+//                             curve: Curves.easeInOut);
+//                       },
+//                       child: Column(
+//                         children: [
+//                           Text("Active",
+//                               style: CoinTextStyle.title2.copyWith(
+//                                 color: state == 1
+//                                     ? CoinColors.black54
+//                                     : CoinColors.orange,
+//                                 fontWeight: FontWeight.w600,
+//                               )),
+//                           Container(
+//                             margin: const EdgeInsets.symmetric(vertical: 12),
+//                             height: 2.0,
+//                             color: state == 0
+//                                 ? CoinColors.orange
+//                                 : CoinColors.transparent,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                   Expanded(
+//                     child: InkWell(
+//                       onTap: () {
+//                         currentPageIndex.value = 1;
+//                         controller.animateToPage(1,
+//                             duration: const Duration(milliseconds: 400),
+//                             curve: Curves.easeInOut);
+//                       },
+//                       child: Column(
+//                         children: [
+//                           Text("Purchased",
+//                               style: CoinTextStyle.title2.copyWith(
+//                                   color: state == 0
+//                                       ? CoinColors.black54
+//                                       : CoinColors.orange,
+//                                   fontWeight: FontWeight.w600)),
+//                           Container(
+//                             margin: const EdgeInsets.symmetric(vertical: 12),
+//                             height: 2.0,
+//                             color: state == 1
+//                                 ? CoinColors.orange
+//                                 : CoinColors.transparent,
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               );
+//             },
+//           ),
+//         ),

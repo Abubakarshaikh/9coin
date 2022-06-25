@@ -42,12 +42,10 @@ abstract class Assets {
   static String voucher = "assets/icons/vouchers.png";
   static String watch = "assets/icons/watches.png";
   static String watch2 = "assets/pics/watch.jpg";
-
   static String television1 = "assets/pics/television.jpg";
   static String earphone = "assets/pics/earphone.jpg";
   static String item = "assets/icons/item.png";
   static String date = "assets/icons/date.png";
-
   static String qrcode = "assets/icons/qrcode.png";
   static String profileqrcode = "assets/pics/qr-code.jpg";
   static String redemption = "assets/icons/redemption.png";
@@ -65,10 +63,10 @@ abstract class Assets {
   static String television2 = "assets/pics/television.png";
   static String iphone = "assets/pics/iphone.png";
   static String foundation = "assets/pics/foundation.jpg";
-
   static String shop = "assets/icons/shop.png";
   static String address = "assets/icons/address.png";
-
-  //
-
+  static String redeem = "assets/icons/redeem.png";
+  static String pfx = "assets/icons/pfx.png";
+  static String paymentSuccessful = "assets/icons/payment-successful.png";
+  static String luckyDrawPopUp = "assets/pics/lucky-draw-pop-up.png";
 }

@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/home/components/circle_icon.dart';
@@ -12,13 +13,18 @@ import '../../point/ui/point_page.dart';
 import '../components/my_bottom_navigation_bar.dart';
 import 'home_page.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   static Route route() {
     return MaterialPageRoute(builder: (context) => HomeView());
   }
 
   HomeView({Key? key}) : super(key: key);
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   final ValueNotifier<int> _valueNotifier = ValueNotifier(0);
 
   final List<Widget> _screens = const [
@@ -28,6 +34,35 @@ class HomeView extends StatelessWidget {
     LuckydrawPage(),
     NewsPage(),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await showDialog<String>(
+        context: context,
+        builder: (BuildContext context) => AlertDialog(
+          backgroundColor: CoinColors.transparent,
+          title: Image.asset(Assets.luckyDrawPopUp),
+          contentPadding: const EdgeInsets.symmetric(vertical: 6.0),
+          content: Container(
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: CoinColors.white, width: 1.6),
+            ),
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.close, color: CoinColors.white),
+            ),
+          ),
+          alignment: Alignment.center,
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

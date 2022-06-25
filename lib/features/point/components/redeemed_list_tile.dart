@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/point/ui/redeemed_card_details_page.dart';
 
-import 'redemptions_card.dart';
+import 'redeemptions_card.dart';
 
 class RedeemedListTile extends StatelessWidget {
   const RedeemedListTile({
@@ -14,14 +14,20 @@ class RedeemedListTile extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       children: [
-        RedemptionsCard(
-            title: "Foundation",
-            buttonText: "Use",
-            buttonColor: CoinColors.blue),
-        RedemptionsCard(
-            title: "Snacks",
-            buttonText: "Used",
-            buttonColor: CoinColors.black54),
+        RedeemptionsCard(
+          title: "Foundation",
+          buttonText: "Use",
+          buttonColor: CoinColors.blue,
+          onTap: () {
+            Navigator.push(context, RedeemedCardDetailsPage.route());
+          },
+        ),
+        const RedeemptionsCard(
+          title: "Snacks",
+          buttonText: "Used",
+          buttonColor: CoinColors.black54,
+          
+        ),
       ],
     );
   }

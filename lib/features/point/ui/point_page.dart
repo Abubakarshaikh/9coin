@@ -3,10 +3,10 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/point/ui/qr_code.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import '../components/poin_option_card.dart';
+import '../components/point_option_card.dart';
 import 'buy_point_package_page.dart';
 import 'point_history_page.dart';
-import 'redemtions_page.dart';
+import 'redeemtions_page.dart';
 
 class PointPage extends StatelessWidget {
   const PointPage({Key? key}) : super(key: key);
@@ -49,7 +49,7 @@ class PointPage extends StatelessWidget {
                 PointOptionCard(
                   imageUrl: Assets.redemption,
                   onTap: () {
-                    Navigator.push(context, RedemtionsPage.route());
+                    Navigator.push(context, RedeemtionsPage.route());
                   },
                   title: "Redemtions",
                 ),

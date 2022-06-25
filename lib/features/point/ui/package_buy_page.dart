@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/point/ui/package_payment_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-
-import 'package_payment_page.dart';
+import 'package:ninecoin/utilities/dialogs/payment_successful_dialog.dart';
 
 class PackageBuyPage extends StatelessWidget {
   static route() {
@@ -19,7 +21,7 @@ class PackageBuyPage extends StatelessWidget {
         title: const Text("Package 2"),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 36),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -27,60 +29,65 @@ class PackageBuyPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Package 2",
-                      style: CoinTextStyle.title1
-                          .copyWith(fontWeight: FontWeight.bold)),
-                  const SizedBox(height: 5),
-                  const Text(
-                      "Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non, venenatis mi."),
-                  const SizedBox(height: 10),
+                  Text("Package 2", style: CoinTextStyle.title3),
+                  const SizedBox(height: 3.0),
+                  Text('''Mauris non ligula tempus, lacinia velit a, aliquam
+metus. Nulla at sapien scelerisque, imperdiet ex non,
+venenatis mi.''', style: CoinTextStyle.title4),
+                  const SizedBox(height: 18.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       RichText(
                         text: TextSpan(
                           text: "20",
-                          style: CoinTextStyle.title1Bold
-                              .copyWith(color: CoinColors.orange),
+                          style:
+                              CoinTextStyle.orangeTitle1.copyWith(fontSize: 26),
                           children: [
                             TextSpan(
-                              text: "Point",
+                              text: " Point",
+                              style: CoinTextStyle.title2,
                             ),
                           ],
                         ),
                       ),
                       RichText(
-                        text: const TextSpan(
-                          text: "Total",
+                        text: TextSpan(
+                          text: "Total :",
+                          style: CoinTextStyle.title2,
                           children: [
                             TextSpan(
-                              text: "RM 65",
+                              text: " RM 65",
+                              style: CoinTextStyle.orangeTitle1
+                                  .copyWith(fontSize: 26),
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 24),
-                    child: Divider(thickness: 1.8),
-                  ),
-                  const Text("Term and Condition"),
-                  const Text(
-                      '''1. Lorem ipsum dolor sit amet, consectetur adipiscing
-elit \n2. Proin et orci in quam porta condimentum. Mauris
-non ligula tempus, lacinia velit a, aliquam metus \n3.  Nulla atone sapien scelerisque, imperdiet exq non,
-venenatis mi \n4. ullam arcu leo, blandit nec consequat vel, molestie
-et sem \n5. Praesent pretium erat at nulla euismod, a rutrum elit
-blandit. Etiam nec aliquam metus.'''),
+                  const SizedBox(height: 24),
+                  const Divider(),
+                  const SizedBox(height: 24),
+                  Text("Term and Condition",
+                      style: CoinTextStyle.title3Bold
+                          .copyWith(color: CoinColors.dialogTextColor)),
+                  const SizedBox(height: 6.0),
+                  Text('''1. Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. \n\n2. Proin et orci in quam porta condimentum. Mauris
+non ligula tempus, lacinia velit a, aliquam metus \n\n3. Nulla atone sapien scelerisque, imperdiet exq non,
+venenatis mi. \n\n4. Nullam arcu leo, blandit nec consequat vel, molestie
+et sem.\n\n5. Praesent pretium erat at nulla euismod, a rutrum elit
+blandit. Etiam nec aliquam metus.''', style: CoinTextStyle.title4),
                 ],
               ),
             ),
             ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context, PackagePaymentPage.route());
-                },
-                child: const Text("Buy"))
+              onPressed: () async {
+                Navigator.push(context, PackagePaymentPage.route());
+              },
+              child: const Text("Pay"),
+            ),
           ],
         ),
       ),

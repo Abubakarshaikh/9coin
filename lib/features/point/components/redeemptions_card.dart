@@ -3,15 +3,17 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-class RedemptionsCard extends StatelessWidget {
+class RedeemptionsCard extends StatelessWidget {
   final String title;
   final Color buttonColor;
   final String buttonText;
-  const RedemptionsCard({
+  final Function()? onTap;
+  const RedeemptionsCard({
     Key? key,
     required this.title,
     this.buttonText = "Redeem",
     this.buttonColor = CoinColors.dialogTextColor,
+    this.onTap,
   }) : super(key: key);
 
   @override
@@ -74,15 +76,18 @@ class RedemptionsCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                        alignment: Alignment.center,
-                        width: 75,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          color: buttonColor,
-                          borderRadius: BorderRadius.circular(6.0),
+                      InkWell(
+                        onTap: onTap,
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 75,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            color: buttonColor,
+                            borderRadius: BorderRadius.circular(6.0),
+                          ),
+                          child: Text(buttonText),
                         ),
-                        child: Text(buttonText),
                       ),
                     ],
                   ),
