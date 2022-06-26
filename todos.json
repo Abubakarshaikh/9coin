@@ -1,0 +1,24 @@
+{
+    "Features": [
+        {
+            "Point": {
+                "history": {
+                    "Top Up Transaction": false,
+                    "Pruchase History": false
+                }
+            }
+        },
+        {
+            "Lucky Draw": {
+                "Draw": {
+                    "Draw Details": false,
+                    "Lucky Draw Information": false
+                },
+                "Drawn": {
+                    "Drawn Details": false,
+                    "3 more same screen": false
+                }
+            }
+        }
+    ]
+}
