@@ -14,7 +14,7 @@ class TranctionDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("24/4/2022"),
+        title: const Text("28/4/2022"),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(16, 24, 16, 36),
@@ -23,9 +23,9 @@ class TranctionDetailsPage extends StatelessWidget {
           children: [
             Text("Package 2", style: CoinTextStyle.title3),
             const SizedBox(height: 3.0),
-            Text('''Mauris non ligula tempus, lacinia velit a, aliquam
-metus. Nulla at sapien scelerisque, imperdiet ex non,
-venenatis mi.''', style: CoinTextStyle.title4),
+            Text(
+                '''Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non,venenatis mi.''',
+                style: CoinTextStyle.title4),
             const SizedBox(height: 20),
             const Divider(),
             const SizedBox(height: 15),
@@ -40,7 +40,7 @@ venenatis mi.''', style: CoinTextStyle.title4),
                       height: 22, width: 56, fit: BoxFit.cover),
                 ),
                 const SizedBox(width: 15),
-                Text("Online Banking Payment", style: CoinTextStyle.title3Bold),
+                Text("Online Banking Payment", style: CoinTextStyle.title3),
               ],
             ),
             const SizedBox(height: 15),
@@ -52,11 +52,11 @@ venenatis mi.''', style: CoinTextStyle.title4),
                 RichText(
                   text: TextSpan(
                     text: "20",
-                    style: CoinTextStyle.orangeTitle1.copyWith(fontSize: 26),
+                    style: CoinTextStyle.orangeTitle1.copyWith(fontSize: 30),
                     children: [
                       TextSpan(
                         text: " Point",
-                        style: CoinTextStyle.title2,
+                        style: CoinTextStyle.title1,
                       ),
                     ],
                   ),
@@ -68,8 +68,8 @@ venenatis mi.''', style: CoinTextStyle.title4),
                     children: [
                       TextSpan(
                         text: " RM 65",
-                        style:
-                            CoinTextStyle.orangeTitle1.copyWith(fontSize: 26),
+                        style: CoinTextStyle.orangeTitle1.copyWith(
+                            fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                     ],
                   ),

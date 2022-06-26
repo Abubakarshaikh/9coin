@@ -8,7 +8,7 @@ import 'package:ninecoin/features/news/ui/news_page.dart';
 import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import '../../coupon/ui/coupon_page.dart';
 import '../../lucky_draw/ui/luckydraw_page.dart';
-import '../../notification/notifications_page.dart';
+import '../../notification/ui/notifications_page.dart';
 import '../../point/ui/point_page.dart';
 import '../components/my_bottom_navigation_bar.dart';
 import 'home_page.dart';

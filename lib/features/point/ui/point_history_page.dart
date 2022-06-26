@@ -37,17 +37,20 @@ class _PointHistoryPageState extends State<PointHistoryPage>
           ),
           body: Column(
             children: [
-              TabBar(
-                unselectedLabelColor: CoinColors.black54,
-                labelColor: CoinColors.orange,
-                labelStyle: CoinTextStyle.orangeTitle4,
-                tabs: const [
-                  Tab(text: 'Top Up Transaction'),
-                  Tab(text: 'Pruchase History'),
-                ],
-                controller: _tabController,
-                indicatorSize: TabBarIndicatorSize.tab,
-                indicatorColor: CoinColors.orange,
+              Container(
+                color: CoinColors.mediumBlack,
+                child: TabBar(
+                  unselectedLabelColor: CoinColors.black54,
+                  labelColor: CoinColors.orange,
+                  labelStyle: CoinTextStyle.orangeTitle4,
+                  tabs: const [
+                    Tab(text: 'Top Up Transaction'),
+                    Tab(text: 'Pruchase History'),
+                  ],
+                  controller: _tabController,
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorColor: CoinColors.orange,
+                ),
               ),
               Expanded(
                 child: TabBarView(
