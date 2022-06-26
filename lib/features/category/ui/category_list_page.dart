@@ -32,6 +32,7 @@ class _CategoryListPageState extends State<CategoryListPage> {
             flexibleSpace: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
+                  
                   fit: BoxFit.cover,
                   image: AssetImage(Assets.categories),
                 ),
@@ -40,6 +41,7 @@ class _CategoryListPageState extends State<CategoryListPage> {
           ),
         ),
         body: GridView(
+          padding: const EdgeInsets.only(top: 26),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4,
             childAspectRatio: 0.9,
