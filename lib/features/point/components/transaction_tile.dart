@@ -22,38 +22,39 @@ class TransactionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ListTile(
-            leading: Text(date),
-            title: Text(packageNum, style: CoinTextStyle.title3),
-            subtitle: RichText(
-              text: TextSpan(
-                style: CoinTextStyle.title2Bold.copyWith(
-                  color: CoinColors.dialogTextColor,
-                  height: 1,
-                ),
-                text: "$point",
-                children: [
-                  const TextSpan(
-                    text: " ",
-                  ),
-                  TextSpan(
-                    style: CoinTextStyle.title3,
-                    text: "Point",
-                  ),
-                ],
-              ),
-            ),
-            trailing: Text(pointDetail, style: CoinTextStyle.orangeTitle2),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        ListTile(
+          onTap: onTap,
+          leading: Text(
+            date,
+            style: CoinTextStyle.title3.copyWith(height: 1.6),
           ),
-          const SizedBox(height: 8),
-          isShowDivider ? const Divider() : const Opacity(opacity: 0),
-        ],
-      ),
+          title: Text(packageNum, style: CoinTextStyle.title3),
+          subtitle: RichText(
+            text: TextSpan(
+              style: CoinTextStyle.title2Bold.copyWith(
+                color: CoinColors.dialogTextColor,
+                height: 1,
+              ),
+              text: "$point",
+              children: [
+                const TextSpan(
+                  text: " ",
+                ),
+                TextSpan(
+                  style: CoinTextStyle.title3,
+                  text: "Point",
+                ),
+              ],
+            ),
+          ),
+          trailing: Text(pointDetail, style: CoinTextStyle.orangeTitle2),
+        ),
+        const SizedBox(height: 8),
+        isShowDivider ? const Divider() : const Opacity(opacity: 0),
+      ],
     );
   }
 }

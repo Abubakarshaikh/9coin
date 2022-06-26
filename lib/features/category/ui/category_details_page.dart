@@ -27,17 +27,27 @@ class _CategoryDetailsPageState extends State<CategoryDetailsPage> {
           preferredSize: const Size.fromHeight(145),
           child: AppBar(
             centerTitle: true,
-            title: Text(
-              "Yonqed SDN. BHD.",
-              style: CoinTextStyle.title2Bold,
-            ),
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(Assets.earphone),
+            title: const Text("Yonqed SDN. BHD."),
+            flexibleSpace: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(Assets.earphone),
+                    ),
+                  ),
                 ),
-              ),
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  top: 0,
+                  child: Container(
+                    color: CoinColors.fullBlack.withOpacity(0.6),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -171,9 +181,7 @@ class ProductDetails extends StatelessWidget {
                 Text(
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit .Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non.",
                   textAlign: TextAlign.left,
-                  style: CoinTextStyle.title5.copyWith(
-                    fontSize: 10.5,
-                  ),
+                  style: CoinTextStyle.title3,
                 ),
               ],
             ),

@@ -82,7 +82,8 @@ class AppTheme {
   }
 
   static get _appBarTheme {
-    return const AppBarTheme(
+    return AppBarTheme(
+      titleTextStyle: CoinTextStyle.title1Bold,
       backgroundColor: CoinColors.black12,
       elevation: 0,
     );

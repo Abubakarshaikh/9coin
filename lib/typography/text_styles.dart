@@ -61,7 +61,7 @@ class CoinTextStyle {
 
   static TextStyle get title3 {
     return _baseTextStyle.copyWith(
-      fontSize: 14.0,
+      fontSize: 13.5,
     );
   }
 

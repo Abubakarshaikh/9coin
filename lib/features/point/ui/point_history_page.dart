@@ -42,7 +42,7 @@ class _PointHistoryPageState extends State<PointHistoryPage>
                 child: TabBar(
                   unselectedLabelColor: CoinColors.black54,
                   labelColor: CoinColors.orange,
-                  labelStyle: CoinTextStyle.orangeTitle4,
+                  labelStyle: CoinTextStyle.orangeTitle3,
                   tabs: const [
                     Tab(text: 'Top Up Transaction'),
                     Tab(text: 'Pruchase History'),

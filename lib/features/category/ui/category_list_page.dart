@@ -29,14 +29,27 @@ class _CategoryListPageState extends State<CategoryListPage> {
               "Categories",
               style: CoinTextStyle.title2Bold,
             ),
-            flexibleSpace: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  
-                  fit: BoxFit.cover,
-                  image: AssetImage(Assets.categories),
+            flexibleSpace: Stack(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(Assets.categories),
+                    ),
+                  ),
                 ),
-              ),
+                Positioned(
+                  bottom: 0,
+                  top: 0,
+                  right: 0,
+                  left: 0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: CoinColors.fullBlack.withOpacity(0.5)),
+                  ),
+                ),
+              ],
             ),
           ),
         ),
