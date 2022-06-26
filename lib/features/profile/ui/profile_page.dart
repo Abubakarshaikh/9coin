@@ -4,7 +4,6 @@ import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/profile/components/profile_circular_picture.dart';
 import 'package:ninecoin/features/profile/components/profile_tile.dart';
 import 'package:ninecoin/features/profile/ui/helps_page.dart';
-import 'package:ninecoin/features/profile/ui/lucky_draw_information_page.dart';
 import 'package:ninecoin/features/profile/ui/profile_details_page.dart';
 import 'package:ninecoin/features/profile/ui/qr_code_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
@@ -12,6 +11,7 @@ import 'package:ninecoin/utilities/dialogs/logout_account.dart';
 import 'package:ninecoin/utilities/dialogs/logout_successful.dart';
 import 'package:ninecoin/utilities/dialogs/new_password_reset.dart';
 import 'package:ninecoin/utilities/dialogs/password_reset.dart';
+import 'package:ninecoin/widgets/lucky_draw_information_page.dart';
 
 class ProfilePage extends StatelessWidget {
   static Route<ProfilePage> route() {

@@ -34,17 +34,12 @@ class LuckDrawInformationPage extends StatelessWidget {
             ),
             Text(
               "Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non, venenatis mi.",
-              style: CoinTextStyle.title5.copyWith(
-                fontSize: 11.5,
-              ),
+              style: CoinTextStyle.title3,
             ),
             const SizedBox(height: 35),
             Text(
               "Please follow the steps below to enter the draw :",
-              style: CoinTextStyle.title4Bold.copyWith(
-                color: CoinColors.orange,
-                fontSize: 11.2,
-              ),
+              style: CoinTextStyle.orangeTitle3,
             ),
             Container(
               padding: const EdgeInsets.only(top: 5),
@@ -55,28 +50,22 @@ class LuckDrawInformationPage extends StatelessWidget {
                 children: [
                   Text(
                       "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                      style: CoinTextStyle.title4.copyWith(
-                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                      style: CoinTextStyle.title4),
                   Text(
                       "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
-                      style: CoinTextStyle.title4.copyWith(
-                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                      style: CoinTextStyle.title4),
                   Text(
                       "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
-                      style: CoinTextStyle.title4.copyWith(
-                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                      style: CoinTextStyle.title4),
                   Text(
                       "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
-                      style: CoinTextStyle.title4.copyWith(
-                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                      style: CoinTextStyle.title4),
                   Text(
                       "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
-                      style: CoinTextStyle.title4.copyWith(
-                          fontSize: 10.5, fontWeight: FontWeight.w600)),
+                      style: CoinTextStyle.title4),
                   Text(
                       "6. Aliquam erat volutpat. Morbi non condimentum sapien.",
-                      style: CoinTextStyle.title4.copyWith(
-                          fontSize: 10.5, fontWeight: FontWeight.w600))
+                      style: CoinTextStyle.title4)
                 ],
               ),
             ),
