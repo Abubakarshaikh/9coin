@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-
 class TransactionTile extends StatelessWidget {
   final Function()? onTap;
   final String date;
@@ -33,7 +32,7 @@ class TransactionTile extends StatelessWidget {
             title: Text(packageNum, style: CoinTextStyle.title3),
             subtitle: RichText(
               text: TextSpan(
-                style: CoinTextStyle.title3Bold.copyWith(
+                style: CoinTextStyle.title2Bold.copyWith(
                   color: CoinColors.dialogTextColor,
                   height: 1,
                 ),
