@@ -66,6 +66,7 @@ abstract class Assets {
   static String shop = "assets/icons/shop.png";
   static String address = "assets/icons/address.png";
   static String redeem = "assets/icons/redeem.png";
+  static String download = "assets/icons/download.png";
   static String pfx = "assets/icons/pfx.png";
   static String paymentSuccessful = "assets/icons/payment-successful.png";
   static String luckyDrawPopUp = "assets/pics/lucky-draw-pop-up.png";

@@ -115,7 +115,7 @@ class PurchasedCouponDetails extends StatelessWidget {
                             style: TextStyle(
                                 decorationThickness: 2,
                                 decoration: TextDecoration.lineThrough,
-                                fontSize: 40,
+                                fontSize: 35,
                                 color: CoinColors.orange,
                                 fontWeight: FontWeight.w500),
                           ),
