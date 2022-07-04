@@ -30,10 +30,10 @@ class AppTheme {
   }
 
   static get _navigationBarThemeData {
-    return const NavigationBarThemeData(
+    return NavigationBarThemeData(
+      labelTextStyle: MaterialStateProperty.all(CoinTextStyle.title4),
       indicatorColor: CoinColors.transparent,
       backgroundColor: CoinColors.blackMedium2,
-      height: 60,
     );
   }
 

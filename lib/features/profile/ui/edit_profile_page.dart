@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import 'package:ninecoin/utilities/dialogs/logout_account.dart';
 import 'package:ninecoin/utilities/dialogs/update_details_dialog.dart';
 import 'package:ninecoin/utilities/dialogs/updated_successful_dialog.dart';
 import 'package:ninecoin/widgets/drop_down_button_with_title.dart';
@@ -52,50 +51,7 @@ class EditProfilePage extends StatelessWidget {
                   title: "Contact Number",
                   hintText: "010 599 6883",
                 ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(24, 4, 16, 0),
-                  child: Row(
-                    children: [
-                      Text("Gender", style: CoinTextStyle.orangeTitle3),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(24, 0, 0, 0),
-                        child: Row(
-                          children: [
-                            Transform.scale(
-                              scale: 1.2,
-                              child: Radio(
-                                activeColor: CoinColors.orange,
-                                value: Gender.male,
-                                groupValue: selectedGender,
-                                onChanged: (state) {},
-                              ),
-                            ),
-                            Text(
-                              "Male",
-                              style: CoinTextStyle.title3
-                                  .copyWith(color: CoinColors.black54),
-                            ),
-                            Transform.scale(
-                              scale: 1.2,
-                              child: Radio(
-                                activeColor: CoinColors.orange,
-                                focusColor: CoinColors.orange,
-                                value: Gender.female,
-                                groupValue: selectedGender,
-                                onChanged: (state) {},
-                              ),
-                            ),
-                            Text(
-                              "Female",
-                              style: CoinTextStyle.title3
-                                  .copyWith(color: CoinColors.black54),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const _InputGender(),
                 const TextFieldWithTitle(
                   title: "Address",
                   hintText: "No. 560, Taman University 6",
@@ -104,21 +60,9 @@ class EditProfilePage extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
                   child: Row(
                     children: [
-                      DropDownButtonWithTitle(
-                        title: "City",
-                        items: cities,
-                        hintText: "City",
-                        value: null,
-                        onChanged: (state) {},
-                      ),
+                      _InputCity(),
                       const SizedBox(width: 10),
-                      DropDownButtonWithTitle(
-                        title: "State",
-                        items: states,
-                        hintText: "State",
-                        value: null,
-                        onChanged: (state) {},
-                      ),
+                      _InputState(),
                     ],
                   ),
                 ),
@@ -126,21 +70,9 @@ class EditProfilePage extends StatelessWidget {
                   padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
                   child: Row(
                     children: [
-                      DropDownButtonWithTitle(
-                        title: "Post Code",
-                        items: postalCodes,
-                        hintText: "PostCode",
-                        value: null,
-                        onChanged: (state) {},
-                      ),
+                      _InputPostCode(),
                       const SizedBox(width: 10),
-                      DropDownButtonWithTitle(
-                        title: "Country",
-                        items: countries,
-                        hintText: "Country",
-                        value: null,
-                        onChanged: (state) {},
-                      ),
+                      _InputCountry(),
                     ],
                   ),
                 ),
@@ -161,14 +93,6 @@ class EditProfilePage extends StatelessWidget {
       ),
     );
   }
-
-  final List<String> cities = ["1", "2", "3"];
-  final List<String> states = ["1", "2", "3"];
-
-  final List<String> postalCodes = ["1", "2", "3"];
-  final List<String> countries = ["1", "2", "3"];
-
-  final Gender selectedGender = Gender.male;
 
   imagePickerFromBottom(BuildContext context) {
     showModalBottomSheet(
@@ -220,4 +144,347 @@ class EditProfilePage extends StatelessWidget {
   }
 }
 
-enum Gender { male, female }
+class _InputCountry extends StatefulWidget {
+  const _InputCountry({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputCountry> createState() => _InputCountryState();
+}
+
+class _InputCountryState extends State<_InputCountry> {
+  List<String> countries = ["America", "Dubai", "Malasia"];
+
+  String? selectCountry = "America";
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 6.0, bottom: 4.0),
+            child: Text("Country", style: CoinTextStyle.orangeTitle3),
+          ),
+          Container(
+            height: 48,
+            decoration: BoxDecoration(
+                color: CoinColors.black12,
+                border: Border.all(color: CoinColors.black12),
+                borderRadius: BorderRadius.circular(8.0)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton(
+                dropdownColor: CoinColors.black12,
+                borderRadius: BorderRadius.circular(12),
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.grey[700],
+                ),
+                hint: Text(
+                  "Select Country",
+                  style:
+                      CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+                ),
+                isExpanded: true,
+                iconSize: 36,
+                value: selectCountry,
+                underline: const SizedBox(),
+                onChanged: (String? state) {
+                  setState(() {
+                    selectCountry = state;
+                  });
+                },
+                items: List.generate(
+                  countries.length,
+                  (index) {
+                    return DropdownMenuItem(
+                        value: countries[index], child: Text(countries[index]));
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InputPostCode extends StatefulWidget {
+  const _InputPostCode({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputPostCode> createState() => _InputPostCodeState();
+}
+
+class _InputPostCodeState extends State<_InputPostCode> {
+  final List<int> postalCodes = [1111, 2222, 33335, 555];
+  int? selectedPostCode = 1111;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 6.0, bottom: 4.0),
+            child: Text("Post Code", style: CoinTextStyle.orangeTitle3),
+          ),
+          Container(
+            height: 48,
+            decoration: BoxDecoration(
+                color: CoinColors.black12,
+                border: Border.all(color: CoinColors.black12),
+                borderRadius: BorderRadius.circular(8.0)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton(
+                dropdownColor: CoinColors.black12,
+                borderRadius: BorderRadius.circular(12),
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.grey[700],
+                ),
+                hint: Text(
+                  "Select Post Code",
+                  style:
+                      CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+                ),
+                isExpanded: true,
+                iconSize: 36,
+                value: selectedPostCode,
+                underline: const SizedBox(),
+                onChanged: (int? state) {
+                  setState(() {
+                    selectedPostCode = state;
+                  });
+                },
+                items: List.generate(
+                  postalCodes.length,
+                  (index) {
+                    return DropdownMenuItem(
+                        value: postalCodes[index],
+                        child: Text("${postalCodes[index]}"));
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InputState extends StatefulWidget {
+  const _InputState({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputState> createState() => _InputStateState();
+}
+
+class _InputStateState extends State<_InputState> {
+  List<String> states = ["Sabah", "Sarawak	", "Selangor"];
+
+  String? selectState = "Sabah";
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 6.0, bottom: 4.0),
+            child: Text("Post Code", style: CoinTextStyle.orangeTitle3),
+          ),
+          Container(
+            height: 48,
+            decoration: BoxDecoration(
+                color: CoinColors.black12,
+                border: Border.all(color: CoinColors.black12),
+                borderRadius: BorderRadius.circular(8.0)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton(
+                dropdownColor: CoinColors.black12,
+                borderRadius: BorderRadius.circular(12),
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.grey[700],
+                ),
+                hint: Text(
+                  "Select State",
+                  style:
+                      CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+                ),
+                isExpanded: true,
+                iconSize: 36,
+                value: selectState,
+                underline: const SizedBox(),
+                onChanged: (String? state) {
+                  setState(() {
+                    selectState = state;
+                  });
+                },
+                items: List.generate(
+                  states.length,
+                  (index) {
+                    return DropdownMenuItem(
+                        value: states[index], child: Text(states[index]));
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InputCity extends StatefulWidget {
+  const _InputCity({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputCity> createState() => _InputCityState();
+}
+
+class _InputCityState extends State<_InputCity> {
+  List<String> cities = ["Paris", "London", "New York"];
+
+  String? selectCity = "New York";
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 6.0, bottom: 4.0),
+            child: Text("Post Code", style: CoinTextStyle.orangeTitle3),
+          ),
+          Container(
+            height: 48,
+            decoration: BoxDecoration(
+                color: CoinColors.black12,
+                border: Border.all(color: CoinColors.black12),
+                borderRadius: BorderRadius.circular(8.0)),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton(
+                dropdownColor: CoinColors.black12,
+                borderRadius: BorderRadius.circular(12),
+                icon: Icon(
+                  Icons.arrow_drop_down,
+                  color: Colors.grey[700],
+                ),
+                hint: Text(
+                  "Select City",
+                  style:
+                      CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+                ),
+                isExpanded: true,
+                iconSize: 36,
+                value:selectCity,
+                underline: const SizedBox(),
+                onChanged: (String? state) {
+                  setState(() {
+                    selectCity = state;
+                  });
+                },
+                items: List.generate(
+                  cities.length,
+                  (index) {
+                    return DropdownMenuItem(
+                        value: cities[index],
+                        child: Text(cities[index]));
+                  },
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InputGender extends StatefulWidget {
+  const _InputGender({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputGender> createState() => _InputGenderState();
+}
+
+class _InputGenderState extends State<_InputGender> {
+  final List<String> genders = ["Male", "Female"];
+  String? selectGender = "Male";
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(24, 4, 16, 0),
+      child: Row(
+        children: [
+          Text("Gender", style: CoinTextStyle.orangeTitle3),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(24, 0, 0, 0),
+            child: Row(
+              children: [
+                Transform.scale(
+                  scale: 1.2,
+                  child: Radio(
+                    activeColor: CoinColors.orange,
+                    value: "Male",
+                    groupValue: selectGender,
+                    onChanged: (String? state) {
+                      setState(() {
+                        selectGender = state;
+                      });
+                    },
+                  ),
+                ),
+                Text(
+                  "Male",
+                  style:
+                      CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+                ),
+                Transform.scale(
+                  scale: 1.2,
+                  child: Radio(
+                    activeColor: CoinColors.orange,
+                    focusColor: CoinColors.orange,
+                    value: "Female",
+                    groupValue: selectGender,
+                    onChanged: (String? state) {
+                      setState(() {
+                        selectGender = state;
+                      });
+                    },
+                  ),
+                ),
+                Text(
+                  "Female",
+                  style:
+                      CoinTextStyle.title3.copyWith(color: CoinColors.black54),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

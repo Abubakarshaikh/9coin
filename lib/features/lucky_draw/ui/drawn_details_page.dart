@@ -22,7 +22,7 @@ class DrawnDetailsPage extends StatelessWidget {
         title: const Text("Imperdiet Ex Non"),
         actions: [
           Padding(
-            padding: const EdgeInsets.all(6.0),
+            padding: const EdgeInsets.only(right: 24),
             child: InkWell(
                 onTap: () {
                   Navigator.push(context, LuckDrawInformationPage.route());

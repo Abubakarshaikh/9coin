@@ -3,7 +3,7 @@ import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/components/cirlce_category_icon.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import 'category_page.dart';
+import 'category_details_page.dart';
 
 class CategoryListPage extends StatefulWidget {
   static Route rout() {
@@ -80,7 +80,7 @@ class _CategoryListPageState extends State<CategoryListPage> {
             ),
             CirlceCategoryIcon(
               onTap: () {
-                Navigator.push(context, CategoryPage.route());
+                Navigator.push(context, CategoryDetailsPage.route());
               },
               imageUrl: Assets.electronic,
               color: CoinColors.orange12,

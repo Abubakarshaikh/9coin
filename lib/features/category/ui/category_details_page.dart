@@ -1,283 +1,181 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/category/ui/product_details_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
-class CategoryDetailsPage extends StatefulWidget {
-  static Route rout() {
+class CategoryDetailsPage extends StatelessWidget {
+  static Route route() {
     return MaterialPageRoute(builder: (context) => const CategoryDetailsPage());
   }
 
   const CategoryDetailsPage({Key? key}) : super(key: key);
 
   @override
-  State<CategoryDetailsPage> createState() => _CategoryDetailsPageState();
-}
-
-class _CategoryDetailsPageState extends State<CategoryDetailsPage> {
-  final ValueNotifier<int> currentPageIndex = ValueNotifier(0);
-  final PageController controller = PageController(initialPage: 0);
-
-  @override
   Widget build(BuildContext context) {
-    currentPageIndex.value = controller.initialPage;
-    return SafeArea(
-      child: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(145),
-          child: AppBar(
-            centerTitle: true,
-            title: const Text("Yonqed SDN. BHD."),
-            flexibleSpace: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(Assets.earphone),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  top: 0,
-                  child: Container(
-                    color: CoinColors.fullBlack.withOpacity(0.6),
-                  ),
-                ),
-              ],
-            ),
-          ),
+    return Scaffold(
+      backgroundColor: CoinColors.black,
+      appBar: AppBar(
+        backgroundColor: CoinColors.black12,
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "Electronic",
+          style: CoinTextStyle.title2Bold,
         ),
-        body: Column(children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
-            child: ValueListenableBuilder<int>(
-              valueListenable: currentPageIndex,
-              builder: (context, state, widget) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              height: 70,
+              color: CoinColors.black12,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
                     Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          currentPageIndex.value = 0;
-                          controller.animateToPage(0,
-                              duration: const Duration(milliseconds: 400),
-                              curve: Curves.easeInOut);
-                        },
-                        child: Column(
-                          children: [
-                            Text("Details",
-                                style: CoinTextStyle.title2.copyWith(
-                                    color: state == 0
-                                        ? CoinColors.orange
-                                        : CoinColors.black54,
-                                    fontWeight: FontWeight.w600)),
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 12),
-                              height: 2.0,
-                              color: state == 0
-                                  ? CoinColors.orange
-                                  : CoinColors.transparent,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: InkWell(
-                        onTap: () {
-                          currentPageIndex.value = 1;
-                          controller.animateToPage(1,
-                              duration: const Duration(milliseconds: 400),
-                              curve: Curves.easeInOut);
-                        },
-                        child: Column(
-                          children: [
-                            Text("Products",
-                                style: CoinTextStyle.title2.copyWith(
-                                    color: state == 1
-                                        ? CoinColors.orange
-                                        : CoinColors.black54,
-                                    fontWeight: FontWeight.w600)),
-                            Container(
-                              margin: const EdgeInsets.symmetric(vertical: 12),
-                              height: 2.0,
-                              color: state == 1
-                                  ? CoinColors.orange
-                                  : CoinColors.transparent,
-                            ),
-                          ],
+                      child: TextField(
+                        decoration: InputDecoration(
+                          fillColor: CoinColors.black,
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: CoinColors.black26,
+                          ),
+                          hintText: "Search",
                         ),
                       ),
                     ),
                   ],
-                );
-              },
+                ),
+              ),
             ),
-          ),
-          Flexible(
-            child: PageView(
-              controller: controller,
-              onPageChanged: (int page) {
-                currentPageIndex.value = page;
-              },
-              children: [
-                ProductDetails(),
-                Products(),
-              ],
+            const SizedBox(height: 15),
+            RoundedElectricCard(
+              onTap: () {},
+              imageUrl: Assets.television1,
+              title: "Sonyod SDN. BHD.",
+              pNumber: "010 - 559 6689",
+              location: "No. 12, Jalan Bukit Baru, 75150 Melaka.",
             ),
-          ),
-        ]),
+            RoundedElectricCard(
+              onTap: () {
+                Navigator.push(context, ProductDetailsPage.route());
+              },
+              imageUrl: Assets.earphone,
+              title: "Yonqed SDN. BHD.",
+              pNumber: "012 - 683 2269",
+              location: "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class ProductDetails extends StatelessWidget {
-  ProductDetails({Key? key}) : super(key: key);
+class RoundedElectricCard extends StatelessWidget {
+  final String imageUrl;
+  final String title;
+  final String pNumber;
+  final String location;
+  final Function() onTap;
+  const RoundedElectricCard({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+    required this.pNumber,
+    required this.location,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
+    return InkWell(
+      onTap: onTap,
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Yonqed SDN. BHD.",
-            style: CoinTextStyle.title2Bold.copyWith(color: CoinColors.orange),
-          ),
-          Text(
-            "yongqed@gmail.com",
-            style: CoinTextStyle.title4,
-          ),
-          Text(
-            "012 - 683 2269",
-            style: CoinTextStyle.title4,
-          ),
-          Text(
-            "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
-            style: CoinTextStyle.title4,
-          ),
-          const SizedBox(height: 8),
-          const Divider(thickness: 2),
           Container(
-            padding: const EdgeInsets.all(5),
-            height: 120,
-            width: double.infinity,
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.start,
-              children: [
-                Text(
-                  "Description",
-                  style: CoinTextStyle.title3Bold
-                      .copyWith(color: CoinColors.orange),
-                ),
-                Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit .Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non.",
-                  textAlign: TextAlign.left,
-                  style: CoinTextStyle.title3,
-                ),
-              ],
+            margin: const EdgeInsets.all(15.0),
+            height: 240,
+            width: 400,
+            alignment: Alignment.topCenter,
+            decoration: BoxDecoration(
+              color: CoinColors.fullBlack,
+              borderRadius: BorderRadius.circular(6.0),
             ),
-          ),
-          const Divider(thickness: 2),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 4),
-            height: 220,
-            width: double.infinity,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Our Services",
-                  style: CoinTextStyle.title3Bold
-                      .copyWith(color: CoinColors.orange),
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(6.0),
+                            topRight: Radius.circular(6.0),
+                          ),
+                          child: Image.asset(
+                            imageUrl,
+                            fit: BoxFit.cover,
+                            height: 120,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                Text(
-                    "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    style: CoinTextStyle.title5.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
-                    style: CoinTextStyle.title5.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
-                    style: CoinTextStyle.title5.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
-                    style: CoinTextStyle.title5.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
-                    style: CoinTextStyle.title5.copyWith(
-                      letterSpacing: 0.5,
-                    )),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 7, vertical: 12),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Text(title,
+                            style: CoinTextStyle.title3Bold.copyWith(
+                                color: CoinColors.orange,
+                                fontWeight: FontWeight.w600)),
+                      ),
+                      const SizedBox(height: 3),
+                      Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Icon(Icons.phone, size: 16.0),
+                          ),
+                          Text(pNumber, style: CoinTextStyle.title4),
+                        ],
+                      ),
+                      const SizedBox(height: 3),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Icon(Icons.location_on_rounded, size: 16.0),
+                          ),
+                          Flexible(
+                            child: Text(location, style: CoinTextStyle.title5),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class Products extends StatelessWidget {
-  Products({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18.0),
-      child: GridView.builder(
-        itemCount: productcard.length,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          // childAspectRatio: 0.5,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
-        ),
-        itemBuilder: (context, index) {
-          return productcard[index];
-        },
-      ),
-    );
-  }
-}
-
-List<Widget> productcard = [
-  ProductCard(imageURL: Assets.earphone),
-  ProductCard(imageURL: Assets.earphone2),
-  ProductCard(imageURL: Assets.earphone3),
-  ProductCard(imageURL: Assets.earphone4),
-];
-
-class ProductCard extends StatelessWidget {
-  final String imageURL;
-  ProductCard({Key? key, required this.imageURL}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 80,
-      width: 50,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(imageURL),
-        ),
       ),
     );
   }

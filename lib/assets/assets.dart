@@ -72,4 +72,7 @@ abstract class Assets {
   static String pfx = "assets/icons/pfx.png";
   static String paymentSuccessful = "assets/icons/payment-successful.png";
   static String luckyDrawPopUp = "assets/pics/lucky-draw-pop-up.png";
+  static String snack = "assets/pics/snack.jpg";
+
+  
 }

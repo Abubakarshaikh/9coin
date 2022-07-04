@@ -7,6 +7,7 @@ class RedeemptionsCard extends StatelessWidget {
   final String title;
   final Color buttonColor;
   final String buttonText;
+  final String imageUrl;
   final Function()? onTap;
   const RedeemptionsCard({
     Key? key,
@@ -14,6 +15,7 @@ class RedeemptionsCard extends StatelessWidget {
     this.buttonText = "Redeem",
     this.buttonColor = CoinColors.dialogTextColor,
     this.onTap,
+    required this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class RedeemptionsCard extends StatelessWidget {
                 topLeft: Radius.circular(10.0),
                 topRight: Radius.circular(10.0),
               ),
-              child: Image.asset(Assets.foundation, fit: BoxFit.cover),
+              child: Image.asset(imageUrl, fit: BoxFit.cover),
             ),
           ),
           Expanded(

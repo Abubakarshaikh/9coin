@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/auth/ui/login_page.dart';
@@ -7,25 +6,15 @@ import 'package:ninecoin/typography/text_styles.dart';
 import 'package:ninecoin/utilities/dialogs/create_account.dart';
 import 'package:ninecoin/utilities/dialogs/successful_create.dart';
 
-class SignupPage extends StatefulWidget {
+class SignupPage extends StatelessWidget {
+  const SignupPage({Key? key}) : super(key: key);
+
   static Route route() {
     return MaterialPageRoute(builder: (context) => const SignupPage());
   }
 
-  const SignupPage({Key? key}) : super(key: key);
-
-  @override
-  State<SignupPage> createState() => _SignupPageState();
-}
-
-class _SignupPageState extends State<SignupPage> {
-  final List<String> gender = [
-    'Male',
-    'Female',
-  ];
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       color: CoinColors.fullBlack,
       child: SafeArea(
@@ -39,290 +28,415 @@ class _SignupPageState extends State<SignupPage> {
               style: CoinTextStyle.title1.copyWith(fontWeight: FontWeight.w500),
             ),
           ),
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          body: ListView(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            children: [
+              Center(
+                child: Text("Create an Account",
+                    style: CoinTextStyle.title1.copyWith(
+                        color: CoinColors.orange12,
+                        fontWeight: FontWeight.w600)),
+              ),
+              const SizedBox(height: 6),
+              const TextField(
+                decoration: InputDecoration(hintText: "User Name"),
+              ),
+              const SizedBox(height: 10),
+              const TextField(
+                decoration: InputDecoration(hintText: "Email"),
+              ),
+              const SizedBox(height: 10),
+              const TextField(
+                  decoration: InputDecoration(hintText: "Contact Number")),
+              const SizedBox(height: 10),
+              const _InputGender(),
+              const SizedBox(height: 10),
+              const TextField(decoration: InputDecoration(hintText: "Address")),
+              const SizedBox(height: 10),
+              Row(
+                children: const [
+                  _InputCity(),
+                  SizedBox(width: 10),
+                  _InputState(),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: const [
+                  _InputPostCode(),
+                  SizedBox(width: 10),
+                  _InputCountry(),
+                ],
+              ),
+              const SizedBox(height: 10),
+              const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(hintText: "Password")),
+              const SizedBox(height: 10),
+              const TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(hintText: "Re-enter Password")),
+              const SizedBox(height: 4.0),
+              const _TermsAndCondition(),
+              ElevatedButton(
+                onPressed: () async {
+                  if (await showCreateAccountDialog(context)) {
+                    if (await showSuccessfulCreateAccountDialog(context)) {
+                      Navigator.push(context, HomeView.route());
+                    }
+                  }
+                },
+                child: const Text("Sign up"),
+              ),
+              const SizedBox(height: 8),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                    child: Text("Create an Account",
-                        style: CoinTextStyle.title1.copyWith(
-                            color: CoinColors.orange12,
-                            fontWeight: FontWeight.w600)),
-                  ),
-                  const SizedBox(height: 6),
-                  const TextField(
-                    decoration: InputDecoration(hintText: "User Name"),
-                  ),
-                  const SizedBox(height: 10),
-                  const TextField(
-                    decoration: InputDecoration(hintText: "Email"),
-                  ),
-                  const SizedBox(height: 10),
-                  const TextField(
-                      decoration: InputDecoration(hintText: "Contact Number")),
-                  const SizedBox(height: 10),
-                  Container(
-                    height: 48,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                        color: CoinColors.black12,
-                        border: Border.all(color: CoinColors.black12),
-                        borderRadius: BorderRadius.circular(8.0)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: DropdownButton(
-                        dropdownColor: CoinColors.black26,
-                        borderRadius: BorderRadius.circular(12),
-                        icon: Icon(
-                          Icons.arrow_drop_down,
-                          color: Colors.grey[700],
-                        ),
-                        hint: Text("Select Gender",
-                            style: CoinTextStyle.title3
-                                .copyWith(color: CoinColors.black54)),
-                        isExpanded: true,
-                        iconSize: 36,
-                        underline: const SizedBox(),
-                        onChanged: (newValue) {},
-                        items: List.generate(
-                          gender.length,
-                          (index) {
-                            return DropdownMenuItem(
-                                value: gender[index],
-                                child: Text(gender[index]));
-                          },
-                        ),
-                      ),
+                  Flexible(
+                    child: Text(
+                      "Already have an account?",
+                      style: CoinTextStyle.title2,
                     ),
                   ),
-                  const SizedBox(height: 10),
-                  const TextField(
-                      decoration: InputDecoration(hintText: "Address")),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 48,
-                          width: size.width,
-                          decoration: BoxDecoration(
-                              color: CoinColors.black12,
-                              border: Border.all(color: CoinColors.black12),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton(
-                              dropdownColor: CoinColors.black12,
-                              borderRadius: BorderRadius.circular(12),
-                              icon: Icon(
-                                Icons.arrow_drop_down,
-                                color: Colors.grey[700],
-                              ),
-                              hint: Text("City",
-                                  style: CoinTextStyle.title3
-                                      .copyWith(color: CoinColors.black54)),
-                              isExpanded: true,
-                              iconSize: 36,
-                              underline: const SizedBox(),
-                              onChanged: (newValue) {},
-                              items: List.generate(
-                                gender.length,
-                                (index) {
-                                  return DropdownMenuItem(
-                                      value: gender[index],
-                                      child: Text(gender[index]));
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Container(
-                          height: 48,
-                          width: size.width,
-                          decoration: BoxDecoration(
-                              color: CoinColors.black12,
-                              border: Border.all(color: CoinColors.black12),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton(
-                              dropdownColor: CoinColors.black12,
-                              borderRadius: BorderRadius.circular(12),
-                              icon: Icon(
-                                Icons.arrow_drop_down,
-                                color: Colors.grey[700],
-                              ),
-                              hint: Text(
-                                "State",
-                                style: CoinTextStyle.title3
-                                    .copyWith(color: CoinColors.black54),
-                              ),
-                              isExpanded: true,
-                              iconSize: 36,
-                              underline: const SizedBox(),
-                              onChanged: (newValue) {},
-                              items: List.generate(
-                                gender.length,
-                                (index) {
-                                  return DropdownMenuItem(
-                                      value: gender[index],
-                                      child: Text(gender[index]));
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 48,
-                          width: size.width,
-                          decoration: BoxDecoration(
-                              color: CoinColors.black12,
-                              border: Border.all(color: CoinColors.black12),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton(
-                              dropdownColor: CoinColors.black12,
-                              borderRadius: BorderRadius.circular(12),
-                              icon: Icon(
-                                Icons.arrow_drop_down,
-                                color: Colors.grey[700],
-                              ),
-                              hint: Text(
-                                "PostCode",
-                                style: CoinTextStyle.title3
-                                    .copyWith(color: CoinColors.black54),
-                              ),
-                              isExpanded: true,
-                              iconSize: 36,
-                              underline: const SizedBox(),
-                              onChanged: (newValue) {},
-                              items: List.generate(
-                                gender.length,
-                                (index) {
-                                  return DropdownMenuItem(
-                                      value: gender[index],
-                                      child: Text(gender[index]));
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Container(
-                          height: 48,
-                          width: size.width,
-                          decoration: BoxDecoration(
-                              color: CoinColors.black12,
-                              border: Border.all(color: CoinColors.black12),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: DropdownButton(
-                              dropdownColor: CoinColors.black12,
-                              borderRadius: BorderRadius.circular(12),
-                              icon: Icon(
-                                Icons.arrow_drop_down,
-                                color: Colors.grey[700],
-                              ),
-                              hint: Text("Country",
-                                  style: CoinTextStyle.title3
-                                      .copyWith(color: CoinColors.black54)),
-                              isExpanded: true,
-                              iconSize: 36,
-                              underline: const SizedBox(),
-                              onChanged: (newValue) {},
-                              items: List.generate(
-                                gender.length,
-                                (index) {
-                                  return DropdownMenuItem(
-                                      value: gender[index],
-                                      child: Text(gender[index]));
-                                },
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 10),
-                  const TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(hintText: "Password")),
-                  const SizedBox(height: 10),
-                  const TextField(
-                      obscureText: true,
-                      decoration:
-                          InputDecoration(hintText: "Re-enter Password")),
-                  const SizedBox(height: 4.0),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            CupertinoIcons.app,
-                            size: 25,
-                            color: Colors.white,
-                          )),
-                      Flexible(
-                          child: Text(
-                        "By Continuing Sign up you agree to the following our Terms and Conditions",
-                        style:
-                            CoinTextStyle.title4.copyWith(color: Colors.white),
-                      )),
-                    ],
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      if (await showCreateAccountDialog(context)) {
-                        if (await showSuccessfulCreateAccountDialog(context)) {
-                          Navigator.push(context, HomeView.route());
-                        }
-                      }
+                  const SizedBox(width: 2),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(context, LoginPage.route());
                     },
-                    child: const Text("Sign up"),
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Flexible(
-                        child: Text(
-                          "Already have an account?",
-                          style: CoinTextStyle.title2,
-                        ),
-                      ),
-                      const SizedBox(width: 2),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(context, LoginPage.route());
-                        },
-                        child: Text(
-                          "Sign In",
-                          style: CoinTextStyle.title2
-                              .copyWith(color: CoinColors.orange12),
-                        ),
-                      ),
-                    ],
+                    child: Text(
+                      "Sign In",
+                      style: CoinTextStyle.title2
+                          .copyWith(color: CoinColors.orange12),
+                    ),
                   ),
                 ],
               ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _InputCity extends StatefulWidget {
+  const _InputCity({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputCity> createState() => _InputCityState();
+}
+
+class _InputCityState extends State<_InputCity> {
+  List<String> cities = ["Paris", "London", "New York"];
+
+  String? selectCity;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+            color: CoinColors.black12,
+            border: Border.all(color: CoinColors.black12),
+            borderRadius: BorderRadius.circular(8.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: DropdownButton(
+            value: selectCity,
+            dropdownColor: CoinColors.black12,
+            borderRadius: BorderRadius.circular(12),
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.grey[700],
+            ),
+            hint: Text("City",
+                style:
+                    CoinTextStyle.title3.copyWith(color: CoinColors.black54)),
+            isExpanded: true,
+            iconSize: 36,
+            underline: const SizedBox(),
+            onChanged: (String? state) {
+              setState(() {
+                selectCity = state;
+              });
+            },
+            items: List.generate(
+              cities.length,
+              (index) {
+                return DropdownMenuItem(
+                    value: cities[index], child: Text(cities[index]));
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _InputState extends StatefulWidget {
+  const _InputState({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputState> createState() => _InputStateState();
+}
+
+class _InputStateState extends State<_InputState> {
+  List<String> states = ["Sabah", "Sarawak	", "Selangor"];
+
+  String? selectState;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+            color: CoinColors.black12,
+            border: Border.all(color: CoinColors.black12),
+            borderRadius: BorderRadius.circular(8.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: DropdownButton(
+            value: selectState,
+            dropdownColor: CoinColors.black12,
+            borderRadius: BorderRadius.circular(12),
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.grey[700],
+            ),
+            hint: Text("State",
+                style:
+                    CoinTextStyle.title3.copyWith(color: CoinColors.black54)),
+            isExpanded: true,
+            iconSize: 36,
+            underline: const SizedBox(),
+            onChanged: (String? state) {
+              setState(() {
+                selectState = state;
+              });
+            },
+            items: List.generate(
+              states.length,
+              (index) {
+                return DropdownMenuItem(
+                    value: states[index], child: Text(states[index]));
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _InputGender extends StatefulWidget {
+  const _InputGender({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputGender> createState() => _InputGenderState();
+}
+
+class _InputGenderState extends State<_InputGender> {
+  List<String> genders = ["Male", "Female"];
+
+  String? gender;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 48,
+      decoration: BoxDecoration(
+          color: CoinColors.black12,
+          border: Border.all(color: CoinColors.black12),
+          borderRadius: BorderRadius.circular(8.0)),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: DropdownButton(
+          dropdownColor: CoinColors.black26,
+          borderRadius: BorderRadius.circular(12),
+          icon: Icon(
+            Icons.arrow_drop_down,
+            color: Colors.grey[700],
+          ),
+          value: gender,
+          hint: Text("Select Gender",
+              style: CoinTextStyle.title3.copyWith(color: CoinColors.black54)),
+          isExpanded: true,
+          iconSize: 36,
+          underline: const SizedBox(),
+          onChanged: (String? newValue) {
+            setState(() {
+              gender = newValue;
+            });
+          },
+          items: List.generate(
+            genders.length,
+            (index) {
+              return DropdownMenuItem(
+                  value: genders[index], child: Text(genders[index]));
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _TermsAndCondition extends StatefulWidget {
+  const _TermsAndCondition({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_TermsAndCondition> createState() => _TermsAndConditionState();
+}
+
+class _TermsAndConditionState extends State<_TermsAndCondition> {
+  bool? isChecked = false;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Checkbox(
+          side: const BorderSide(color: CoinColors.white, width: 1.6),
+          checkColor: CoinColors.white,
+          // fillColor: CoinColors.dialogTextColor,
+          activeColor: CoinColors.dialogTextColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4),
+          ),
+          value: isChecked,
+          onChanged: (bool? state) {
+            setState(() {
+              isChecked = state;
+            });
+          },
+        ),
+        Flexible(
+            child: Text(
+          "By Continuing Sign up you agree to the following our Terms and Conditions",
+          style: CoinTextStyle.title4.copyWith(color: Colors.white),
+        )),
+      ],
+    );
+  }
+}
+
+class _InputPostCode extends StatefulWidget {
+  const _InputPostCode({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputPostCode> createState() => _InputPostCodeState();
+}
+
+class _InputPostCodeState extends State<_InputPostCode> {
+  List<String> postCodes = ["34544", "34000", "91200"];
+
+  String? selectPostCode;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+            color: CoinColors.black12,
+            border: Border.all(color: CoinColors.black12),
+            borderRadius: BorderRadius.circular(8.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: DropdownButton(
+            value: selectPostCode,
+            dropdownColor: CoinColors.black12,
+            borderRadius: BorderRadius.circular(12),
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.grey[700],
+            ),
+            hint: Text("Post Code",
+                style:
+                    CoinTextStyle.title3.copyWith(color: CoinColors.black54)),
+            isExpanded: true,
+            iconSize: 36,
+            underline: const SizedBox(),
+            onChanged: (String? state) {
+              setState(() {
+                selectPostCode = state;
+              });
+            },
+            items: List.generate(
+              postCodes.length,
+              (index) {
+                return DropdownMenuItem(
+                    value: postCodes[index], child: Text(postCodes[index]));
+              },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _InputCountry extends StatefulWidget {
+  const _InputCountry({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_InputCountry> createState() => _InputCountryState();
+}
+
+class _InputCountryState extends State<_InputCountry> {
+  List<String> countries = ["America", "Dubai", "Malasia"];
+
+  String? selectCountry;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+            color: CoinColors.black12,
+            border: Border.all(color: CoinColors.black12),
+            borderRadius: BorderRadius.circular(8.0)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: DropdownButton(
+            value: selectCountry,
+            dropdownColor: CoinColors.black12,
+            borderRadius: BorderRadius.circular(12),
+            icon: Icon(
+              Icons.arrow_drop_down,
+              color: Colors.grey[700],
+            ),
+            hint: Text("Country",
+                style:
+                    CoinTextStyle.title3.copyWith(color: CoinColors.black54)),
+            isExpanded: true,
+            iconSize: 36,
+            underline: const SizedBox(),
+            onChanged: (String? state) {
+              setState(() {
+                selectCountry = state;
+              });
+            },
+            items: List.generate(
+              countries.length,
+              (index) {
+                return DropdownMenuItem(
+                    value: countries[index], child: Text(countries[index]));
+              },
             ),
           ),
         ),

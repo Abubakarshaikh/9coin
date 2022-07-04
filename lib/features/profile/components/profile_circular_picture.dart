@@ -28,8 +28,8 @@ class ProfileCircularPicture extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: SizedBox(
-          height: 78,
-          width: 78,
+          height: 90,
+          width: 90,
           child: ClipOval(
               child: isShowSelectImage
                   ? Container(

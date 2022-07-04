@@ -30,7 +30,6 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 28),
@@ -39,28 +38,31 @@ class ProfilePage extends StatelessWidget {
             child: Row(
               children: [
                 const ProfileCircularPicture(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("ID:5630918957",
-                        style: CoinTextStyle.title4
-                            .copyWith(color: CoinColors.orange)),
-                    Text("Tan Qing Fong", style: CoinTextStyle.title1Bold),
-                    const Text("qingfong@gmail.com"),
-                    const SizedBox(height: 6),
-                    Row(
-                      textBaseline: TextBaseline.alphabetic,
-                      crossAxisAlignment: CrossAxisAlignment.baseline,
-                      children: [
-                        Text("326",
-                            style: CoinTextStyle.title1Bold
-                                .copyWith(color: Colors.orange, fontSize: 22)),
-                        const SizedBox(width: 2),
-                        Text("Point", style: CoinTextStyle.title5)
-                      ],
-                    )
-                  ],
+                Padding(
+                  padding: const EdgeInsets.only(left: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("ID:5630918957",
+                          style: CoinTextStyle.title4
+                              .copyWith(color: CoinColors.orange)),
+                      Text("Tan Qing Fong", style: CoinTextStyle.title1Bold),
+                      const Text("qingfong@gmail.com"),
+                      const SizedBox(height: 6),
+                      Row(
+                        textBaseline: TextBaseline.alphabetic,
+                        crossAxisAlignment: CrossAxisAlignment.baseline,
+                        children: [
+                          Text("326",
+                              style: CoinTextStyle.title1Bold.copyWith(
+                                  color: Colors.orange, fontSize: 22)),
+                          const SizedBox(width: 2),
+                          Text("Point", style: CoinTextStyle.title5)
+                        ],
+                      )
+                    ],
+                  ),
                 ),
               ],
             ),

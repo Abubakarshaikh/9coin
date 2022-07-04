@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/category/ui/category_list_page.dart';
+import 'package:ninecoin/features/category/ui/categories_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import '../components/category_circular_card.dart';
 import '../components/rounded_feature_card.dart';
@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         children: [
           const SizedBox(height: 24),
