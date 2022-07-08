@@ -29,7 +29,7 @@ class SignupPage extends StatelessWidget {
             ),
           ),
           body: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
             children: [
               Center(
                 child: Text("Create an Account",
@@ -37,47 +37,48 @@ class SignupPage extends StatelessWidget {
                         color: CoinColors.orange12,
                         fontWeight: FontWeight.w600)),
               ),
-              const SizedBox(height: 6),
+              const SizedBox(height: 20),
               const TextField(
                 decoration: InputDecoration(hintText: "User Name"),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               const TextField(
                 decoration: InputDecoration(hintText: "Email"),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               const TextField(
                   decoration: InputDecoration(hintText: "Contact Number")),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               const _InputGender(),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               const TextField(decoration: InputDecoration(hintText: "Address")),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               Row(
                 children: const [
                   _InputCity(),
-                  SizedBox(width: 10),
+                  SizedBox(width: 18),
                   _InputState(),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               Row(
                 children: const [
                   _InputPostCode(),
-                  SizedBox(width: 10),
+                  SizedBox(width: 18),
                   _InputCountry(),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               const TextField(
                   obscureText: true,
                   decoration: InputDecoration(hintText: "Password")),
-              const SizedBox(height: 10),
+              const SizedBox(height: 25),
               const TextField(
                   obscureText: true,
                   decoration: InputDecoration(hintText: "Re-enter Password")),
-              const SizedBox(height: 4.0),
+              const SizedBox(height: 25),
               const _TermsAndCondition(),
+              const SizedBox(height: 25),
               ElevatedButton(
                 onPressed: () async {
                   if (await showCreateAccountDialog(context)) {
@@ -95,19 +96,14 @@ class SignupPage extends StatelessWidget {
                   Flexible(
                     child: Text(
                       "Already have an account?",
-                      style: CoinTextStyle.title2,
+                      style: CoinTextStyle.title3,
                     ),
                   ),
-                  const SizedBox(width: 2),
                   TextButton(
                     onPressed: () {
                       Navigator.push(context, LoginPage.route());
                     },
-                    child: Text(
-                      "Sign In",
-                      style: CoinTextStyle.title2
-                          .copyWith(color: CoinColors.orange12),
-                    ),
+                    child: Text("Sign In", style: CoinTextStyle.orangeTitle3),
                   ),
                 ],
               ),
@@ -303,9 +299,11 @@ class _TermsAndConditionState extends State<_TermsAndCondition> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Checkbox(
-          side: const BorderSide(color: CoinColors.white, width: 1.6),
+          side: const BorderSide(color: CoinColors.white, width: 1.8),
           checkColor: CoinColors.white,
           // fillColor: CoinColors.dialogTextColor,
           activeColor: CoinColors.dialogTextColor,
@@ -320,10 +318,17 @@ class _TermsAndConditionState extends State<_TermsAndCondition> {
           },
         ),
         Flexible(
-            child: Text(
-          "By Continuing Sign up you agree to the following our Terms and Conditions",
-          style: CoinTextStyle.title4.copyWith(color: Colors.white),
-        )),
+          child: RichText(
+            text: TextSpan(
+                text: "By Continuing Sign up you agree to the following our",
+                style: CoinTextStyle.title3,
+                children: [
+                  TextSpan(
+                      text: " Term & Conditions.",
+                      style: CoinTextStyle.orangeTitle3)
+                ]),
+          ),
+        ),
       ],
     );
   }
