@@ -86,14 +86,12 @@ class LoginPage extends StatelessWidget {
                             MaterialPageRoute(
                                 builder: (_) => const HomeView(page: 0)));
                       },
-                      child: const Text(
+                      child: Text(
                         "Login",
-                        style: TextStyle(
-                            // color: Colors.white,
-                            ),
+                        style: CoinTextStyle.title2,
                       ),
                     ),
-                    const SizedBox(height: 30),
+                    const SizedBox(height: 10),
                     Center(
                       child: TextButton(
                         onPressed: () {
@@ -101,7 +99,7 @@ class LoginPage extends StatelessWidget {
                         },
                         child: Text(
                           "Forgot Password",
-                          style: CoinTextStyle.title1,
+                          style: CoinTextStyle.title2,
                         ),
                       ),
                     ),
@@ -132,16 +130,12 @@ class LoginPage extends StatelessWidget {
                             style: CoinTextStyle.title2,
                           ),
                         ),
-                        const SizedBox(width: 2),
                         TextButton(
                           onPressed: () {
                             Navigator.push(context, SignupPage.route());
                           },
-                          child: Text(
-                            "Sign Up",
-                            style: CoinTextStyle.title2
-                                .copyWith(color: CoinColors.orange),
-                          ),
+                          child: Text("Sign Up",
+                              style: CoinTextStyle.orangeTitle2),
                         ),
                       ],
                     ),
