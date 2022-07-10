@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class PointQrCode extends StatelessWidget {
@@ -41,6 +42,10 @@ class PointQrCode extends StatelessWidget {
             style: CoinTextStyle.title2Bold,
           )
         ],
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 2,
+        onDestinationSelected: (index) {},
       ),
     );
   }

@@ -82,7 +82,10 @@ class SignupPage extends StatelessWidget {
                 onPressed: () async {
                   if (await showCreateAccountDialog(context)) {
                     if (await showSuccessfulCreateAccountDialog(context)) {
-                      Navigator.push(context, HomeView.route());
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => const HomeView(page: 0)));
                     }
                   }
                 },

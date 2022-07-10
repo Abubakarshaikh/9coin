@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 import '../components/redeem_list_tile.dart';
@@ -71,6 +72,10 @@ class _RedeemtionsPageState extends State<RedeemtionsPage>
                 ),
               ),
             ],
+          ),
+          bottomNavigationBar: MyBottomNavigationBar(
+            currentIndex: 2,
+            onDestinationSelected: (index) {},
           ),
         ),
       ),

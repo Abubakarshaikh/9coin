@@ -1,8 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
+import 'package:ninecoin/features/home/ui/home_view.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import 'package:ninecoin/utilities/dialogs/update_details_dialog.dart';
 import 'package:ninecoin/utilities/dialogs/updated_successful_dialog.dart';
@@ -19,7 +22,7 @@ class EditProfilePage extends StatelessWidget {
   }
 
   EditProfilePage({Key? key}) : super(key: key);
-
+  final ValueNotifier<int> _notifier = ValueNotifier(0);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -88,6 +91,19 @@ class EditProfilePage extends StatelessWidget {
                 )
               ],
             ),
+          ),
+          bottomNavigationBar: ValueListenableBuilder<int>(
+            valueListenable: _notifier,
+            builder: (context, state, widget) {
+              return MyBottomNavigationBar(
+                currentIndex: state,
+                onDestinationSelected: (index) {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => HomeView(page: state)));
+                  _notifier.value = index;
+                },
+              );
+            },
           ),
         ),
       ),
@@ -396,7 +412,7 @@ class _InputCityState extends State<_InputCity> {
                 ),
                 isExpanded: true,
                 iconSize: 36,
-                value:selectCity,
+                value: selectCity,
                 underline: const SizedBox(),
                 onChanged: (String? state) {
                   setState(() {
@@ -407,8 +423,7 @@ class _InputCityState extends State<_InputCity> {
                   cities.length,
                   (index) {
                     return DropdownMenuItem(
-                        value: cities[index],
-                        child: Text(cities[index]));
+                        value: cities[index], child: Text(cities[index]));
                   },
                 ),
               ),

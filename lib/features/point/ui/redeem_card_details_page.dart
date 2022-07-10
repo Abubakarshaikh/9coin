@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import 'package:ninecoin/utilities/dialogs/redeem_item_dialog.dart';
 import 'package:ninecoin/utilities/dialogs/redeemed_successful_dialog.dart';
@@ -82,6 +83,10 @@ class RedeemCardDetailsPage extends StatelessWidget {
                   },
                   child: const Text("Redeem"))
             ],
+          ),
+          bottomNavigationBar: MyBottomNavigationBar(
+            currentIndex: 2,
+            onDestinationSelected: (index) {},
           ),
         ),
       ),

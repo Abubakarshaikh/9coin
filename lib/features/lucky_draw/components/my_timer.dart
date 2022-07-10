@@ -57,15 +57,3 @@ class MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
-  // (_counter > 0)
-  //           ? Text("")
-  //           : Text(
-  //               "DONE!",
-  //               style: TextStyle(
-  //                 color: Colors.green,
-  //                 fontWeight: FontWeight.bold,
-  //                 fontSize: 48,
-  //               ),
-  //             ),

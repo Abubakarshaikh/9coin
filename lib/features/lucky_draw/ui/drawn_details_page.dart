@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/features/lucky_draw/components/my_timer.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import 'package:ninecoin/widgets/lucky_draw_information_page.dart';
@@ -128,6 +129,10 @@ class DrawnDetailsPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 3,
+        onDestinationSelected: (index) {},
       ),
     );
   }

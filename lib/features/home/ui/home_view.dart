@@ -1,6 +1,5 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/home/components/circle_icon.dart';
@@ -14,11 +13,9 @@ import '../components/my_bottom_navigation_bar.dart';
 import 'home_page.dart';
 
 class HomeView extends StatefulWidget {
-  static Route route() {
-    return MaterialPageRoute(builder: (context) => HomeView());
-  }
+  final int? page;
 
-  HomeView({Key? key}) : super(key: key);
+  const HomeView({Key? key, required this.page}) : super(key: key);
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -66,6 +63,7 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    _valueNotifier.value = widget.page ?? 0;
     return ValueListenableBuilder(
       valueListenable: _valueNotifier,
       builder: (context, int newValue, widgets) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 import 'package:ninecoin/utilities/dialogs/draw_point_dialog.dart';
 import 'package:ninecoin/utilities/dialogs/drawn_successful_dialog.dart';
@@ -178,6 +179,10 @@ class DrawDetailsPage extends StatelessWidget {
                 child: const Text("Draw"))
           ],
         ),
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 3,
+        onDestinationSelected: (index) {},
       ),
     );
   }

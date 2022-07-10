@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 class ProductDetailsPage extends StatefulWidget {
@@ -55,30 +56,36 @@ class _ProductDetailsPageState extends State<ProductDetailsPage>
             ),
           ),
         ),
-        body: Column(children: [
-          TabBar(
-            controller: _tabController,
-            indicatorColor: CoinColors.dialogTextColor,
-            unselectedLabelColor: CoinColors.black54,
-            labelStyle: CoinTextStyle.title2,
-            indicatorPadding: const EdgeInsets.all(16),
-            labelPadding: const EdgeInsets.all(12),
-            tabs: const [
-              Tab(text: "Details"),
-              Tab(text: "Products"),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Expanded(
-            child: TabBarView(
+        body: Column(
+          children: [
+            TabBar(
               controller: _tabController,
-              children: [
-                ProductDetails(),
-                Products(),
+              indicatorColor: CoinColors.dialogTextColor,
+              unselectedLabelColor: CoinColors.black54,
+              labelStyle: CoinTextStyle.title2,
+              indicatorPadding: const EdgeInsets.all(16),
+              labelPadding: const EdgeInsets.all(12),
+              tabs: const [
+                Tab(text: "Details"),
+                Tab(text: "Products"),
               ],
             ),
-          ),
-        ]),
+            const SizedBox(height: 8),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  ProductDetails(),
+                  Products(),
+                ],
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: MyBottomNavigationBar(
+          currentIndex: 0,
+          onDestinationSelected: (index) {},
+        ),
       ),
     );
   }
@@ -95,94 +102,93 @@ class ProductDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return ListView(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Yonqed SDN. BHD.",
-            style: CoinTextStyle.title2Bold.copyWith(color: CoinColors.orange),
+
+      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Yonqed SDN. BHD.",
+          style: CoinTextStyle.title2Bold.copyWith(color: CoinColors.orange),
+        ),
+        Text(
+          "yongqed@gmail.com",
+          style: CoinTextStyle.title4,
+        ),
+        Text(
+          "012 - 683 2269",
+          style: CoinTextStyle.title4,
+        ),
+        Text(
+          "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
+          style: CoinTextStyle.title4,
+        ),
+        const SizedBox(height: 8),
+        const Divider(thickness: 2),
+        Container(
+          padding: const EdgeInsets.all(5),
+          height: 120,
+          width: double.infinity,
+          child: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.start,
+            children: [
+              Text(
+                "Description",
+                style:
+                    CoinTextStyle.title3Bold.copyWith(color: CoinColors.orange),
+              ),
+              Text(
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit .Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non.",
+                textAlign: TextAlign.left,
+                style: CoinTextStyle.title3,
+              ),
+            ],
           ),
-          Text(
-            "yongqed@gmail.com",
-            style: CoinTextStyle.title4,
+        ),
+        const Divider(thickness: 2),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 4),
+          height: 220,
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Our Services",
+                style:
+                    CoinTextStyle.title3Bold.copyWith(color: CoinColors.orange),
+              ),
+              Text(
+                  "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                  style: CoinTextStyle.title4.copyWith(
+                    letterSpacing: 0.5,
+                  )),
+              Text(
+                  "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
+                  style: CoinTextStyle.title4.copyWith(
+                    letterSpacing: 0.5,
+                  )),
+              Text(
+                  "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
+                  style: CoinTextStyle.title4.copyWith(
+                    letterSpacing: 0.5,
+                  )),
+              Text(
+                  "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
+                  style: CoinTextStyle.title4.copyWith(
+                    letterSpacing: 0.5,
+                  )),
+              Text(
+                  "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
+                  style: CoinTextStyle.title4.copyWith(
+                    letterSpacing: 0.5,
+                  )),
+            ],
           ),
-          Text(
-            "012 - 683 2269",
-            style: CoinTextStyle.title4,
-          ),
-          Text(
-            "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
-            style: CoinTextStyle.title4,
-          ),
-          const SizedBox(height: 8),
-          const Divider(thickness: 2),
-          Container(
-            padding: const EdgeInsets.all(5),
-            height: 120,
-            width: double.infinity,
-            child: Wrap(
-              crossAxisAlignment: WrapCrossAlignment.start,
-              children: [
-                Text(
-                  "Description",
-                  style: CoinTextStyle.title3Bold
-                      .copyWith(color: CoinColors.orange),
-                ),
-                Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit .Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non.",
-                  textAlign: TextAlign.left,
-                  style: CoinTextStyle.title3,
-                ),
-              ],
-            ),
-          ),
-          const Divider(thickness: 2),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 4),
-            height: 220,
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Our Services",
-                  style: CoinTextStyle.title3Bold
-                      .copyWith(color: CoinColors.orange),
-                ),
-                Text(
-                    "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    style: CoinTextStyle.title4.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
-                    style: CoinTextStyle.title4.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
-                    style: CoinTextStyle.title4.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
-                    style: CoinTextStyle.title4.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-                Text(
-                    "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
-                    style: CoinTextStyle.title4.copyWith(
-                      letterSpacing: 0.5,
-                    )),
-              ],
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/features/profile/components/circular_icon.dart';
 import 'package:ninecoin/features/profile/components/edit_profile_tile.dart';
 import 'package:ninecoin/features/profile/components/profile_circular_picture.dart';
@@ -36,7 +37,7 @@ class ProfileDetailsPage extends StatelessWidget {
           const SizedBox(width: 20.0),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 35),
@@ -73,6 +74,10 @@ class ProfileDetailsPage extends StatelessWidget {
             isShowDivider: false,
           ),
         ],
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 0,
+        onDestinationSelected: (index) {},
       ),
     );
   }

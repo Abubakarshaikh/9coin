@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/features/profile/components/profile_circular_picture.dart';
 import 'package:ninecoin/features/profile/components/profile_tile.dart';
 import 'package:ninecoin/features/profile/ui/helps_page.dart';
@@ -28,8 +29,7 @@ class ProfilePage extends StatelessWidget {
         title: Text("Profile", style: CoinTextStyle.title1Bold),
         elevation: 0,
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(18, 16, 18, 28),
@@ -115,6 +115,10 @@ class ProfilePage extends StatelessWidget {
             },
           ),
         ],
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: 0,
+        onDestinationSelected: (index) {},
       ),
     );
   }
