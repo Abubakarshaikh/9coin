@@ -2,22 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 
+import 'tab_item.dart';
+
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar(
-      {Key? key,
-      required this.onDestinationSelected,
-      required this.currentIndex})
+      {Key? key, required this.onSelectTab, required this.currentTab})
       : super(key: key);
-  final Function(int) onDestinationSelected;
-  final int currentIndex;
+  final ValueChanged<TabItem> onSelectTab;
+  final TabItem currentTab;
   @override
   Widget build(BuildContext context) {
     return NavigationBar(
-      onDestinationSelected: onDestinationSelected,
-      selectedIndex: currentIndex,
+      onDestinationSelected: (index) => onSelectTab(
+        TabItem.values[index],
+      ),
+      selectedIndex: currentTab.index,
       destinations: [
         Container(
-          color: currentIndex == 0
+          color: currentTab.index == 0
               ? CoinColors.blackMedium1
               : CoinColors.blackMedium2,
           child: NavigationDestination(
@@ -27,7 +29,7 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
         ),
         Container(
-          color: currentIndex == 1
+          color: currentTab.index == 1
               ? CoinColors.blackMedium1
               : CoinColors.blackMedium2,
           child: NavigationDestination(
@@ -38,7 +40,7 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
         ),
         Container(
-          color: currentIndex == 2
+          color: currentTab.index == 2
               ? CoinColors.blackMedium1
               : CoinColors.blackMedium2,
           child: NavigationDestination(
@@ -48,7 +50,7 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
         ),
         Container(
-          color: currentIndex == 3
+          color: currentTab.index == 3
               ? CoinColors.blackMedium1
               : CoinColors.blackMedium2,
           child: NavigationDestination(
@@ -59,7 +61,7 @@ class MyBottomNavigationBar extends StatelessWidget {
           ),
         ),
         Container(
-          color: currentIndex == 4
+          color: currentTab.index == 4
               ? CoinColors.blackMedium1
               : CoinColors.blackMedium2,
           child: NavigationDestination(

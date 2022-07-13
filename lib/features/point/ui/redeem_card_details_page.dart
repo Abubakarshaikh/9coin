@@ -30,7 +30,7 @@ class RedeemCardDetailsPage extends StatelessWidget {
               Image.asset(Assets.foundation),
               const SizedBox(height: 12.0),
               Text("J'Qroue", style: CoinTextStyle.orangeTitle2),
-              const SizedBox(height: 6.0),
+              const SizedBox(height: 8.0),
               Text("Email : yongqed@gmail.com", style: CoinTextStyle.title3),
               Text("Contact Number : 012 - 683 2269",
                   style: CoinTextStyle.title3),
@@ -38,11 +38,11 @@ class RedeemCardDetailsPage extends StatelessWidget {
                   style: CoinTextStyle.title3),
               const SizedBox(height: 12.0),
               const Divider(),
-              const SizedBox(height: 6.0),
+              const SizedBox(height: 8.0),
               Text("Product", style: CoinTextStyle.orangeTitle3),
-              const SizedBox(height: 6.0),
+              const SizedBox(height: 8.0),
               Text("Item - foundation x 1", style: CoinTextStyle.title3),
-              const SizedBox(height: 6.0),
+              const SizedBox(height: 8.0),
               const Divider(),
               RichText(
                 text: TextSpan(
@@ -70,7 +70,7 @@ class RedeemCardDetailsPage extends StatelessWidget {
               const Divider(),
               const SizedBox(height: 12.0),
               Text("Term and Condition", style: CoinTextStyle.orangeTitle3),
-              const SizedBox(height: 6.0),
+              const SizedBox(height: 8.0),
               Text(
                   '''1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n\n2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. \n\n3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.
       ''',
@@ -83,10 +83,6 @@ class RedeemCardDetailsPage extends StatelessWidget {
                   },
                   child: const Text("Redeem"))
             ],
-          ),
-          bottomNavigationBar: MyBottomNavigationBar(
-            currentIndex: 2,
-            onDestinationSelected: (index) {},
           ),
         ),
       ),

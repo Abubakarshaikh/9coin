@@ -15,19 +15,22 @@ class PointOptionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(24.0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: CoinColors.black12,
-      ),
-      child: Column(
-        children: [
-          Expanded(child: Image.asset(imageUrl, color: CoinColors.white)),
-          Expanded(
-              child: InkWell(
-            onTap: onTap,
-            child: Container(
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(18.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.0),
+          color: CoinColors.black12,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(imageUrl,
+                color: CoinColors.white, height: 46, width: 46),
+            const SizedBox(height: 4.0),
+            Container(
               alignment: Alignment.center,
               child: Text(
                 title,
@@ -35,8 +38,8 @@ class PointOptionCard extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-          )),
-        ],
+          ],
+        ),
       ),
     );
   }

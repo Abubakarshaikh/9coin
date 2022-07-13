@@ -75,10 +75,6 @@ class ProfileDetailsPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: MyBottomNavigationBar(
-        currentIndex: 0,
-        onDestinationSelected: (index) {},
-      ),
     );
   }
 }

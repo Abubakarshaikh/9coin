@@ -61,7 +61,8 @@ class NewsDetailsPage extends StatelessWidget {
                             child: Image.asset(Assets.chickenRice2,
                                 fit: BoxFit.cover)),
                         Text("https://www.youtube.com/watch?v=oDo4APfAKuw",
-                            style: CoinTextStyle.orangeTitle4),
+                            style: CoinTextStyle.orangeTitle4
+                                .copyWith(height: 2.5)),
                       ],
                     )),
                   ],
@@ -90,10 +91,6 @@ class NewsDetailsPage extends StatelessWidget {
                 style: CoinTextStyle.title3,
               ),
             ],
-          ),
-          bottomNavigationBar: MyBottomNavigationBar(
-            currentIndex: 4,
-            onDestinationSelected: (index) {},
           ),
         ),
       ),

@@ -64,10 +64,6 @@ class _PointHistoryPageState extends State<PointHistoryPage>
               ),
             ],
           ),
-          bottomNavigationBar: MyBottomNavigationBar(
-            currentIndex: 2,
-            onDestinationSelected: (index) {},
-          ),
         ),
       ),
     );

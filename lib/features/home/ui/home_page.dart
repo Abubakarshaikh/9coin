@@ -1,14 +1,65 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/ui/categories_page.dart';
+import 'package:ninecoin/features/notification/ui/notifications_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import '../../profile/ui/profile_page.dart';
 import '../components/category_circular_card.dart';
+import '../components/circle_icon.dart';
 import '../components/rounded_feature_card.dart';
 import '../components/rounded_news_card.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final Widget body;
+  const HomePage({Key? key, required this.body}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leadingWidth: 120,
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 16),
+          child: Image.asset(Assets.appLogo),
+        ),
+        actions: [
+          CircleIcon(
+            onTap: () {
+              Navigator.push(context, NotificationPage.route());
+            },
+            icon: Badge(
+              padding: const EdgeInsets.all(4),
+              position: BadgePosition.topEnd(top: -2, end: -8),
+              badgeContent: Text('2', style: CoinTextStyle.title5),
+              child: const Icon(Icons.notifications,
+                  color: CoinColors.orange, size: 20),
+            ),
+          ),
+          const SizedBox(width: 12.0),
+          CircleIcon(
+            onTap: () {
+              Navigator.push(context, ProfilePage.route());
+            },
+            icon: Image.asset(
+              Assets.profileIcon,
+              height: 20.5,
+              width: 20.5,
+              color: CoinColors.orange,
+            ),
+          ),
+          const SizedBox(width: 16.0),
+        ],
+      ),
+      backgroundColor: CoinColors.black12,
+      body: body,
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -21,31 +21,22 @@ class PointQrCode extends StatelessWidget {
           style: CoinTextStyle.title2Bold,
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Container(
-              height: 260,
-              width: 260,
-              color: CoinColors.white,
-              alignment: Alignment.center,
-              child: Image.asset(
-                Assets.profileqrcode,
-                fit: BoxFit.cover,
-              ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 33),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              Assets.profileqrcode,
+              fit: BoxFit.cover,
             ),
-          ),
-          const SizedBox(height: 7),
-          Text(
-            "ID : 58893596683",
-            style: CoinTextStyle.title2Bold,
-          )
-        ],
-      ),
-      bottomNavigationBar: MyBottomNavigationBar(
-        currentIndex: 2,
-        onDestinationSelected: (index) {},
+            const SizedBox(height: 7),
+            Text(
+              "ID : 58893596683",
+              style: CoinTextStyle.title2Bold,
+            )
+          ],
+        ),
       ),
     );
   }

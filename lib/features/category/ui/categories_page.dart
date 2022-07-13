@@ -131,10 +131,6 @@ class _CategoryListPageState extends State<CategoryListPage> {
             ),
           ],
         ),
-        bottomNavigationBar: MyBottomNavigationBar(
-          currentIndex: 0,
-          onDestinationSelected: (index) {},
-        ),
       ),
     );
   }

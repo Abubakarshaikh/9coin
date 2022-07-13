@@ -64,7 +64,7 @@ class RoundedDrawCard extends StatelessWidget {
                       Text(boxTitle, style: CoinTextStyle.title4),
                     ],
                   ),
-                  const SizedBox(width: 2.0),
+                  const SizedBox(height: 5.0),
                   Row(
                     children: [
                       Image.asset(Assets.date, height: 14, width: 14),

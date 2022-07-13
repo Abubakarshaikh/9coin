@@ -61,10 +61,6 @@ class BuyPointPackagePage extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar: MyBottomNavigationBar(
-            currentIndex: 2,
-            onDestinationSelected: (index) {},
-          ),
         ),
       ),
     );

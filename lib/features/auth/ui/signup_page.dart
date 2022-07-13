@@ -41,18 +41,18 @@ class SignupPage extends StatelessWidget {
               const TextField(
                 decoration: InputDecoration(hintText: "User Name"),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const TextField(
                 decoration: InputDecoration(hintText: "Email"),
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const TextField(
                   decoration: InputDecoration(hintText: "Contact Number")),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const _InputGender(),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const TextField(decoration: InputDecoration(hintText: "Address")),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               Row(
                 children: const [
                   _InputCity(),
@@ -60,7 +60,7 @@ class SignupPage extends StatelessWidget {
                   _InputState(),
                 ],
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               Row(
                 children: const [
                   _InputPostCode(),
@@ -68,25 +68,23 @@ class SignupPage extends StatelessWidget {
                   _InputCountry(),
                 ],
               ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const TextField(
                   obscureText: true,
                   decoration: InputDecoration(hintText: "Password")),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const TextField(
                   obscureText: true,
                   decoration: InputDecoration(hintText: "Re-enter Password")),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               const _TermsAndCondition(),
-              const SizedBox(height: 25),
+              const SizedBox(height: 21.5),
               ElevatedButton(
                 onPressed: () async {
                   if (await showCreateAccountDialog(context)) {
                     if (await showSuccessfulCreateAccountDialog(context)) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (_) => const HomeView(page: 0)));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => const HomeView()));
                     }
                   }
                 },

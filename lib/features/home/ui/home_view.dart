@@ -2,36 +2,26 @@ import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/home/components/circle_icon.dart';
+import 'package:ninecoin/features/coupon/ui/coupon_page.dart';
+import 'package:ninecoin/features/home/components/tab_item.dart';
+import 'package:ninecoin/features/home/ui/home_page.dart';
+import 'package:ninecoin/features/lucky_draw/ui/luckydraw_page.dart';
 import 'package:ninecoin/features/news/ui/news_page.dart';
-import 'package:ninecoin/features/profile/ui/profile_page.dart';
-import '../../coupon/ui/coupon_page.dart';
-import '../../lucky_draw/ui/luckydraw_page.dart';
-import '../../notification/ui/notifications_page.dart';
-import '../../point/ui/point_page.dart';
+import 'package:ninecoin/features/point/ui/point_page.dart';
+import '../../../typography/text_styles.dart';
+import '../../profile/ui/profile_page.dart';
+import '../components/circle_icon.dart';
 import '../components/my_bottom_navigation_bar.dart';
-import 'home_page.dart';
+import '../components/tab_navigator.dart';
 
 class HomeView extends StatefulWidget {
-  final int? page;
-
-  const HomeView({Key? key, required this.page}) : super(key: key);
+  const HomeView({Key? key}) : super(key: key);
 
   @override
   State<HomeView> createState() => _HomeViewState();
 }
 
 class _HomeViewState extends State<HomeView> {
-  final ValueNotifier<int> _valueNotifier = ValueNotifier(0);
-
-  final List<Widget> _screens = const [
-    HomePage(),
-    CouponPage(),
-    PointPage(),
-    LuckydrawPage(),
-    NewsPage(),
-  ];
-
   @override
   void initState() {
     super.initState();
@@ -41,9 +31,10 @@ class _HomeViewState extends State<HomeView> {
         builder: (BuildContext context) => AlertDialog(
           backgroundColor: CoinColors.transparent,
           title: Image.asset(Assets.luckyDrawPopUp),
-          contentPadding: const EdgeInsets.symmetric(vertical: 6.0),
+          titlePadding: const EdgeInsets.all(0),
+          contentPadding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
           content: Container(
-            padding: const EdgeInsets.all(6),
+            padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: CoinColors.white, width: 1.6),
@@ -52,7 +43,7 @@ class _HomeViewState extends State<HomeView> {
               onTap: () {
                 Navigator.pop(context);
               },
-              child: const Icon(Icons.close, color: CoinColors.white),
+              child: const Icon(Icons.close, color: CoinColors.white, size: 24),
             ),
           ),
           alignment: Alignment.center,
@@ -61,60 +52,59 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
+  final ValueNotifier<TabItem> _valueNotifier = ValueNotifier(TabItem.home);
+
+  final _navigatorKeys = {
+    TabItem.home: GlobalKey<NavigatorState>(),
+    TabItem.coupon: GlobalKey<NavigatorState>(),
+    TabItem.point: GlobalKey<NavigatorState>(),
+    TabItem.luckDraw: GlobalKey<NavigatorState>(),
+    TabItem.news: GlobalKey<NavigatorState>(),
+  };
+
   @override
   Widget build(BuildContext context) {
-    _valueNotifier.value = widget.page ?? 0;
-    return ValueListenableBuilder(
+    return ValueListenableBuilder<TabItem>(
       valueListenable: _valueNotifier,
-      builder: (context, int newValue, widgets) {
+      builder: (context, TabItem newValue, widgets) {
         return Container(
           color: CoinColors.fullBlack,
           child: SafeArea(
             child: Scaffold(
-              appBar: AppBar(
-                leadingWidth: 120,
-                leading: Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Image.asset(Assets.appLogo),
-                ),
-                actions: [
-                  CircleIcon(
-                    onTap: () {
-                      Navigator.push(context, NotificationPage.route());
-                    },
-                    icon: Badge(
-                      badgeContent: const Text('2'),
-                      child: const Icon(Icons.notifications,
-                          color: CoinColors.orange, size: 20),
-                    ),
-                  ),
-                  const SizedBox(width: 6.0),
-                  CircleIcon(
-                    onTap: () {
-                      Navigator.push(context, ProfilePage.route());
-                    },
-                    icon: Image.asset(
-                      Assets.profileIcon,
-                      height: 20.5,
-                      width: 20.5,
-                      color: CoinColors.orange,
-                    ),
-                  ),
-                  const SizedBox(width: 16.0),
-                ],
-              ),
-              backgroundColor: CoinColors.black12,
-              body: _screens[newValue],
+              body: Stack(children: [
+                _buildOffstageNavigator(newValue, TabItem.home),
+                _buildOffstageNavigator(newValue, TabItem.coupon),
+                _buildOffstageNavigator(newValue, TabItem.point),
+                _buildOffstageNavigator(newValue, TabItem.luckDraw),
+                _buildOffstageNavigator(newValue, TabItem.news),
+              ]),
               bottomNavigationBar: MyBottomNavigationBar(
-                onDestinationSelected: (newIndex) {
-                  _valueNotifier.value = newIndex;
+                onSelectTab: (tabItem) {
+                  if (tabItem == newValue) {
+                    // pop to first route
+                    _navigatorKeys[tabItem]!
+                        .currentState!
+                        .popUntil((route) => route.isFirst);
+                  } else {
+                    _valueNotifier.value = tabItem;
+                  }
                 },
-                currentIndex: newValue,
+                currentTab: newValue,
               ),
             ),
           ),
         );
       },
+    );
+  }
+
+  Widget _buildOffstageNavigator(TabItem currentTab, TabItem tabItem) {
+    return Offstage(
+      offstage: currentTab != tabItem,
+      child: TabNavigator(
+        navigatorKey: _navigatorKeys[tabItem],
+        tabItem: tabItem,
+      ),
     );
   }
 }

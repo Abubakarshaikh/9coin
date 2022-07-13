@@ -114,10 +114,7 @@ venenatis mi.''', style: CoinTextStyle.title4),
           ],
         ),
       ),
-      bottomNavigationBar: MyBottomNavigationBar(
-        currentIndex: 2,
-        onDestinationSelected: (index) {},
-      ),
+     
     );
   }
 }

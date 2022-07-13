@@ -82,10 +82,6 @@ class _ProductDetailsPageState extends State<ProductDetailsPage>
             ),
           ],
         ),
-        bottomNavigationBar: MyBottomNavigationBar(
-          currentIndex: 0,
-          onDestinationSelected: (index) {},
-        ),
       ),
     );
   }
@@ -124,70 +120,55 @@ class ProductDetails extends StatelessWidget {
           "2a, Jalan Klebang Jaya 3, 75200 Melaka.",
           style: CoinTextStyle.title4,
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 16),
         const Divider(thickness: 2),
-        Container(
-          padding: const EdgeInsets.all(5),
-          height: 120,
-          width: double.infinity,
-          child: Wrap(
-            crossAxisAlignment: WrapCrossAlignment.start,
-            children: [
-              Text(
-                "Description",
-                style:
-                    CoinTextStyle.title3Bold.copyWith(color: CoinColors.orange),
-              ),
-              Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit .Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non.",
-                textAlign: TextAlign.left,
-                style: CoinTextStyle.title3,
-              ),
-            ],
-          ),
+        const SizedBox(height: 12),
+        Text(
+          "Description",
+          style: CoinTextStyle.title3Bold.copyWith(color: CoinColors.orange),
         ),
+        const SizedBox(height: 6),
+        Text(
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit .Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus. Nulla at sapien scelerisque, imperdiet ex non.",
+          textAlign: TextAlign.left,
+          style: CoinTextStyle.title3,
+        ),
+        const SizedBox(height: 12),
         const Divider(thickness: 2),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 4),
-          height: 220,
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Our Services",
-                style:
-                    CoinTextStyle.title3Bold.copyWith(color: CoinColors.orange),
-              ),
-              Text(
-                  "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                  style: CoinTextStyle.title4.copyWith(
-                    letterSpacing: 0.5,
-                  )),
-              Text(
-                  "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
-                  style: CoinTextStyle.title4.copyWith(
-                    letterSpacing: 0.5,
-                  )),
-              Text(
-                  "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
-                  style: CoinTextStyle.title4.copyWith(
-                    letterSpacing: 0.5,
-                  )),
-              Text(
-                  "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
-                  style: CoinTextStyle.title4.copyWith(
-                    letterSpacing: 0.5,
-                  )),
-              Text(
-                  "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
-                  style: CoinTextStyle.title4.copyWith(
-                    letterSpacing: 0.5,
-                  )),
-            ],
-          ),
+        const SizedBox(height: 12),
+        Text(
+          "Our Services",
+          style: CoinTextStyle.title3Bold.copyWith(color: CoinColors.orange),
         ),
+        const SizedBox(height: 6),
+        Text("1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            style: CoinTextStyle.title4.copyWith(
+              letterSpacing: 0.5,
+            )),
+        const SizedBox(height: 6),
+        Text(
+            "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
+            style: CoinTextStyle.title4.copyWith(
+              letterSpacing: 0.5,
+            )),
+        const SizedBox(height: 6),
+        Text(
+            "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
+            style: CoinTextStyle.title4.copyWith(
+              letterSpacing: 0.5,
+            )),
+        const SizedBox(height: 6),
+        Text("4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
+            style: CoinTextStyle.title4.copyWith(
+              letterSpacing: 0.5,
+            )),
+        const SizedBox(height: 6),
+        Text(
+            "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
+            style: CoinTextStyle.title4.copyWith(
+              letterSpacing: 0.5,
+            )),
+        const SizedBox(height: 16),
       ],
     );
   }

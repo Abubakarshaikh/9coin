@@ -92,19 +92,6 @@ class EditProfilePage extends StatelessWidget {
               ],
             ),
           ),
-          bottomNavigationBar: ValueListenableBuilder<int>(
-            valueListenable: _notifier,
-            builder: (context, state, widget) {
-              return MyBottomNavigationBar(
-                currentIndex: state,
-                onDestinationSelected: (index) {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => HomeView(page: state)));
-                  _notifier.value = index;
-                },
-              );
-            },
-          ),
         ),
       ),
     );

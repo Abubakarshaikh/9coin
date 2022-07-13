@@ -130,10 +130,6 @@ class DrawnDetailsPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: MyBottomNavigationBar(
-        currentIndex: 3,
-        onDestinationSelected: (index) {},
-      ),
     );
   }
 }

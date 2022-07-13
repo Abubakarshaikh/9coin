@@ -22,7 +22,7 @@ Future<T?> showGenericDialog<T>({
           children: [
             Image.asset(imageUrl,
                 height: 52, width: 52, color: CoinColors.orange),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 12.0),
             Text(
               title,
               style: CoinTextStyle.title3Bold
@@ -38,9 +38,9 @@ Future<T?> showGenericDialog<T>({
         ),
         actionsAlignment: MainAxisAlignment.center,
         actionsOverflowButtonSpacing: 0,
-        contentPadding: const EdgeInsets.fromLTRB(16.0, 6.0, 16.0, 8.0),
-        titlePadding: const EdgeInsets.fromLTRB(16.0, 20.0, 16.0, 0.0),
-        actionsPadding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 16.0),
+        contentPadding: const EdgeInsets.fromLTRB(38.0, 6.0, 38.0, 8.0),
+        titlePadding: const EdgeInsets.fromLTRB(16.0, 32.0, 16.0, 0.0),
+        actionsPadding: const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 28.0),
         actions: options.keys.map((optionTitle) {
           final value = options[optionTitle];
           return InkWell(

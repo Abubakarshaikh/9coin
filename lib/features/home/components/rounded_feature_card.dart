@@ -53,6 +53,7 @@ class RoundedFeatureCard extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 4.0),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,6 +90,7 @@ class RoundedFeatureCard extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 6.0),
               ],
             ),
           ),

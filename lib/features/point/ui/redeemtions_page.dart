@@ -73,10 +73,6 @@ class _RedeemtionsPageState extends State<RedeemtionsPage>
               ),
             ],
           ),
-          bottomNavigationBar: MyBottomNavigationBar(
-            currentIndex: 2,
-            onDestinationSelected: (index) {},
-          ),
         ),
       ),
     );

@@ -197,10 +197,6 @@ class PurchasedCouponDetails extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: MyBottomNavigationBar(
-          currentIndex: 1,
-          onDestinationSelected: (index) {},
-        ),
       ),
     );
   }

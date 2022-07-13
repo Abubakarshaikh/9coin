@@ -80,10 +80,6 @@ class TranctionDetailsPage extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: MyBottomNavigationBar(
-        currentIndex: 2,
-        onDestinationSelected: (index) {},
-      ),
     );
   }
 }
