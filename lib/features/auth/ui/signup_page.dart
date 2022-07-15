@@ -300,25 +300,30 @@ class _TermsAndConditionState extends State<_TermsAndCondition> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
-        Checkbox(
-          side: const BorderSide(color: CoinColors.white, width: 1.8),
-          checkColor: CoinColors.white,
-          // fillColor: CoinColors.dialogTextColor,
-          activeColor: CoinColors.dialogTextColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
+        SizedBox(
+          height: 25,
+          width: 25,
+          child: Checkbox(
+            side: const BorderSide(color: CoinColors.white, width: 1.8),
+            checkColor: CoinColors.white,
+            // fillColor: CoinColors.dialogTextColor,
+            activeColor: CoinColors.dialogTextColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(4),
+            ),
+            value: isChecked,
+            onChanged: (bool? state) {
+              setState(() {
+                isChecked = state;
+              });
+            },
           ),
-          value: isChecked,
-          onChanged: (bool? state) {
-            setState(() {
-              isChecked = state;
-            });
-          },
         ),
+        const SizedBox(width: 12),
         Flexible(
           child: RichText(
             text: TextSpan(
