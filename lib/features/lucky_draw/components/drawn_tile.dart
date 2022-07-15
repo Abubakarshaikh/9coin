@@ -9,7 +9,8 @@ class DrawnTile extends StatelessWidget {
     Key? key,
     required this.title,
     required this.startingDate,
-    required this.endDate, required this.onTap,
+    required this.endDate,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -17,7 +18,7 @@ class DrawnTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           children: [
             Row(
@@ -32,7 +33,7 @@ class DrawnTile extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             const Divider(),
           ],
         ),

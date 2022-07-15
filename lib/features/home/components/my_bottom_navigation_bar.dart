@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-
-import 'tab_item.dart';
+import 'package:ninecoin/features/home/components/tab_item.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
   const MyBottomNavigationBar(

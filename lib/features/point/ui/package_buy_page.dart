@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/features/point/ui/package_payment_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
-import 'package:ninecoin/utilities/dialogs/payment_successful_dialog.dart';
 
 class PackageBuyPage extends StatelessWidget {
   static route() {
@@ -74,12 +70,25 @@ venenatis mi.''', style: CoinTextStyle.title4),
                       style: CoinTextStyle.title3Bold
                           .copyWith(color: CoinColors.dialogTextColor)),
                   const SizedBox(height: 6.0),
-                  Text('''1. Lorem ipsum dolor sit amet, consectetur adipiscing
-elit. \n\n2. Proin et orci in quam porta condimentum. Mauris
-non ligula tempus, lacinia velit a, aliquam metus \n\n3. Nulla atone sapien scelerisque, imperdiet exq non,
-venenatis mi. \n\n4. Nullam arcu leo, blandit nec consequat vel, molestie
-et sem.\n\n5. Praesent pretium erat at nulla euismod, a rutrum elit
-blandit. Etiam nec aliquam metus.''', style: CoinTextStyle.title4),
+                  Text(
+                      "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                      style: CoinTextStyle.title4),
+                  const SizedBox(height: 6.0),
+                  Text(
+                      "2. Proin et orci in quam porta condimentum. Mauris non ligula tempus, lacinia velit a, aliquam metus.",
+                      style: CoinTextStyle.title4),
+                  const SizedBox(height: 6.0),
+                  Text(
+                      "3. Nulla atone sapien scelerisque, imperdiet exq non, venenatis mi.",
+                      style: CoinTextStyle.title4),
+                  const SizedBox(height: 6.0),
+                  Text(
+                      "4. Nullam arcu leo, blandit nec consequat vel, molestie et sem.",
+                      style: CoinTextStyle.title4),
+                  const SizedBox(height: 6.0),
+                  Text(
+                      "5. Praesent pretium erat at nulla euismod, a rutrum elit blandit. Etiam nec aliquam metus.",
+                      style: CoinTextStyle.title4),
                 ],
               ),
             ),

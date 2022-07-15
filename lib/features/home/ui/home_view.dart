@@ -1,16 +1,7 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/coupon/ui/coupon_page.dart';
 import 'package:ninecoin/features/home/components/tab_item.dart';
-import 'package:ninecoin/features/home/ui/home_page.dart';
-import 'package:ninecoin/features/lucky_draw/ui/luckydraw_page.dart';
-import 'package:ninecoin/features/news/ui/news_page.dart';
-import 'package:ninecoin/features/point/ui/point_page.dart';
-import '../../../typography/text_styles.dart';
-import '../../profile/ui/profile_page.dart';
-import '../components/circle_icon.dart';
 import '../components/my_bottom_navigation_bar.dart';
 import '../components/tab_navigator.dart';
 
@@ -62,6 +53,14 @@ class _HomeViewState extends State<HomeView> {
     TabItem.news: GlobalKey<NavigatorState>(),
   };
 
+  void _selectTab(TabItem currentTab, TabItem tabItem) {
+    if (tabItem == currentTab) {
+      _navigatorKeys[tabItem]!.currentState!.popUntil((route) => route.isFirst);
+    } else {
+      setState(() => currentTab = tabItem);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<TabItem>(
@@ -70,26 +69,38 @@ class _HomeViewState extends State<HomeView> {
         return Container(
           color: CoinColors.fullBlack,
           child: SafeArea(
-            child: Scaffold(
-              body: Stack(children: [
-                _buildOffstageNavigator(newValue, TabItem.home),
-                _buildOffstageNavigator(newValue, TabItem.coupon),
-                _buildOffstageNavigator(newValue, TabItem.point),
-                _buildOffstageNavigator(newValue, TabItem.luckDraw),
-                _buildOffstageNavigator(newValue, TabItem.news),
-              ]),
-              bottomNavigationBar: MyBottomNavigationBar(
-                onSelectTab: (tabItem) {
-                  if (tabItem == newValue) {
-                    // pop to first route
-                    _navigatorKeys[tabItem]!
-                        .currentState!
-                        .popUntil((route) => route.isFirst);
-                  } else {
-                    _valueNotifier.value = tabItem;
+            child: WillPopScope(
+              onWillPop: () async {
+                final isFirstRouteInCurrentTab =
+                    !await _navigatorKeys[newValue]!.currentState!.maybePop();
+                if (isFirstRouteInCurrentTab) {
+                  if (newValue != TabItem.home) {
+                    _selectTab(newValue, TabItem.home);
+                    return false;
                   }
-                },
-                currentTab: newValue,
+                }
+                return isFirstRouteInCurrentTab;
+              },
+              child: Scaffold(
+                body: Stack(children: [
+                  _buildOffstageNavigator(newValue, TabItem.home),
+                  _buildOffstageNavigator(newValue, TabItem.coupon),
+                  _buildOffstageNavigator(newValue, TabItem.point),
+                  _buildOffstageNavigator(newValue, TabItem.luckDraw),
+                  _buildOffstageNavigator(newValue, TabItem.news),
+                ]),
+                bottomNavigationBar: MyBottomNavigationBar(
+                  onSelectTab: (tabItem) {
+                    if (tabItem == newValue) {
+                      _navigatorKeys[tabItem]!
+                          .currentState!
+                          .popUntil((route) => route.isFirst);
+                    } else {
+                      _valueNotifier.value = tabItem;
+                    }
+                  },
+                  currentTab: newValue,
+                ),
               ),
             ),
           ),

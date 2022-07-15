@@ -51,5 +51,10 @@ flutter:
       fonts:
         - asset: assets/fonts/Poppins-SemiBold.ttf
           weight: 600
+    
+    - family: Vollkorn SemiBold
+      fonts:
+        - asset: assets/fonts/Vollkorn-SemiBold.ttf
+          weight: 600
        
 

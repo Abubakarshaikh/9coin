@@ -27,14 +27,15 @@ class PointOptionCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const SizedBox(height: 8.0),
             Image.asset(imageUrl,
                 color: CoinColors.white, height: 46, width: 46),
-            const SizedBox(height: 4.0),
+            const SizedBox(height: 8.0),
             Container(
               alignment: Alignment.center,
               child: Text(
                 title,
-                style: CoinTextStyle.title2Bold,
+                style: CoinTextStyle.title2Bold.copyWith(height: 1.3),
                 textAlign: TextAlign.center,
               ),
             ),

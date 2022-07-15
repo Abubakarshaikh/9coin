@@ -1,5 +1,10 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/components.dart';
+import 'package:ninecoin/features/notification/ui/notifications_page.dart';
+import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
 import '../components/draw_item_list.dart';

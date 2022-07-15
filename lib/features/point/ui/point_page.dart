@@ -1,8 +1,12 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
+import 'package:ninecoin/features/home/components/circle_icon.dart';
+import 'package:ninecoin/features/notification/ui/notifications_page.dart';
 import 'package:ninecoin/features/point/ui/qr_code.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import '../../profile/ui/profile_page.dart';
 import '../components/point_option_card.dart';
 import 'buy_point_package_page.dart';
 import 'point_history_page.dart';

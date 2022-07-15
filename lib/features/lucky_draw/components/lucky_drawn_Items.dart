@@ -9,6 +9,7 @@ class LuckyDrwanItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: const EdgeInsets.symmetric(vertical: 22),
       children: [
         DrawnTile(
           onTap: () {

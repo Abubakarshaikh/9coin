@@ -62,8 +62,7 @@ class ForgotPasswordPage extends StatelessWidget {
                     },
                     child: Text(
                       "Reset Password",
-                      style: CoinTextStyle.title2
-                          .copyWith(fontWeight: FontWeight.bold),
+                      style: CoinTextStyle.title2,
                     ),
                   ),
                 ],

@@ -43,7 +43,7 @@ class LoginPage extends StatelessWidget {
                             fontSize: 14.0),
                         suffixIcon: Icon(
                           Icons.email_rounded,
-                          color: CoinColors.orange12,
+                          color: CoinColors.orange,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -67,7 +67,7 @@ class LoginPage extends StatelessWidget {
                             fontSize: 14.0),
                         suffixIcon: Icon(
                           Icons.lock,
-                          color: CoinColors.orange12,
+                          color: CoinColors.orange,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide.none,
@@ -113,7 +113,7 @@ class LoginPage extends StatelessWidget {
                       child: Text(
                         "Color Ins Salon",
                         style: TextStyle(
-                          fontFamily: 'Poppins',
+                          fontFamily: 'Vollkorn SemiBold',
                           color: CoinColors.blue26,
                           fontWeight: FontWeight.w400,
                           fontSize: 25,

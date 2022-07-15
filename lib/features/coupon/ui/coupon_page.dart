@@ -1,9 +1,13 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/coupon/components/discount_coupon_card.dart';
+import 'package:ninecoin/features/notification/ui/notifications_page.dart';
+import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
 
+import '../../home/components/circle_icon.dart';
 import 'active_coupon_details.dart';
 import 'purchased_coupon_details.dart';
 
@@ -130,9 +134,3 @@ class PurchasedDiscountCopoun extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-

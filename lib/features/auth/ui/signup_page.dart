@@ -29,13 +29,13 @@ class SignupPage extends StatelessWidget {
             ),
           ),
           body: ListView(
+            shrinkWrap: true,
             padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
             children: [
               Center(
                 child: Text("Create an Account",
                     style: CoinTextStyle.title1.copyWith(
-                        color: CoinColors.orange12,
-                        fontWeight: FontWeight.w600)),
+                        color: CoinColors.orange, fontWeight: FontWeight.w600)),
               ),
               const SizedBox(height: 20),
               const TextField(
@@ -302,6 +302,7 @@ class _TermsAndConditionState extends State<_TermsAndCondition> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Checkbox(
           side: const BorderSide(color: CoinColors.white, width: 1.8),

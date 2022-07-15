@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                         children: [
                           Text("326",
                               style: CoinTextStyle.title1Bold.copyWith(
-                                  color: Colors.orange, fontSize: 22)),
+                                  color: CoinColors.orange, fontSize: 22)),
                           const SizedBox(width: 2),
                           Text("Point", style: CoinTextStyle.title5)
                         ],
