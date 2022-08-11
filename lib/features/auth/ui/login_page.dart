@@ -22,6 +22,7 @@ class LoginPage extends StatelessWidget {
           body: Align(
             alignment: Alignment.bottomCenter,
             child: SingleChildScrollView(
+            reverse: true,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(

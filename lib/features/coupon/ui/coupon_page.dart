@@ -12,6 +12,12 @@ import 'active_coupon_details.dart';
 import 'purchased_coupon_details.dart';
 
 class CouponPage extends StatefulWidget {
+  static route() {
+    return MaterialPageRoute(builder: (_) {
+      return const CouponPage();
+    });
+  }
+
   const CouponPage({Key? key}) : super(key: key);
 
   @override
