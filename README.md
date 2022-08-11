@@ -1,17 +1,12 @@
-# ninecoin
+<img src="layout/1.%20login.jpg" width="240">  <img src="layout/2.%20sign-up-1.jpg" width="240">  <img src="layout/2.%20sign-up-2.jpg" width="240"> 
 
-A new Flutter project.
+<img src="layout/2.%20sign-up-3.jpg" width="240">  <img src="layout/2.%20sign-up-4.jpg" width="240">  <img src="layout/3.%20forgot-password-1.jpg" width="240">
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# 9coin" 
+<img src="layout/3.%20forgot-password-2.jpg" width="240">  <img src="layout/3.%20forgot-password-3.jpg" width="240">  <img src="layout/4.%20home-page-1.jpg" width="240">
+<img src="layout/4.%20home-page-2.png" width="240"> <img src="layout/5.%20notification.jpg" width="240"> <img src="layout/6.%20all-categories.jpg" width="240">
+<img src="layout/7.%20select-categories.jpg" width="240"> <img src="layout/8.%20merchant-details-1-1.jpg" width="240"> <img src="layout/8.%20merchant-details-1-2.jpg" width="240"> <img src="layout/9.%20coupon-1.jpg" width="240"> <img src="layout/9.%20coupon-2.jpg" width="240"> <img src="layout/9.%20coupon-3.jpg" width="240"> <img src="layout/9.%20coupon-4.jpg" width="240"> <img src="layout/9.%20coupon-5.jpg" width="240"> <img src="layout/9.%20coupon-6.jpg" width="240"> <img src="layout/9.%20coupon-7.jpg" width="240"> <img src="layout/10.%20point.jpg" width="240"> <img src="layout/11.%20point-package-1.jpg" width="240"> 
+<img src="layout/12.%20buy-point-1.jpg" width="240"><img src="layout/13.%20payment-1.jpg" width="240"><img src="layout/13.%20payment-success-2.jpg" width="240">
+<img src="layout/14.%20point-qr-code.jpg" width="240"><img src="layout/15.%20point-redemptions-1.jpg" width="240"><img src="layout/15. point-redemptions-details-2.jpg" width="240"><img src="layout/15.%20point-redemptions-redeem-pop-up-3.jpg" width="240"><img src="layout/15.%20point-redemptions-redeem-pop-up-4.jpg" width="240"><img src="layout/16.%20point-redeemed-1.jpg" width="240"><img src="layout/16.%20point-redeemed-details-2.jpg" width="240"><img src="layout/17.%20point-history-top-up-transaction-1.jpg" width="240"><img src="layout/17.%20top-up-transaction-details-2.jpg" width="240"><img src="layout/18.%20point-history-purchase-history-1.jpg" width="240"><img src="layout/18.%20point-history-purchase-history-2.png" width="240">
+<img src="layout/19.%20lucky-draw-1.jpg" width="240"><img src="layout/19.%20lucky-draw-2.jpg" width="240"><img src="layout/19.%20lucky-draw-3.jpg" width="240">
+<img src="layout/19.%20lucky-draw-4.jpg" width="240"><img src="layout/19.%20lucky-draw-5.jpg" width="240"><img src="layout/19.%20lucky-draw-6.jpg" width="240"><img src="layout/20.%20lucky-draw-drawn-1.jpg" width="240"> <img src="layout/20.%20lucky-draw-drawn-2.jpg" width="240">
+<img src="layout/20.%20lucky-draw-drawn-3.jpg" width="240"><img src="layout/20.%20lucky-draw-drawn-4.jpg" width="240"><img src="layout/20.%20lucky-draw-drawn-5.jpg" width="240"><img src="layout/20.%20lucky-draw-drawn-6.jpg" width="240"><img src="layout/20.%20lucky-draw-drawn-7.jpg" width="240"><img src="layout/20.%20lucky-draw-drawn-8.jpg" width="240"><img src="layout/20. lucky-draw-drawn-9.jpg" width="240"><img src="layout/21.%20news-1.jpg" width="240"><img src="layout/21.%20news-2.jpg" width="240"><img src="layout/22.%20profile.jpg" width="240"><img src="layout/23.%20profile-details.jpg" width="240"><img src="layout/24.%20edit-profile-1.jpg" width="240"><img src="layout/25.%20change-photo-1.jpg" width="240"><img src="layout/25.%20update-pop-up-2.jpg" width="240"><img src="layout/25.%20update-pop-up-3.jpg" width="240"><img src="layout/26.%20change-password-1.jpg" width="240"><img src="layout/26.%20change-password-2.jpg" width="240">                                        <img src="layout/27.%20profile-qrcode.jpg" width="240"><img src="layout/28.%20lucky-draw-information.jpg" width="240"><img src="layout/29.%20help.jpg" width="240">   <img src="layout/30.%20logout-1.jpg" width="240"><img src="layout/30.%20logout-2.jpg" width="240">
