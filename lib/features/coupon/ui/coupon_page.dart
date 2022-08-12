@@ -1,23 +1,15 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/coupon/components/discount_coupon_card.dart';
-import 'package:ninecoin/features/notification/ui/notifications_page.dart';
-import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/widgets/custom_appbar.dart';
+import 'package:ninecoin/widgets/custom_search_box.dart';
 
-import '../../home/components/circle_icon.dart';
 import 'active_coupon_details.dart';
 import 'purchased_coupon_details.dart';
 
 class CouponPage extends StatefulWidget {
-  static route() {
-    return MaterialPageRoute(builder: (_) {
-      return const CouponPage();
-    });
-  }
-
   const CouponPage({Key? key}) : super(key: key);
 
   @override
@@ -34,20 +26,19 @@ class _CouponPageState extends State<CouponPage>
     super.initState();
   }
 
+  bool showSearchBar = false;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          color: CoinColors.mediumBlack,
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-          child: const TextField(
-            decoration: InputDecoration(
-              prefixIcon: Icon(Icons.search),
-              hintText: "Search",
-            ),
-          ),
+        CustomAppBar(
+          onTap: () {
+            setState(() {
+              showSearchBar = showSearchBar ? false : true;
+            });
+          },
         ),
+        showSearchBar ? const CustomSearchBox() : const SizedBox(),
         TabBar(
           padding: const EdgeInsets.only(bottom: 12),
           unselectedLabelColor: CoinColors.black54,
@@ -85,7 +76,8 @@ class ActiveDiscountCopoun extends StatelessWidget {
   final List<String> copouns = [
     Assets.discountCopoun1,
     Assets.discountCopoun2,
-    Assets.discountCopoun3
+    Assets.discountCopoun3,
+    Assets.discountCopoun1,
   ];
 
   ActiveDiscountCopoun({Key? key}) : super(key: key);
@@ -118,7 +110,7 @@ class PurchasedDiscountCopoun extends StatelessWidget {
   final List<String> copouns = [
     Assets.discountCopoun1,
     Assets.discountCopoun2,
-    Assets.discountCopoun3
+    Assets.discountCopoun3,
   ];
 
   @override

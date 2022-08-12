@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
 import 'package:ninecoin/features/category/ui/product_details_page.dart';
-import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/widgets/custom_search_box.dart';
 
-class CategoryDetailsPage extends StatelessWidget {
+import '../../home/components/circle_icon.dart';
+
+class CategoryDetailsPage extends StatefulWidget {
   static Route route() {
     return MaterialPageRoute(builder: (context) => const CategoryDetailsPage());
   }
 
   const CategoryDetailsPage({Key? key}) : super(key: key);
 
+  @override
+  State<CategoryDetailsPage> createState() => _CategoryDetailsPageState();
+}
+
+class _CategoryDetailsPageState extends State<CategoryDetailsPage> {
+  bool searchBox = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,37 +32,28 @@ class CategoryDetailsPage extends StatelessWidget {
           "Electronic",
           style: CoinTextStyle.title2Bold,
         ),
+        actions: [
+          CircleIcon(
+            onTap: () {
+              setState(() {
+                searchBox = searchBox ? false : true;
+              });
+            },
+            icon: Image.asset(
+              Assets.search,
+              height: 19.5,
+              width: 19.5,
+              color: CoinColors.orange,
+            ),
+          ),
+          const SizedBox(width: 18.0),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Container(
-              width: double.infinity,
-              height: 70,
-              color: CoinColors.black12,
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          fillColor: CoinColors.black,
-                          prefixIcon: Icon(
-                            Icons.search,
-                            color: CoinColors.black26,
-                          ),
-                          hintText: "Search",
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            searchBox ? const CustomSearchBox() : const SizedBox(),
             const SizedBox(height: 15),
             RoundedElectricCard(
               onTap: () {},

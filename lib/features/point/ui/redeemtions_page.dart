@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/home/components/my_bottom_navigation_bar.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/widgets/custom_search_box.dart';
 
+import '../../../assets/assets.dart';
+import '../../home/components/circle_icon.dart';
 import '../components/redeem_list_tile.dart';
 import '../components/redeemed_list_tile.dart';
 
@@ -27,6 +29,7 @@ class _RedeemtionsPageState extends State<RedeemtionsPage>
     super.initState();
   }
 
+  bool showSearchBar = false;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,20 +39,26 @@ class _RedeemtionsPageState extends State<RedeemtionsPage>
           appBar: AppBar(
             centerTitle: true,
             title: const Text("Redemptions"),
+            actions: [
+              CircleIcon(
+                onTap: () {
+                  setState(() {
+                    showSearchBar = showSearchBar ? false : true;
+                  });
+                },
+                icon: Image.asset(
+                  Assets.search,
+                  height: 19.5,
+                  width: 19.5,
+                  color: CoinColors.orange,
+                ),
+              ),
+              const SizedBox(width: 18.0),
+            ],
           ),
           body: Column(
             children: [
-              Container(
-                color: CoinColors.mediumBlack,
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                child: const TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.search),
-                    hintText: "Search",
-                  ),
-                ),
-              ),
+              showSearchBar ? const CustomSearchBox() : const SizedBox(),
               TabBar(
                 unselectedLabelColor: CoinColors.black54,
                 labelColor: CoinColors.orange,

@@ -12,25 +12,66 @@ class RedeemedListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      children: [
-        RedeemptionsCard(
-          imageUrl: Assets.foundation,
-          title: "Foundation",
-          buttonText: "Use",
-          buttonColor: CoinColors.blue,
-          onTap: () {
-            Navigator.push(context, RedeemedCardDetailsPage.route());
-          },
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      child: GridView(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          childAspectRatio: 0.9,
         ),
-        RedeemptionsCard(
-          imageUrl: Assets.snack,
-          title: "Snacks",
-          buttonText: "Used",
-          buttonColor: CoinColors.black54,
-        ),
-      ],
+        children: [
+          RedeemptionsCard(
+            imageUrl: Assets.television1,
+            title: "Smart Television",
+            onTap: () {
+               Navigator.push(context, RedeemedCardDetailsPage.route());
+            },
+            pNumber: "J'Qroue",
+            location: "2a, Jalan Klebang Jaya 3",
+            point: "790",
+          ),
+          RedeemptionsCard(
+            imageUrl: Assets.earphone,
+            title: "Earphone",
+            onTap: () {},
+            pNumber: "YQJ Store",
+            location: "2a, Jalan Klebang Jaya 3",
+            point: "68",
+          ),
+          RedeemptionsCard(
+            imageUrl: Assets.smartphone,
+            title: "Iphone 12",
+            onTap: () {},
+            pNumber: "Ypple Store",
+            location: "2a, Jalan Klebang Jaya 3",
+            point: "1099",
+          ),
+          RedeemptionsCard(
+            imageUrl: Assets.laptop,
+            title: "Laptop",
+            onTap: () {},
+            pNumber: "Quawei Store",
+            location: "2a, Jalan Klebang Jaya 3",
+            point: "635",
+          ),
+          RedeemptionsCard(
+            imageUrl: Assets.smartwatch,
+            title: "Smart Watch",
+            onTap: () {},
+            pNumber: "Quawei Store",
+            location: "2a, Jalan Klebang Jaya 3",
+            point: "890",
+          ),
+          RedeemptionsCard(
+            imageUrl: Assets.camera,
+            title: "Wakon Camera",
+            onTap: () {},
+            pNumber: "J'Qroue",
+            location: "2a, Jalan Klebang Jaya 3",
+            point: "1650",
+          ),
+        ],
+      ),
     );
   }
 }

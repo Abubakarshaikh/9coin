@@ -5,12 +5,10 @@ import 'package:ninecoin/typography/text_styles.dart';
 class CirlceCategoryIcon extends StatelessWidget {
   final String imageUrl;
   final String label;
-  final Color color;
   final Function() onTap;
   const CirlceCategoryIcon({
     Key? key,
     required this.imageUrl,
-    required this.color,
     required this.label,
     required this.onTap,
   }) : super(key: key);
@@ -25,8 +23,8 @@ class CirlceCategoryIcon extends StatelessWidget {
             alignment: Alignment.center,
             margin: const EdgeInsets.all(6.0),
             padding: const EdgeInsets.all(12.0),
-            decoration: BoxDecoration(
-              color: color,
+            decoration: const BoxDecoration(
+              color: CoinColors.black,
               shape: BoxShape.circle,
             ),
             child: Image.asset(imageUrl, height: 35, width: 35),

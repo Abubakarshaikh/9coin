@@ -64,19 +64,16 @@ class _CategoryListPageState extends State<CategoryListPage> {
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.salon,
-              color: CoinColors.green,
               label: "A'Salon",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.bag,
-              color: CoinColors.pink,
               label: "Bag",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.beautyIcon,
-              color: CoinColors.red12,
               label: "Beauty",
             ),
             CirlceCategoryIcon(
@@ -84,49 +81,41 @@ class _CategoryListPageState extends State<CategoryListPage> {
                 Navigator.push(context, CategoryDetailsPage.route());
               },
               imageUrl: Assets.electronic,
-              color: CoinColors.orange12,
               label: "Electronic",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.fashion,
-              color: CoinColors.blue,
               label: "Fashion",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.gaming,
-              color: CoinColors.red,
               label: "Gaming",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.groceries,
-              color: CoinColors.yellow,
               label: "Groceries",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.pet,
-              color: CoinColors.indigo,
               label: "Pets",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.sports,
-              color: CoinColors.blueAccent,
               label: "Sports",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.voucher,
-              color: CoinColors.teal,
               label: "Vouchers",
             ),
             CirlceCategoryIcon(
               onTap: () {},
               imageUrl: Assets.watch,
-              color: CoinColors.purple,
               label: "Watches",
             ),
           ],

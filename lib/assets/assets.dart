@@ -39,8 +39,8 @@ abstract class Assets {
   static String fashion = "assets/icons/fashion.png";
   static String gaming = "assets/icons/gaming.png";
   static String pet = "assets/icons/pets.png";
-  static String voucher = "assets/icons/vouchers.png";
-  static String watch = "assets/icons/watches.png";
+  static String voucher = "assets/icons/voucher.png";
+  static String watch = "assets/icons/watch.png";
   static String watch2 = "assets/pics/watch.jpg";
   static String television1 = "assets/pics/television.jpg";
   static String earphone = "assets/pics/earphone.jpg";
@@ -63,16 +63,23 @@ abstract class Assets {
   static String television2 = "assets/pics/television.png";
   static String iphone = "assets/pics/iphone.png";
   static String iphone2 = "assets/pics/iphone.jpg";
+  static String smartphone = "assets/pics/smartphone.jpg";
+  static String smartwatch = "assets/pics/smartwatch.jpg";
+  static String camera = "assets/pics/camera.jpg";
+
+
+  static String laptop = "assets/pics/laptops.jpg";
+
 
   static String foundation = "assets/pics/foundation.jpg";
   static String shop = "assets/icons/shop.png";
   static String address = "assets/icons/address.png";
+  static String search = "assets/icons/search.png";
+
   static String redeem = "assets/icons/redeem.png";
   static String download = "assets/icons/download.png";
   static String pfx = "assets/icons/pfx.png";
   static String paymentSuccessful = "assets/icons/payment-successful.png";
   static String luckyDrawPopUp = "assets/pics/lucky-draw-pop-up.png";
   static String snack = "assets/pics/snack.jpg";
-
-  
 }

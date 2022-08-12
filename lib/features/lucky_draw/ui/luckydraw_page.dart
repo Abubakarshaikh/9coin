@@ -1,11 +1,8 @@
-import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
-import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/home/components/components.dart';
-import 'package:ninecoin/features/notification/ui/notifications_page.dart';
-import 'package:ninecoin/features/profile/ui/profile_page.dart';
 import 'package:ninecoin/typography/text_styles.dart';
+import 'package:ninecoin/widgets/custom_appbar.dart';
+import 'package:ninecoin/widgets/custom_search_box.dart';
 
 import '../components/draw_item_list.dart';
 import '../components/lucky_drawn_Items.dart';
@@ -27,10 +24,21 @@ class _LuckydrawPageState extends State<LuckydrawPage>
     super.initState();
   }
 
+  bool showSearchBar = false;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        CustomAppBar(
+          onTap: () {
+            setState(() {
+              showSearchBar = showSearchBar ? false : true;
+            });
+          },
+        ),
+        showSearchBar ? const CustomSearchBox() : const SizedBox(),
+        const SizedBox(height: 12),
         Container(
           color: CoinColors.mediumBlack,
           child: TabBar(

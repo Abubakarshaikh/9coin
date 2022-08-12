@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ninecoin/assets/assets.dart';
 import 'package:ninecoin/colors/colors.dart';
-import 'package:ninecoin/features/coupon/ui/coupon_page.dart';
 import 'package:ninecoin/features/home/components/tab_item.dart';
 
 class MyBottomNavigationBar extends StatelessWidget {
@@ -18,18 +17,14 @@ class MyBottomNavigationBar extends StatelessWidget {
       ),
       selectedIndex: currentTab.index,
       destinations: [
-        InkWell(
-          onTap: () {},
-          child: Container(
-            color: currentTab.index == 0
-                ? CoinColors.blackMedium1
-                : CoinColors.blackMedium2,
-            child: NavigationDestination(
-              icon: Image.asset(Assets.home, height: 22, width: 22),
-              selectedIcon:
-                  Image.asset(Assets.homeColor, height: 22, width: 22),
-              label: 'Home',
-            ),
+        Container(
+          color: currentTab.index == 0
+              ? CoinColors.blackMedium1
+              : CoinColors.blackMedium2,
+          child: NavigationDestination(
+            icon: Image.asset(Assets.home, height: 22, width: 22),
+            selectedIcon: Image.asset(Assets.homeColor, height: 22, width: 22),
+            label: 'Home',
           ),
         ),
         Container(
